@@ -1,0 +1,6 @@
+Carthage/*
+*.xcworkspacedata
+*.xcuserstate
+xcschememanagement.plist
+/RemoteService/Keys.plist
+*/xcuserdata/*
