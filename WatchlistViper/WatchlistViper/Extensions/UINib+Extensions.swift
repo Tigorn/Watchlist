@@ -2,6 +2,7 @@ import UIKit
 
 enum NibIdentifier: String {
     case currencyListCell = "CurrencyListTableViewCell"
+    case currencyEditCell = "CurrencyEditTableViewCell"
 }
 
 extension UINib {
