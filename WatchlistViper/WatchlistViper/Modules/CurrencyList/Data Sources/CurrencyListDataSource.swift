@@ -1,12 +1,8 @@
 import UIKit
 import Domain
 
-class CurrencyListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, CurrencyListDataSourceProtocol {
-    private var currencies = [Currency]()
-
-    func set(currencies: [Currency]) {
-        self.currencies = currencies
-    }
+class CurrencyListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+    fileprivate var currencies = [Currency]()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -25,5 +21,11 @@ class CurrencyListDataSource: NSObject, UITableViewDataSource, UITableViewDelega
         cell.set(percentChange: currency.percentChange)
         cell.set(lastPrice: currency.lastPrice)
         return cell
+    }
+}
+
+extension CurrencyListDataSource: CurrencyListDataSourceProtocol {
+    func set(currencies: [Currency]) {
+        self.currencies = currencies
     }
 }

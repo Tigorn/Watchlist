@@ -19,6 +19,10 @@ class CurrencyListViewController: UIViewController {
         }
     }
 
+    @IBAction func didEditAction(_ sender: Any) {
+        presenter?.didEditAction()
+    }
+
     func registerCells() {
         let currencyListNib = UINib(nibName: .currencyListCell, bundle: Bundle.viper)
         tableView.register(currencyListNib, forCellReuseIdentifier: .currencyListCell)

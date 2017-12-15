@@ -17,7 +17,8 @@ class BootstrapRouter: BootstrapRouterProtocol {
 
     func rootViewController() -> UIViewController {
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [CurrencyListRouter.createCurrencyListModule()]
+        let currencyListViewController = UINavigationController(rootViewController: CurrencyListRouter.makeModule())
+        tabBarController.viewControllers = [currencyListViewController]
         return tabBarController
     }
 }

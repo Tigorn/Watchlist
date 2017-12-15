@@ -1,7 +1,7 @@
 import Foundation
 
 public class Command {
-    public let execute: ()->()
+    public let execute: () -> ()
 
     init(execute: @escaping () -> ()) {
         self.execute = execute

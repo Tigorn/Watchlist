@@ -32,7 +32,27 @@ class CurrencyListPresenterTests: QuickSpec {
                 presenter.getCurrenciesDidFail()
                 expect(view.didFailRequest).toEventually(beTrue())
             }
+
+            it("routes edit action to router") {
+                let router = MockRouter()
+                presenter.router = router
+                let view = MockView()
+                presenter.view = view
+                presenter.didEditAction()
+                expect(router.didRouteToEdit).to(beTrue())
+            }
         }
+    }
+}
+
+fileprivate class MockRouter: CurrencyListRouterProtocol {
+    var didRouteToEdit = false
+    static func makeModule() -> UIViewController {
+        return UIViewController()
+    }
+
+    func showEdit(from view: CurrencyListViewProtocol) {
+        didRouteToEdit = true
     }
 }
 

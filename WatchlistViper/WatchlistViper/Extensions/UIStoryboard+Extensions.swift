@@ -2,6 +2,7 @@ import UIKit
 
 enum UIViewControllerIdentifier: String {
     case currencyListViewController = "CurrencyListViewController"
+    case currencyEditViewController = "CurrencyEditViewController"
 }
 
 extension UIStoryboard {
@@ -11,5 +12,9 @@ extension UIStoryboard {
 
     static var list: UIStoryboard {
         return UIStoryboard(name: "List", bundle: Bundle.viper)
+    }
+
+    static var edit: UIStoryboard {
+        return UIStoryboard(name: "Edit", bundle: Bundle.viper)
     }
 }

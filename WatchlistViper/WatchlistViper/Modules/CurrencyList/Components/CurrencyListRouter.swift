@@ -1,7 +1,7 @@
 import UIKit
 
 class CurrencyListRouter: CurrencyListRouterProtocol {
-    static func createCurrencyListModule() -> UIViewController {
+    static func makeModule() -> UIViewController {
         let viewController = UIStoryboard.list.instantiateViewController(withIdentifier: .currencyListViewController) as! CurrencyListViewController
         let localDataManager = CurrencyListLocalDataManager()
         let remoteDataManager = CurrencyListRemoteDataManager()
@@ -19,5 +19,12 @@ class CurrencyListRouter: CurrencyListRouterProtocol {
         localDataManager.outputEventHandler = interactor
         
         return viewController
+    }
+
+    func showEdit(from view: CurrencyListViewProtocol) {
+        if let viewController = view as? UIViewController {
+            let destination = CurrencyEditRouter.makeModule()
+            viewController.show(destination, sender: nil)
+        }
     }
 }

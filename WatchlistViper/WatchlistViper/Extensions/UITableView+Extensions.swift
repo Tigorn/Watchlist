@@ -2,6 +2,7 @@ import UIKit
 
 enum TableViewCellIdentifier: String {
     case currencyListCell = "CurrencyListTableViewCell"
+    case currencyEditCell = "CurrencyEditTableViewCell"
 }
 
 extension UITableView {

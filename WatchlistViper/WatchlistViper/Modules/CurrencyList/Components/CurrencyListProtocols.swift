@@ -10,7 +10,8 @@ protocol CurrencyListViewProtocol: class {
 }
 
 protocol CurrencyListRouterProtocol: class {
-    static func createCurrencyListModule() -> UIViewController
+    static func makeModule() -> UIViewController
+    func showEdit(from view: CurrencyListViewProtocol)
 }
 
 protocol CurrencyListPresenterProtocol: class {
@@ -19,6 +20,7 @@ protocol CurrencyListPresenterProtocol: class {
     var router: CurrencyListRouterProtocol? { get set }
 
     func getCurrencies()
+    func didEditAction()
 }
 
 protocol CurrencyListInteractorInputProtocol: class {
