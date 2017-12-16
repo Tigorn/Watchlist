@@ -1,5 +1,5 @@
 import UIKit
-import LocalService
+import Domain
 
 protocol BootstrapBuilderProtocol: class {
     func createBootstrapModule(in view: BootstrapViewInputProtocol) -> BootstrapViewOutputProtocol

@@ -1,11 +1,11 @@
 import Foundation
 
-@objc protocol ApplicationStateObserver: class {
+@objc public protocol ApplicationStateObserver: class {
     @objc optional func applicationDidBecomeActive()
     @objc optional func applicationDidEnterBackground()
 }
 
-extension ApplicationStateObserver {
+public extension ApplicationStateObserver {
     func startObservingApplicationState() {
         NotificationCenter.default.addObserver(forName: .UIApplicationDidEnterBackground, object: nil, queue: nil) { [weak self] _ in
             self?.applicationDidEnterBackground?()

@@ -5,7 +5,7 @@ public protocol LocalFileServiceProtocol {
 }
 
 public class LocalFileService: LocalFileServiceProtocol {
-    var bundle = Bundle.localService
+    var bundle = Bundle.domain
 
     public init() { }
     

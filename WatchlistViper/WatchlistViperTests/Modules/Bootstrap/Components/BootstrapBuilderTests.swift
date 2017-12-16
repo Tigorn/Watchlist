@@ -13,9 +13,9 @@ class BootstrapBuilderTests: QuickSpec {
                 expect(interactor).toNot(beNil())
                 expect(presenter.router).toNot(beNil())
                 expect(presenter.view === view).to(beTrue())
-                expect(interactor.presenter === presenter).to(beTrue())
+                expect(interactor.listener === presenter).to(beTrue())
                 expect(interactor.localInputDataManager).toNot(beNil())
-                expect(localInputDataManager.outputEventHandler).toNot(beNil())
+                expect(localInputDataManager.listener).toNot(beNil())
             }
         }
     }

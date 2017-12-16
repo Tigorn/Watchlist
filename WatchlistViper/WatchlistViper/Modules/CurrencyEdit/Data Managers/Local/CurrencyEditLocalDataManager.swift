@@ -1,5 +1,5 @@
 import Foundation
-import LocalService
+import Domain
 
 class CurrencyEditLocalDataManager {
     var outputEventHandler: CurrencyEditLocalDataManagerOutputProtocol?

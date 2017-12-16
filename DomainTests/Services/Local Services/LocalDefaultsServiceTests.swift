@@ -1,6 +1,6 @@
 import Quick
 import Nimble
-@testable import LocalService
+@testable import Domain
 
 class LocalDefaultsServiceTests: QuickSpec {
     override func spec() {

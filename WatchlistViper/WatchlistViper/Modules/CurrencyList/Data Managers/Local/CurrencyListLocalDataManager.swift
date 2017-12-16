@@ -1,5 +1,5 @@
 import UIKit
-import LocalService
+import Domain
 
 protocol CurrencyListLocalDataManagerInputProtocol: class {
     func getCurrencies()

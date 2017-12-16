@@ -1,4 +1,5 @@
 import CoreData
+import LocalService
 
 class CurrencySymbol: NSManagedObject, Managed {
     @NSManaged var symbol: String
