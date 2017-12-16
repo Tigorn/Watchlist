@@ -23,7 +23,7 @@ class BootstrapLocalDataManagerTests: QuickSpec {
 
             it("initializes persistence service") {
                 let handler = MockOutputHandler()
-                dataManager.outputEventHandler = handler
+                dataManager.listener = handler
                 dataManager.initialize()
                 expect(handler._didInitialize).to(beTrue())
             }

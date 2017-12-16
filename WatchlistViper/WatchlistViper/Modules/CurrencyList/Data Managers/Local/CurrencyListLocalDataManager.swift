@@ -11,12 +11,12 @@ protocol CurrencyListLocalDataManagerOutputProtocol: class {
 
 class CurrencyListLocalDataManager {
     var listener: CurrencyListLocalDataManagerOutputProtocol?
-    var localPersistenceService: LocalPersistenceServiceProtocol?
+    var localService: LocalPersistenceServiceProtocol?
 }
 
 extension CurrencyListLocalDataManager: CurrencyListLocalDataManagerInputProtocol {
     func getCurrencies() {
-        localPersistenceService?.getCurrencySymbols { [weak self] symbols in
+        localService?.getCurrencySymbols { [weak self] symbols in
             self?.listener?.didGet(currencySymbols: symbols)
         }
     }

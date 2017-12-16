@@ -1,11 +1,23 @@
 import Foundation
 import LocalService
 
+protocol BootstrapLocalDataManagerInputProtocol: class {
+    func setDidSetDefaultCurrencies(value: Bool)
+    func getDidSetDefaultCurrencies() -> Bool
+    func getDefaultCurrencies() -> [String]
+    func put(currencySymbol symbol: String)
+    func initialize()
+}
+
+protocol BootstrapLocalDataManagerOutputProtocol {
+    func didInitialize()
+}
+
 class BootstrapLocalDataManager {
-    var outputEventHandler: BootstrapLocalDataManagerOutputProtocol?
-    var localDefaultsService: LocalDefaultsServiceProtocol? = LocalDefaultsService()
-    var localPersistenceService: LocalPersistenceServiceProtocol? = LocalPersistenceService.instance
-    var localFileService: LocalFileServiceProtocol? = LocalFileService()
+    var listener: BootstrapLocalDataManagerOutputProtocol?
+    var localDefaultsService: LocalDefaultsServiceProtocol?
+    var localPersistenceService: LocalPersistenceServiceProtocol?
+    var localFileService: LocalFileServiceProtocol?
 }
 
 extension BootstrapLocalDataManager: BootstrapLocalDataManagerInputProtocol {
@@ -16,7 +28,7 @@ extension BootstrapLocalDataManager: BootstrapLocalDataManagerInputProtocol {
 
     func initialize() {
         localPersistenceService?.initialize {
-            self.outputEventHandler?.didInitialize()
+            self.listener?.didInitialize()
         }
     }
 

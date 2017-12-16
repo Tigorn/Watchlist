@@ -25,7 +25,6 @@
 		434F6E6C1FC9171E00AD6FBF /* CurrencyEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434F6E6A1FC9171E00AD6FBF /* CurrencyEditTableViewCell.xib */; };
 		434F6E701FC91B6800AD6FBF /* CurrencyEditDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434F6E6F1FC91B6800AD6FBF /* CurrencyEditDataSourceTests.swift */; };
 		436CDA4B1FC5EEBC000312F6 /* CurrencyListLocalDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436CDA4A1FC5EEBC000312F6 /* CurrencyListLocalDataManagerTests.swift */; };
-		436CDA591FC613D8000312F6 /* BootstrapProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436CDA581FC613D8000312F6 /* BootstrapProtocols.swift */; };
 		436CDA5B1FC61441000312F6 /* BootstrapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436CDA5A1FC61441000312F6 /* BootstrapRouter.swift */; };
 		436CDA5E1FC6237A000312F6 /* BootstrapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436CDA5D1FC6237A000312F6 /* BootstrapPresenter.swift */; };
 		436CDA601FC6262E000312F6 /* BootstrapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436CDA5F1FC6262E000312F6 /* BootstrapInteractor.swift */; };
@@ -53,6 +52,8 @@
 		438F7A561FE5B7AF007E3B19 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 438F7A541FE5B7AE007E3B19 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		438F7A591FE5B98B007E3B19 /* CurrencyListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F7A581FE5B98B007E3B19 /* CurrencyListBuilder.swift */; };
 		438F7A5B1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F7A5A1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift */; };
+		438F7A5F1FE5D0DA007E3B19 /* BootstrapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F7A5E1FE5D0DA007E3B19 /* BootstrapBuilder.swift */; };
+		438F7A611FE5D1F4007E3B19 /* BootstrapBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F7A601FE5D1F4007E3B19 /* BootstrapBuilderTests.swift */; };
 		43DC3D671FBD46F0009073AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DC3D661FBD46F0009073AA /* AppDelegate.swift */; };
 		43DC3D6C1FBD46F0009073AA /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DC3D6A1FBD46F0009073AA /* List.storyboard */; };
 		43DC3D6E1FBD46F0009073AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DC3D6D1FBD46F0009073AA /* Assets.xcassets */; };
@@ -124,7 +125,6 @@
 		434F6E6A1FC9171E00AD6FBF /* CurrencyEditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyEditTableViewCell.xib; sourceTree = "<group>"; };
 		434F6E6F1FC91B6800AD6FBF /* CurrencyEditDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditDataSourceTests.swift; sourceTree = "<group>"; };
 		436CDA4A1FC5EEBC000312F6 /* CurrencyListLocalDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListLocalDataManagerTests.swift; sourceTree = "<group>"; };
-		436CDA581FC613D8000312F6 /* BootstrapProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapProtocols.swift; sourceTree = "<group>"; };
 		436CDA5A1FC61441000312F6 /* BootstrapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapRouter.swift; sourceTree = "<group>"; };
 		436CDA5D1FC6237A000312F6 /* BootstrapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapPresenter.swift; sourceTree = "<group>"; };
 		436CDA5F1FC6262E000312F6 /* BootstrapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapInteractor.swift; sourceTree = "<group>"; };
@@ -151,6 +151,8 @@
 		438F7A541FE5B7AE007E3B19 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = ../Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		438F7A581FE5B98B007E3B19 /* CurrencyListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListBuilder.swift; sourceTree = "<group>"; };
 		438F7A5A1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListBuilderTests.swift; sourceTree = "<group>"; };
+		438F7A5E1FE5D0DA007E3B19 /* BootstrapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapBuilder.swift; sourceTree = "<group>"; };
+		438F7A601FE5D1F4007E3B19 /* BootstrapBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapBuilderTests.swift; sourceTree = "<group>"; };
 		43DC3D631FBD46F0009073AA /* WatchlistViper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchlistViper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DC3D661FBD46F0009073AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43DC3D6B1FBD46F0009073AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/List.storyboard; sourceTree = "<group>"; };
@@ -389,8 +391,8 @@
 			children = (
 				436CDA5F1FC6262E000312F6 /* BootstrapInteractor.swift */,
 				436CDA5D1FC6237A000312F6 /* BootstrapPresenter.swift */,
-				436CDA581FC613D8000312F6 /* BootstrapProtocols.swift */,
 				436CDA5A1FC61441000312F6 /* BootstrapRouter.swift */,
+				438F7A5E1FE5D0DA007E3B19 /* BootstrapBuilder.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -431,6 +433,7 @@
 		43861A3A1FC88E160059DE92 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				438F7A601FE5D1F4007E3B19 /* BootstrapBuilderTests.swift */,
 				43861A271FC73A080059DE92 /* BootstrapInteractorTests.swift */,
 				43861A241FC731540059DE92 /* BootstrapPresenterTests.swift */,
 				43861A211FC72F000059DE92 /* BootstrapRouterTests.swift */,
@@ -711,12 +714,12 @@
 			files = (
 				43861A161FC6319D0059DE92 /* BootstrapLocalDataManager.swift in Sources */,
 				438F7A591FE5B98B007E3B19 /* CurrencyListBuilder.swift in Sources */,
-				436CDA591FC613D8000312F6 /* BootstrapProtocols.swift in Sources */,
 				436CDA5E1FC6237A000312F6 /* BootstrapPresenter.swift in Sources */,
 				43861A511FC8C5CF0059DE92 /* CurrencyEditPresenter.swift in Sources */,
 				43E37F161FC49AC8006541F6 /* UITableView+Extensions.swift in Sources */,
 				43861A331FC76A460059DE92 /* String+Extensions.swift in Sources */,
 				43861A491FC8C1840059DE92 /* CurrencyEditRouter.swift in Sources */,
+				438F7A5F1FE5D0DA007E3B19 /* BootstrapBuilder.swift in Sources */,
 				43861A4B1FC8C24F0059DE92 /* CurrencyEditViewController.swift in Sources */,
 				4342786D1FC09F180045304C /* CurrencyListViewController.swift in Sources */,
 				436CDA5B1FC61441000312F6 /* BootstrapRouter.swift in Sources */,
@@ -751,6 +754,7 @@
 				434F6E701FC91B6800AD6FBF /* CurrencyEditDataSourceTests.swift in Sources */,
 				43861A591FC8CB780059DE92 /* CurrencyEditPresenterTests.swift in Sources */,
 				43861A4F1FC8C2D20059DE92 /* CurrencyEditRouterTests.swift in Sources */,
+				438F7A611FE5D1F4007E3B19 /* BootstrapBuilderTests.swift in Sources */,
 				43E37F101FC4942E006541F6 /* CurrencyListViewControllerTests.swift in Sources */,
 				43861A2F1FC763090059DE92 /* CurrencyListRouterTests.swift in Sources */,
 				43861A251FC731540059DE92 /* BootstrapPresenterTests.swift in Sources */,

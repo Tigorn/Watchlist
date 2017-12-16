@@ -14,7 +14,7 @@ class BootstrapInteractorTests: QuickSpec {
                 localDataManager = MockLocalDataManager()
                 interactor = BootstrapInteractor()
                 interactor.localInputDataManager = localDataManager
-                interactor.presenter = presenter
+                interactor.listener = presenter
             }
 
             it("initializes local data manager on bootstrap") {
