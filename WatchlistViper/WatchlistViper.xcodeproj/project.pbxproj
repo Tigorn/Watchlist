@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4300327A1FC531DA00A2097E /* LocalService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4300327B1FC531DA00A2097E /* LocalService.framework */; };
 		4318DF3A1FC50A84001E5EFD /* CurrencyListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DF391FC50A84001E5EFD /* CurrencyListDataSourceTests.swift */; };
 		431BD9F71FC8D5960019FD2C /* CurrencyEditInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431BD9F61FC8D5960019FD2C /* CurrencyEditInteractorTests.swift */; };
 		431BD9FB1FC8D6C30019FD2C /* CurrencyEditLocalDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431BD9FA1FC8D6C30019FD2C /* CurrencyEditLocalDataManagerTests.swift */; };
@@ -16,7 +15,6 @@
 		434278691FC09CA70045304C /* CurrencyListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434278681FC09CA70045304C /* CurrencyListRouter.swift */; };
 		4342786B1FC09D1E0045304C /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4342786A1FC09D1E0045304C /* AppDelegateTests.swift */; };
 		4342786D1FC09F180045304C /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4342786C1FC09F180045304C /* CurrencyListViewController.swift */; };
-		434278901FC0A3300045304C /* CurrencyListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4342788F1FC0A3300045304C /* CurrencyListProtocols.swift */; };
 		434278961FC0A4C00045304C /* CurrencyEditProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434278951FC0A4C00045304C /* CurrencyEditProtocols.swift */; };
 		434278991FC0D5E60045304C /* CurrencyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434278981FC0D5E60045304C /* CurrencyListPresenter.swift */; };
 		4342789C1FC0D7350045304C /* CurrencyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4342789B1FC0D7350045304C /* CurrencyListInteractor.swift */; };
@@ -48,16 +46,19 @@
 		43861A571FC8C75B0059DE92 /* CurrencyEditLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43861A561FC8C75B0059DE92 /* CurrencyEditLocalDataManager.swift */; };
 		43861A591FC8CB780059DE92 /* CurrencyEditPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43861A581FC8CB780059DE92 /* CurrencyEditPresenterTests.swift */; };
 		43861A5C1FC8CBDD0059DE92 /* CurrencyEditViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43861A5B1FC8CBDD0059DE92 /* CurrencyEditViewControllerTests.swift */; };
+		438F7A4E1FE5B79B007E3B19 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438F7A511FE5B79B007E3B19 /* Domain.framework */; };
+		438F7A4F1FE5B79B007E3B19 /* LocalService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438F7A521FE5B79B007E3B19 /* LocalService.framework */; };
+		438F7A501FE5B79B007E3B19 /* RemoteService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438F7A531FE5B79B007E3B19 /* RemoteService.framework */; };
+		438F7A551FE5B7AF007E3B19 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438F7A541FE5B7AE007E3B19 /* PromiseKit.framework */; };
+		438F7A561FE5B7AF007E3B19 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 438F7A541FE5B7AE007E3B19 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		438F7A591FE5B98B007E3B19 /* CurrencyListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F7A581FE5B98B007E3B19 /* CurrencyListBuilder.swift */; };
+		438F7A5B1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F7A5A1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift */; };
 		43DC3D671FBD46F0009073AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DC3D661FBD46F0009073AA /* AppDelegate.swift */; };
 		43DC3D6C1FBD46F0009073AA /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DC3D6A1FBD46F0009073AA /* List.storyboard */; };
 		43DC3D6E1FBD46F0009073AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DC3D6D1FBD46F0009073AA /* Assets.xcassets */; };
 		43DC3D711FBD46F0009073AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DC3D6F1FBD46F0009073AA /* LaunchScreen.storyboard */; };
 		43DC3D9A1FBD4801009073AA /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 43DC3D951FBD47E5009073AA /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43DC3D9B1FBD4806009073AA /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 43DC3D961FBD47E5009073AA /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		43DC3DA01FBD4929009073AA /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC3D9E1FBD4929009073AA /* Nimble.framework */; };
-		43DC3DA11FBD4929009073AA /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC3D9F1FBD4929009073AA /* Quick.framework */; };
-		43E37EFD1FC47E89006541F6 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E37EFF1FC47E89006541F6 /* Domain.framework */; };
-		43E37EFE1FC47E89006541F6 /* RemoteService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E37F001FC47E89006541F6 /* RemoteService.framework */; };
 		43E37F061FC4806A006541F6 /* CurrencyListRemoteDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E37F051FC4806A006541F6 /* CurrencyListRemoteDataManagerTests.swift */; };
 		43E37F0A1FC48881006541F6 /* CurrencyListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E37F091FC48881006541F6 /* CurrencyListInteractorTests.swift */; };
 		43E37F0D1FC49258006541F6 /* CurrencyListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E37F0C1FC49258006541F6 /* CurrencyListPresenterTests.swift */; };
@@ -80,12 +81,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		435207CC1FBDE5E2005BD2BE /* Embed Frameworks */ = {
+		438F7A571FE5B7AF007E3B19 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				438F7A561FE5B7AF007E3B19 /* PromiseKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,7 +106,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4300327B1FC531DA00A2097E /* LocalService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LocalService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4318DF391FC50A84001E5EFD /* CurrencyListDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListDataSourceTests.swift; sourceTree = "<group>"; };
 		431BD9F61FC8D5960019FD2C /* CurrencyEditInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditInteractorTests.swift; sourceTree = "<group>"; };
 		431BD9FA1FC8D6C30019FD2C /* CurrencyEditLocalDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditLocalDataManagerTests.swift; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		434278681FC09CA70045304C /* CurrencyListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListRouter.swift; sourceTree = "<group>"; };
 		4342786A1FC09D1E0045304C /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		4342786C1FC09F180045304C /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
-		4342788F1FC0A3300045304C /* CurrencyListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListProtocols.swift; sourceTree = "<group>"; };
 		434278951FC0A4C00045304C /* CurrencyEditProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditProtocols.swift; sourceTree = "<group>"; };
 		434278981FC0D5E60045304C /* CurrencyListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenter.swift; sourceTree = "<group>"; };
 		4342789B1FC0D7350045304C /* CurrencyListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractor.swift; sourceTree = "<group>"; };
@@ -145,6 +145,12 @@
 		43861A561FC8C75B0059DE92 /* CurrencyEditLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditLocalDataManager.swift; sourceTree = "<group>"; };
 		43861A581FC8CB780059DE92 /* CurrencyEditPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditPresenterTests.swift; sourceTree = "<group>"; };
 		43861A5B1FC8CBDD0059DE92 /* CurrencyEditViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditViewControllerTests.swift; sourceTree = "<group>"; };
+		438F7A511FE5B79B007E3B19 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		438F7A521FE5B79B007E3B19 /* LocalService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LocalService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		438F7A531FE5B79B007E3B19 /* RemoteService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RemoteService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		438F7A541FE5B7AE007E3B19 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = ../Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
+		438F7A581FE5B98B007E3B19 /* CurrencyListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListBuilder.swift; sourceTree = "<group>"; };
+		438F7A5A1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListBuilderTests.swift; sourceTree = "<group>"; };
 		43DC3D631FBD46F0009073AA /* WatchlistViper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchlistViper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DC3D661FBD46F0009073AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43DC3D6B1FBD46F0009073AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/List.storyboard; sourceTree = "<group>"; };
@@ -155,10 +161,6 @@
 		43DC3D7D1FBD46F0009073AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43DC3D951FBD47E5009073AA /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		43DC3D961FBD47E5009073AA /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		43DC3D9E1FBD4929009073AA /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		43DC3D9F1FBD4929009073AA /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		43E37EFF1FC47E89006541F6 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		43E37F001FC47E89006541F6 /* RemoteService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RemoteService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E37F051FC4806A006541F6 /* CurrencyListRemoteDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListRemoteDataManagerTests.swift; sourceTree = "<group>"; };
 		43E37F091FC48881006541F6 /* CurrencyListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractorTests.swift; sourceTree = "<group>"; };
 		43E37F0C1FC49258006541F6 /* CurrencyListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenterTests.swift; sourceTree = "<group>"; };
@@ -175,9 +177,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4300327A1FC531DA00A2097E /* LocalService.framework in Frameworks */,
-				43E37EFD1FC47E89006541F6 /* Domain.framework in Frameworks */,
-				43E37EFE1FC47E89006541F6 /* RemoteService.framework in Frameworks */,
+				438F7A4E1FE5B79B007E3B19 /* Domain.framework in Frameworks */,
+				438F7A4F1FE5B79B007E3B19 /* LocalService.framework in Frameworks */,
+				438F7A501FE5B79B007E3B19 /* RemoteService.framework in Frameworks */,
+				438F7A551FE5B7AF007E3B19 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,8 +188,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43DC3DA01FBD4929009073AA /* Nimble.framework in Frameworks */,
-				43DC3DA11FBD4929009073AA /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +241,6 @@
 		4342784F1FC0968B0045304C /* CurrencyList */ = {
 			isa = PBXGroup;
 			children = (
-				434F6E6D1FC91B4A00AD6FBF /* Data Sources */,
 				43861A351FC76C810059DE92 /* Components */,
 				4342784E1FC096690045304C /* Data Managers */,
 				43E37F191FC4A133006541F6 /* Data Sources */,
@@ -316,14 +316,6 @@
 				434F6E671FC915D600AD6FBF /* CurrencyEditDataSource.swift */,
 			);
 			path = "Data Sources";
-			sourceTree = "<group>";
-		};
-		434F6E6D1FC91B4A00AD6FBF /* Data Sources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Data Sources";
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		434F6E6E1FC91B5D00AD6FBF /* Data Sources */ = {
@@ -408,8 +400,8 @@
 			children = (
 				4342789B1FC0D7350045304C /* CurrencyListInteractor.swift */,
 				434278981FC0D5E60045304C /* CurrencyListPresenter.swift */,
-				4342788F1FC0A3300045304C /* CurrencyListProtocols.swift */,
 				434278681FC09CA70045304C /* CurrencyListRouter.swift */,
+				438F7A581FE5B98B007E3B19 /* CurrencyListBuilder.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -431,6 +423,7 @@
 				43E37F091FC48881006541F6 /* CurrencyListInteractorTests.swift */,
 				43E37F0C1FC49258006541F6 /* CurrencyListPresenterTests.swift */,
 				43861A2E1FC763090059DE92 /* CurrencyListRouterTests.swift */,
+				438F7A5A1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -493,10 +486,11 @@
 		43DC3D5A1FBD46F0009073AA = {
 			isa = PBXGroup;
 			children = (
+				438F7A541FE5B7AE007E3B19 /* PromiseKit.framework */,
+				43DC3D941FBD47E5009073AA /* Frameworks */,
+				43DC3D641FBD46F0009073AA /* Products */,
 				43DC3D651FBD46F0009073AA /* WatchlistViper */,
 				43DC3D7A1FBD46F0009073AA /* WatchlistViperTests */,
-				43DC3D641FBD46F0009073AA /* Products */,
-				43DC3D941FBD47E5009073AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -543,11 +537,9 @@
 		43DC3D941FBD47E5009073AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4300327B1FC531DA00A2097E /* LocalService.framework */,
-				43E37EFF1FC47E89006541F6 /* Domain.framework */,
-				43E37F001FC47E89006541F6 /* RemoteService.framework */,
-				43DC3D9E1FBD4929009073AA /* Nimble.framework */,
-				43DC3D9F1FBD4929009073AA /* Quick.framework */,
+				438F7A511FE5B79B007E3B19 /* Domain.framework */,
+				438F7A521FE5B79B007E3B19 /* LocalService.framework */,
+				438F7A531FE5B79B007E3B19 /* RemoteService.framework */,
 				43DC3D951FBD47E5009073AA /* Nimble.framework */,
 				43DC3D961FBD47E5009073AA /* Quick.framework */,
 			);
@@ -618,7 +610,7 @@
 				43DC3D5F1FBD46F0009073AA /* Sources */,
 				43DC3D601FBD46F0009073AA /* Frameworks */,
 				43DC3D611FBD46F0009073AA /* Resources */,
-				435207CC1FBDE5E2005BD2BE /* Embed Frameworks */,
+				438F7A571FE5B7AF007E3B19 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -718,6 +710,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43861A161FC6319D0059DE92 /* BootstrapLocalDataManager.swift in Sources */,
+				438F7A591FE5B98B007E3B19 /* CurrencyListBuilder.swift in Sources */,
 				436CDA591FC613D8000312F6 /* BootstrapProtocols.swift in Sources */,
 				436CDA5E1FC6237A000312F6 /* BootstrapPresenter.swift in Sources */,
 				43861A511FC8C5CF0059DE92 /* CurrencyEditPresenter.swift in Sources */,
@@ -725,7 +718,6 @@
 				43861A331FC76A460059DE92 /* String+Extensions.swift in Sources */,
 				43861A491FC8C1840059DE92 /* CurrencyEditRouter.swift in Sources */,
 				43861A4B1FC8C24F0059DE92 /* CurrencyEditViewController.swift in Sources */,
-				434278901FC0A3300045304C /* CurrencyListProtocols.swift in Sources */,
 				4342786D1FC09F180045304C /* CurrencyListViewController.swift in Sources */,
 				436CDA5B1FC61441000312F6 /* BootstrapRouter.swift in Sources */,
 				43E37F181FC49F70006541F6 /* UINib+Extensions.swift in Sources */,
@@ -770,6 +762,7 @@
 				43E37F0A1FC48881006541F6 /* CurrencyListInteractorTests.swift in Sources */,
 				4318DF3A1FC50A84001E5EFD /* CurrencyListDataSourceTests.swift in Sources */,
 				43861A221FC72F000059DE92 /* BootstrapRouterTests.swift in Sources */,
+				438F7A5B1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift in Sources */,
 				43861A281FC73A080059DE92 /* BootstrapInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -917,6 +910,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F66JRL63QT;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = WatchlistViper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericdrew.WatchlistViper;
@@ -932,6 +926,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F66JRL63QT;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = WatchlistViper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericdrew.WatchlistViper;

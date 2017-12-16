@@ -1,6 +1,6 @@
-import UIKit
+import Foundation
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case get    = "GET"
     case update = "PUT"
     case create = "POST"

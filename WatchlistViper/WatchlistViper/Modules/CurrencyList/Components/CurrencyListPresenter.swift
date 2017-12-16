@@ -1,16 +1,23 @@
 import UIKit
 import Domain
 
+protocol CurrencyListPresenterInputProtocol: class {
+    func getCurrencies()
+    func didEditAction()
+}
+
 class CurrencyListPresenter {
-    weak var view: CurrencyListViewProtocol?
+    weak var view: CurrencyListViewInputProtocol?
     var interactor: CurrencyListInteractorInputProtocol?
     var router: CurrencyListRouterProtocol?
 }
 
-extension CurrencyListPresenter: CurrencyListPresenterProtocol {
+extension CurrencyListPresenter: CurrencyListPresenterInputProtocol {
     func didEditAction() {
-        if let view = view {
-            router?.showEdit(from: view)
+        if let view = view as? UIViewController {
+            DispatchQueue.main.async {
+                self.router?.showEdit(from: view)
+            }
         }
     }
 
@@ -19,7 +26,7 @@ extension CurrencyListPresenter: CurrencyListPresenterProtocol {
     }
 }
 
-extension CurrencyListPresenter: CurrencyListInteractorOutputProtocol {
+extension CurrencyListPresenter: CurrencyListInteractorOutputProtocol {    
     func getCurrenciesDidFail() {
         DispatchQueue.main.async {
             self.view?.requestFailed()

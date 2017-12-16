@@ -1,15 +1,23 @@
 import UIKit
 import LocalService
 
+protocol CurrencyListLocalDataManagerInputProtocol: class {
+    func getCurrencies()
+}
+
+protocol CurrencyListLocalDataManagerOutputProtocol: class {
+    func didGet(currencySymbols: [String])
+}
+
 class CurrencyListLocalDataManager {
-    var outputEventHandler: CurrencyListLocalDataManagerOutputProtocol?
-    var localPersistenceService: LocalPersistenceServiceProtocol? = LocalPersistenceService.instance
+    var listener: CurrencyListLocalDataManagerOutputProtocol?
+    var localPersistenceService: LocalPersistenceServiceProtocol?
 }
 
 extension CurrencyListLocalDataManager: CurrencyListLocalDataManagerInputProtocol {
     func getCurrencies() {
         localPersistenceService?.getCurrencySymbols { [weak self] symbols in
-            self?.outputEventHandler?.didGet(currencySymbols: symbols)
+            self?.listener?.didGet(currencySymbols: symbols)
         }
     }
 }

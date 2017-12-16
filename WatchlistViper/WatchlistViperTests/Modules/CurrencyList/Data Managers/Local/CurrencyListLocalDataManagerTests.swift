@@ -13,17 +13,17 @@ class CurrencyListLocalDataManagerTests: QuickSpec {
 
         describe("CurrencyListLocalDataManager") {
             it("gets currencies") {
-                let eventHandler = MockOutputEventHandler()
+                let listener = MockListener()
                 localDataManager.localPersistenceService = MockLocalPersistenceService()
-                localDataManager.outputEventHandler = eventHandler
+                localDataManager.listener = listener
                 localDataManager.getCurrencies()
-                expect(eventHandler.didGetCurrencySymbols).to(beTrue())
+                expect(listener.didGetCurrencySymbols).to(beTrue())
             }
         }
     }
 }
 
-fileprivate class MockOutputEventHandler: CurrencyListLocalDataManagerOutputProtocol {
+fileprivate class MockListener: CurrencyListLocalDataManagerOutputProtocol {
     var didGetCurrencySymbols = false
     func didGet(currencySymbols: [String]) {
         didGetCurrencySymbols = true

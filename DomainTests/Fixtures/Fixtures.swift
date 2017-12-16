@@ -1,4 +1,5 @@
 import Foundation
+import Domain
 
 class Fixtures {
     private static func fixtureData(fileName: String) -> Data {
@@ -11,7 +12,15 @@ class Fixtures {
         return data
     }
 
-    static var btcTicker: Data {
+    static var btcTickerData: Data {
         return fixtureData(fileName: "btc_ticker")
+    }
+
+    static var btcTicker: Currency {
+        guard let object = try? JSONDecoder().decode(Currency.self, from: btcTickerData) else {
+            fatalError("Could not decode data.")
+        }
+        
+        return object
     }
 }

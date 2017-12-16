@@ -11,7 +11,7 @@ class ManagedTests: QuickSpec {
 
             beforeEach {
                 objectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-                objectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator.MOBDataSQLiteTestCoordinator()
+                objectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator.dataSQLiteTestCoordinator()
                 objectContext.performAndWait {
                     managedObject = CurrencySymbol.insert(into: objectContext)
                     managedObject.symbol = "btc"
