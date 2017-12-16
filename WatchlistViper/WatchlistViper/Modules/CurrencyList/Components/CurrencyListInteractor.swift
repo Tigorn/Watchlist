@@ -1,30 +1,39 @@
 import UIKit
 import Domain
 
+protocol CurrencyListInteractorInputProtocol: class {
+    func getCurrencies()
+}
+
+protocol CurrencyListInteractorOutputProtocol: class {
+    func didGet(currencies: [Currency])
+    func getCurrenciesDidFail()
+}
+
 class CurrencyListInteractor {
-    weak var presenter: CurrencyListInteractorOutputProtocol?
-    var localInputDataManager: CurrencyListLocalDataManagerInputProtocol?
-    var remoteInputDataManager: CurrencyListRemoteDataManagerInputProtocol?
+    weak var listener: CurrencyListInteractorOutputProtocol?
+    var localDataManager: CurrencyListLocalDataManagerInputProtocol?
+    var remoteDataManager: CurrencyListRemoteDataManagerInputProtocol?
 }
 
 extension CurrencyListInteractor: CurrencyListInteractorInputProtocol {
     func getCurrencies() {
-        localInputDataManager?.getCurrencies()
+        localDataManager?.getCurrencies()
     }
 }
 
 extension CurrencyListInteractor: CurrencyListLocalDataManagerOutputProtocol {
     func didGet(currencySymbols: [String]) {
-        remoteInputDataManager?.getCurrencyList(forCurrencySymbols: currencySymbols)
+        remoteDataManager?.getCurrencyList(forCurrencySymbols: currencySymbols)
     }
 }
 
 extension CurrencyListInteractor: CurrencyListRemoteDataManagerOutputProtocol {
     func getCurrenciesDidFail() {
-        presenter?.getCurrenciesDidFail()
+        listener?.getCurrenciesDidFail()
     }
 
     func didGet(currencies: [Currency]) {
-        presenter?.didGet(currencies: currencies)
+        listener?.didGet(currencies: currencies)
     }
 }

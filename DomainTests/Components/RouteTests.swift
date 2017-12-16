@@ -1,7 +1,6 @@
 import Quick
 import Nimble
-import Domain
-@testable import RemoteService
+@testable import Domain
 
 class RouteTests: QuickSpec {
     override func spec() {

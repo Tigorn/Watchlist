@@ -1,6 +1,5 @@
 import Quick
 import Nimble
-import Domain
 @testable import RemoteService
 
 class WebServiceTests: QuickSpec {
@@ -18,7 +17,7 @@ class WebServiceTests: QuickSpec {
                 let data = Data(base64Encoded: "test")
                 session.data = data
                 webService.session = session
-                let dataTaskComponents = DataTaskComponents(route: Route.tickers)
+                let dataTaskComponents = DataTaskComponents(route: MockRoute())
                 var result = false
                 _ = webService.dataTask(dataTaskComponents: dataTaskComponents, completion: { remoteResource in
                     if remoteResource.data == data {
@@ -29,6 +28,11 @@ class WebServiceTests: QuickSpec {
             }
         }
     }
+}
+
+fileprivate class MockRoute: Routable {
+    var path = "/path"
+    var host = "host.com"
 }
 
 fileprivate class MockSession: URLSessionProtocol {

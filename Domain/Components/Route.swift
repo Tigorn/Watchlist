@@ -1,9 +1,5 @@
 import Foundation
-
-protocol Routable {
-    var path: String { get }
-    var host: String { get }
-}
+import RemoteService
 
 enum Route {
     case tickers

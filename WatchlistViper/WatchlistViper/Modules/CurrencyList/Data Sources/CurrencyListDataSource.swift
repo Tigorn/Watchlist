@@ -1,6 +1,10 @@
 import UIKit
 import Domain
 
+protocol CurrencyListDataSourceProtocol: class {
+    func set(currencies: [Currency])
+}
+
 class CurrencyListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     fileprivate var currencies = [Currency]()
     

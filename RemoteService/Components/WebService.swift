@@ -1,7 +1,8 @@
 import Foundation
 
-protocol URLSessionTaskProtocol {
+public protocol URLSessionTaskProtocol {
     func resume()
+    func cancel()
 }
 
 extension URLSessionTask: URLSessionTaskProtocol { }
@@ -13,14 +14,18 @@ protocol URLSessionProtocol {
 
 extension URLSession: URLSessionProtocol { }
 
-protocol WebServiceProtocol {
+public protocol WebServiceProtocol {
     func dataTask(dataTaskComponents: DataTaskComponents, completion: @escaping (RemoteResource) -> ()) -> URLSessionTaskProtocol
 }
 
-class WebService: WebServiceProtocol {
-    var session: URLSessionProtocol = URLSession(configuration: .default)
+public class WebService: WebServiceProtocol {
+    var session: URLSessionProtocol
 
-    func dataTask(dataTaskComponents: DataTaskComponents, completion: @escaping (RemoteResource) -> ()) -> URLSessionTaskProtocol {
+    public init() {
+        session = URLSession(configuration: .default)
+    }
+
+    public func dataTask(dataTaskComponents: DataTaskComponents, completion: @escaping (RemoteResource) -> ()) -> URLSessionTaskProtocol {
         guard let urlRequest = dataTaskComponents.urlRequest else {
             fatalError("Could not form URL request for path: \(dataTaskComponents.route.path)")
         }

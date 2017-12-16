@@ -6,7 +6,7 @@ class CurrencyTests: QuickSpec {
     override func spec() {
         describe("Currency") {
             it("decodes tickers JSON data") {
-                let currency = try? JSONDecoder().decode([Currency].self, from: Fixtures.btcTicker).first!
+                let currency = try? JSONDecoder().decode([Currency].self, from: Fixtures.btcTickerData).first!
                 expect(currency).toNot(beNil())
                 expect(currency?.symbol).to(equal("tBTCUSD"))
                 expect(currency?.lastPrice).to(equal(7620))

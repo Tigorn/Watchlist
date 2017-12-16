@@ -21,3 +21,4 @@ class RemoteResourceTests: QuickSpec {
         }
     }
 }
+

@@ -12,7 +12,7 @@ class LocalPersistenceServiceTests: QuickSpec {
             beforeEach {
                 localService = LocalPersistenceService()
                 objectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-                objectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator.MOBDataSQLiteTestCoordinator()
+                objectContext.persistentStoreCoordinator = NSPersistentStoreCoordinator.dataSQLiteTestCoordinator()
                 localService.syncContext = objectContext
             }
 

@@ -6,40 +6,40 @@ import Domain
 class CurrencyListPresenterTests: QuickSpec {
     override func spec() {
         var presenter: CurrencyListPresenter!
+        var view: MockView!
+        var router: MockRouter!
+        var interactor: MockInteractor!
 
         beforeEach {
             presenter = CurrencyListPresenter()
+            view = MockView()
+            router = MockRouter()
+            interactor = MockInteractor()
+
+            presenter.router = router
+            presenter.view = view
+            presenter.interactor = interactor
         }
 
         describe("CurrencyListPresenter") {
             it("gets ticker list from remote service") {
-                let view = MockView()
-                presenter.view = view
                 presenter.didGet(currencies: [])
                 expect(view.didShowCurrencies).toEventually(beTrue())
             }
 
             it("gets currencies") {
-                let interactor = MockInteractor()
-                presenter.interactor = interactor
                 presenter.getCurrencies()
                 expect(interactor.didGetCurrencies).to(beTrue())
             }
 
             it("updates view when get currencies fails") {
-                let view = MockView()
-                presenter.view = view
                 presenter.getCurrenciesDidFail()
                 expect(view.didFailRequest).toEventually(beTrue())
             }
 
             it("routes edit action to router") {
-                let router = MockRouter()
-                presenter.router = router
-                let view = MockView()
-                presenter.view = view
                 presenter.didEditAction()
-                expect(router.didRouteToEdit).to(beTrue())
+                expect(router.didRouteToEdit).toEventually(beTrue())
             }
         }
     }
@@ -51,15 +51,12 @@ fileprivate class MockRouter: CurrencyListRouterProtocol {
         return UIViewController()
     }
 
-    func showEdit(from view: CurrencyListViewProtocol) {
+    func showEdit(from view: UIViewController) {
         didRouteToEdit = true
     }
 }
 
 fileprivate class MockInteractor: CurrencyListInteractorInputProtocol {
-    var presenter: CurrencyListInteractorOutputProtocol?
-    var localInputDataManager: CurrencyListLocalDataManagerInputProtocol?
-    var remoteInputDataManager: CurrencyListRemoteDataManagerInputProtocol?
     var didGetCurrencies = false
 
     func getCurrencies() {
@@ -67,8 +64,7 @@ fileprivate class MockInteractor: CurrencyListInteractorInputProtocol {
     }
 }
 
-fileprivate class MockView: CurrencyListViewProtocol {
-    var presenter: CurrencyListPresenterProtocol?
+fileprivate class MockView: UIViewController, CurrencyListViewInputProtocol {
     var didShowCurrencies = false
     var didFailRequest = true
     

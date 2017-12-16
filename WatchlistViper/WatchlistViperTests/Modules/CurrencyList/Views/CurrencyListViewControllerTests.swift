@@ -6,46 +6,45 @@ import Domain
 class CurrencyListViewControllerTests: QuickSpec {
     override func spec() {
         var viewController: CurrencyListViewController!
+        var presenter: MockPresenter!
+        var tableView: MockTableView!
+        var dataSource: CurrencyListDataSource!
 
         beforeEach {
             viewController = UIStoryboard.list.instantiateViewController(withIdentifier: .currencyListViewController) as! CurrencyListViewController
+
+            dataSource = CurrencyListDataSource()
+            presenter = MockPresenter()
+            tableView = MockTableView()
+
+            viewController.dataSource = dataSource
+            viewController.presenter = presenter
             _ = viewController.view
+            viewController.tableView = tableView
         }
 
         describe("CurrencyListViewController") {
             it("sets currencies on show") {
-                let tableView = UITableView()
-                viewController.tableView = tableView
-                let dataSource = CurrencyListDataSource()
-                viewController.dataSource = dataSource
                 viewController.show(currencies: [Currency(), Currency()])
                 expect(dataSource.tableView(UITableView(), numberOfRowsInSection: 0)).toEventually(equal(2))
             }
 
             it("reloads data on show") {
-                let tableView = MockTableView()
-                viewController.tableView = tableView
                 viewController.show(currencies: [])
                 expect(tableView.didReloadData).toEventually(beTrue())
             }
 
             it("gets currencies on viewDidAppear") {
-                let presenter = MockPresenter()
-                viewController.presenter = presenter
                 viewController.viewDidAppear(false)
                 expect(presenter.didGetCurrencies).to(beTrue())
             }
 
             it("gets currencies on refresh") {
-                let presenter = MockPresenter()
-                viewController.presenter = presenter
                 viewController.refresh()
                 expect(presenter.didGetCurrencies).to(beTrue())
             }
 
             it("presents edit on didEditAction") {
-                let presenter = MockPresenter()
-                viewController.presenter = presenter
                 viewController.didEditAction(self)
                 expect(presenter.didEditActiontriggered).to(beTrue())
             }
@@ -61,10 +60,7 @@ class CurrencyListViewControllerTests: QuickSpec {
     }
 }
 
-fileprivate class MockPresenter: CurrencyListPresenterProtocol {
-    var view: CurrencyListViewProtocol?
-    var interactor: CurrencyListInteractorInputProtocol?
-    var router: CurrencyListRouterProtocol?
+fileprivate class MockPresenter: CurrencyListPresenterInputProtocol {
     var didGetCurrencies = false
     var didEditActiontriggered = false
 

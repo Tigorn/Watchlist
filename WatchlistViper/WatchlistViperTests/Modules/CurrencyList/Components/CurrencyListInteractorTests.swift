@@ -7,36 +7,38 @@ import LocalService
 class CurrencyListInteractorTests: QuickSpec {
     override func spec() {
         var interactor: CurrencyListInteractor!
+        var presenter: MockCurrencyListPresenter!
+        var localDataManager: MockLocalDataManager!
+        var remoteDataManager: MockRemoteDataManager!
 
         beforeEach {
             interactor = CurrencyListInteractor()
+            localDataManager = MockLocalDataManager()
+            remoteDataManager = MockRemoteDataManager()
+            presenter = MockCurrencyListPresenter()
+
+            interactor.listener = presenter
+            interactor.remoteDataManager = remoteDataManager
+            interactor.localDataManager = localDataManager
         }
 
         describe("CurrencyListInteractor") {
             it("delegates didGetCurrencies to the presenter") {
-                let presenter = MockCurrencyListPresenter()
-                interactor.presenter = presenter
                 interactor.didGet(currencies: [])
                 expect(presenter.didGetCurrencies).to(beTrue())
             }
 
             it("gets currency symbols from local") {
-                let localDataManager = MockLocalDataManager()
-                interactor.localInputDataManager = localDataManager
                 interactor.getCurrencies()
                 expect(localDataManager.didGetCurrencySymbols).to(beTrue())
             }
 
             it("gets remote tickers for local currency symbols") {
-                let remoteDataManager = MockRemoteDataManager()
-                interactor.remoteInputDataManager = remoteDataManager
                 interactor.didGet(currencySymbols: [])
                 expect(remoteDataManager.didGetCurrencyListTickers).to(beTrue())
             }
 
             it("delegates getCurrenciesDidFail to presenter") {
-                let presenter = MockCurrencyListPresenter()
-                interactor.presenter = presenter
                 interactor.getCurrenciesDidFail()
                 expect(presenter.getCurrenciesFailed).to(beTrue())
             }
@@ -54,7 +56,6 @@ fileprivate class MockRemoteDataManager: CurrencyListRemoteDataManagerInputProto
 }
 
 fileprivate class MockLocalDataManager: CurrencyListLocalDataManagerInputProtocol {
-    var outputEventHandler: CurrencyListLocalDataManagerOutputProtocol?
     var didGetCurrencySymbols = false
 
     func getCurrencies() {

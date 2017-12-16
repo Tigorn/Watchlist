@@ -1,6 +1,6 @@
 import Foundation
 
-struct RemoteResource {
+public struct RemoteResource {
     let statusCode: Int?
     let data: Data?
     var error: Error?
@@ -19,7 +19,7 @@ struct RemoteResource {
         guard let statusCode = statusCode else {
             return false
         }
-        
+
         return statusCode >= 200 && statusCode < 300
     }
 
