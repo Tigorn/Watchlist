@@ -19,7 +19,7 @@ class CurrencyListBuilder: CurrencyListBuilderProtocol {
         viewController.dataSource = dataSource
 
         localDataManager.listener = interactor
-        localDataManager.localPersistenceService = LocalPersistenceService.instance
+        localDataManager.localService = LocalPersistenceService.instance
 
         remoteDataManager.listener = interactor
         remoteDataManager.remoteService = SecuritiesService()

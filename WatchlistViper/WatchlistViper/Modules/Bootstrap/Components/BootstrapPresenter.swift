@@ -1,12 +1,12 @@
 import UIKit
 
 class BootstrapPresenter {
-    weak var view: BootstrapViewProtocol?
+    weak var view: BootstrapViewInputProtocol?
     var interactor: BootstrapInteractorInputProtocol?
     var router: BootstrapRouterProtocol?
 }
 
-extension BootstrapPresenter: BootstrapPresenterProtocol {
+extension BootstrapPresenter: BootstrapViewOutputProtocol {
     func bootstrap() {
         interactor?.bootstrap()
     }

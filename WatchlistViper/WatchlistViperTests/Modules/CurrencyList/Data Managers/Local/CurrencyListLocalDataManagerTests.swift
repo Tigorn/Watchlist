@@ -14,7 +14,7 @@ class CurrencyListLocalDataManagerTests: QuickSpec {
         describe("CurrencyListLocalDataManager") {
             it("gets currencies") {
                 let listener = MockListener()
-                localDataManager.localPersistenceService = MockLocalPersistenceService()
+                localDataManager.localService = MockLocalPersistenceService()
                 localDataManager.listener = listener
                 localDataManager.getCurrencies()
                 expect(listener.didGetCurrencySymbols).to(beTrue())

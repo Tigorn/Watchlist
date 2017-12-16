@@ -1,14 +1,22 @@
 import UIKit
 
+protocol BootstrapViewInputProtocol: class {
+    func set(window: UIWindow)
+}
+
+protocol BootstrapViewOutputProtocol: class {
+    func bootstrap()
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder {
     var window: UIWindow?
-    var presenter: BootstrapPresenterProtocol?
+    var presenter: BootstrapViewOutputProtocol?
 }
 
 extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        presenter = BootstrapRouter.createBootstrapModule(in: self)
+        presenter = BootstrapBuilder().createBootstrapModule(in: self)
         presenter?.bootstrap()
         return true
     }
@@ -36,7 +44,7 @@ extension AppDelegate: UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: BootstrapViewProtocol {
+extension AppDelegate: BootstrapViewInputProtocol {
     func set(window: UIWindow) {
         self.window = window
     }

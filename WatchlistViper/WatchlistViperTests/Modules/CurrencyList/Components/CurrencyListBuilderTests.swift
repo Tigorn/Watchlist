@@ -20,7 +20,7 @@ class CurrencyListBuilderTests: QuickSpec {
 
                 expect(viewController.dataSource).toNot(beNil())
                 expect(localDataManager.listener).toNot(beNil())
-                expect(localDataManager.localPersistenceService).toNot(beNil())
+                expect(localDataManager.localService).toNot(beNil())
                 expect(remoteDataManager.listener).toNot(beNil())
                 expect(remoteDataManager.remoteService).toNot(beNil())
                 expect(interactor.listener).toNot(beNil())

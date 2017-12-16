@@ -30,7 +30,7 @@ class BootstrapPresenterTests: QuickSpec {
 }
 
 fileprivate class MockRouter: BootstrapRouterProtocol {
-    static func createBootstrapModule(in view: BootstrapViewProtocol) -> BootstrapPresenterProtocol {
+    static func createBootstrapModule(in view: BootstrapViewInputProtocol) -> BootstrapViewOutputProtocol {
         return BootstrapPresenter()
     }
 
@@ -49,8 +49,8 @@ fileprivate class MockInteractor: BootstrapInteractorInputProtocol {
     }
 }
 
-fileprivate class MockBootstrapView: BootstrapViewProtocol {
-    var presenter: BootstrapPresenterProtocol?
+fileprivate class MockBootstrapView: BootstrapViewInputProtocol {
+    var presenter: BootstrapViewOutputProtocol?
     var didSetKeyWindow = false
 
     func set(window: UIWindow) {
