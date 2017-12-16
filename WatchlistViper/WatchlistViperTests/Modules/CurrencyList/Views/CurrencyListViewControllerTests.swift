@@ -18,7 +18,7 @@ class CurrencyListViewControllerTests: QuickSpec {
             tableView = MockTableView()
 
             viewController.dataSource = dataSource
-            viewController.presenter = presenter
+            viewController.listener = presenter
             _ = viewController.view
             viewController.tableView = tableView
         }
@@ -60,7 +60,7 @@ class CurrencyListViewControllerTests: QuickSpec {
     }
 }
 
-fileprivate class MockPresenter: CurrencyListPresenterInputProtocol {
+fileprivate class MockPresenter: CurrencyListViewOutputProtocol {
     var didGetCurrencies = false
     var didEditActiontriggered = false
 

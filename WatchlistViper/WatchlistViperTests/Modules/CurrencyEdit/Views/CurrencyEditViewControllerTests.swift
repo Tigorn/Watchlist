@@ -14,7 +14,7 @@ class CurrencyEditViewControllerTests: QuickSpec {
 
             it("gets currencies on viewDidAppear") {
                 let presenter = MockPresenter()
-                viewController.presenter = presenter
+                viewController.listener = presenter
                 viewController.viewDidLoad()
                 expect(presenter.didGetCurrencies).to(beTrue())
             }
@@ -55,8 +55,8 @@ fileprivate class MockTableView: UITableView {
     }
 }
 
-fileprivate class MockPresenter: CurrencyEditPresenterProtocol {
-    var view: CurrencyEditViewProtocol?
+fileprivate class MockPresenter: CurrencyEditViewOutputProtocol {
+    var view: CurrencyEditViewInputProtocol?
     var interactor: CurrencyEditInteractorInputProtocol?
     var didGetCurrencies = false
 

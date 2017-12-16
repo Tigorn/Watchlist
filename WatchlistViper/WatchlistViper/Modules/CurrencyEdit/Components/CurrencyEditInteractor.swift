@@ -1,18 +1,26 @@
 import Foundation
 
+protocol CurrencyEditInteractorInputProtocol: class {
+    func getCurrencies()
+}
+
+protocol CurrencyEditInteractorOutputProtocol: class {
+    func didGet(currencySymbols: [String])
+}
+
 class CurrencyEditInteractor {
-    weak var presenter: CurrencyEditInteractorOutputProtocol?
-    var localInputDataManager: CurrencyEditLocalDataManagerInputProtocol?
+    weak var listener: CurrencyEditInteractorOutputProtocol?
+    var localDataManager: CurrencyEditLocalDataManagerInputProtocol?
 }
 
 extension CurrencyEditInteractor: CurrencyEditInteractorInputProtocol {
     func getCurrencies() {
-        localInputDataManager?.getCurrencies()
+        localDataManager?.getCurrencies()
     }
 }
 
 extension CurrencyEditInteractor: CurrencyEditLocalDataManagerOutputProtocol {
     func didGet(currencySymbols: [String]) {
-        presenter?.didGet(currencySymbols: currencySymbols)
+        listener?.didGet(currencySymbols: currencySymbols)
     }
 }

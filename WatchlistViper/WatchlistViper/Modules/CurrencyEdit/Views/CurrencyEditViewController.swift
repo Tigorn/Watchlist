@@ -1,11 +1,19 @@
 import UIKit
 
+protocol CurrencyEditViewOutputProtocol: class {
+    func getCurrencies()
+}
+
+protocol CurrencyEditViewInputProtocol: class {
+    func set(currencySymbols: [String])
+}
+
 class CurrencyEditViewController: UIViewController {
-    var presenter: CurrencyEditPresenterProtocol?
+    var listener: CurrencyEditViewOutputProtocol?
     
-    lazy var dataSource: CurrencyEditDataSourceInputProtocol & UITableViewDelegate & UITableViewDataSource = {
+    lazy var dataSource: (CurrencyEditDataSourceInputProtocol & UITableViewDelegate & UITableViewDataSource)? = {
         let dataSource = CurrencyEditDataSource()
-        dataSource.outputHandler = self
+        dataSource.listener = self
         return dataSource
     }()
 
@@ -26,13 +34,13 @@ class CurrencyEditViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.getCurrencies()
+        listener?.getCurrencies()
     }
 }
 
-extension CurrencyEditViewController: CurrencyEditViewProtocol {
+extension CurrencyEditViewController: CurrencyEditViewInputProtocol {
     func set(currencySymbols: [String]) {
-        dataSource.set(currencySymbols: currencySymbols)
+        dataSource?.set(currencySymbols: currencySymbols)
         tableView.reloadData()
     }
 }

@@ -14,8 +14,8 @@ class CurrencyEditLocalDataManagerTests: QuickSpec {
 
             it("gets currencies") {
                 let eventHandler = MockEventHandler()
-                localDataManager.outputEventHandler = eventHandler
-                localDataManager.localPersistenceService = MockLocalPersistenceService()
+                localDataManager.listener = eventHandler
+                localDataManager.localService = MockLocalPersistenceService()
                 localDataManager.getCurrencies()
                 expect(eventHandler.didGetCurrencies).toEventually(beTrue())
             }
