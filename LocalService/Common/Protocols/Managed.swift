@@ -1,10 +1,10 @@
 import CoreData
 
-protocol Managed: class, NSFetchRequestResult {
+public protocol Managed: class, NSFetchRequestResult {
     static var entityName: String { get }
 }
 
-extension Managed where Self: NSManagedObject {
+public extension Managed where Self: NSManagedObject {
     static var entityName: String {
         guard let name = entity().name else {
             fatalError("entity has no name")

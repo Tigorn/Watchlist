@@ -1,7 +1,8 @@
 import Quick
 import Nimble
 import CoreData
-@testable import LocalService
+import LocalService
+@testable import Domain
 
 class LocalPersistenceServiceTests: QuickSpec {
     override func spec() {
@@ -47,3 +48,4 @@ fileprivate class MockContext: NSManagedObjectContext {
         didRefreshAllObjects = true
     }
 }
+

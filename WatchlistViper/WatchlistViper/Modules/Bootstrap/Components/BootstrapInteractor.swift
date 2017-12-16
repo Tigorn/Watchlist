@@ -1,4 +1,5 @@
 import Foundation
+import Domain
 
 protocol BootstrapInteractorInputProtocol: class {
     func bootstrap()

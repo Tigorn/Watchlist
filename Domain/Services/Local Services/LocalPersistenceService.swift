@@ -1,4 +1,5 @@
 import CoreData
+import LocalService
 
 public protocol LocalPersistenceServiceProtocol {
     func initialize(completion: @escaping () -> ())
@@ -19,7 +20,7 @@ public class LocalPersistenceService {
 extension LocalPersistenceService: LocalPersistenceServiceProtocol {
     public func initialize(completion: @escaping () -> ()) {
         let modelName = "CurrencyData"
-        let modelURL = Bundle.localService.url(forResource: modelName, withExtension:"momd")!
+        let modelURL = Bundle.domain.url(forResource: modelName, withExtension:"momd")!
         let model = NSManagedObjectModel(contentsOf: modelURL)!
         let container = NSPersistentContainer(name: modelName, managedObjectModel: model)
         container.loadPersistentStores { _, error in
@@ -50,7 +51,7 @@ extension LocalPersistenceService: LocalPersistenceServiceProtocol {
 }
 
 extension LocalPersistenceService: ApplicationStateObserver {
-    func applicationDidEnterBackground() {
+    public func applicationDidEnterBackground() {
         syncContext.refreshAllObjects()
     }
 }

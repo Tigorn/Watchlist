@@ -1,5 +1,5 @@
 import Foundation
-import LocalService
+import Domain
 
 protocol BootstrapLocalDataManagerInputProtocol: class {
     func setDidSetDefaultCurrencies(value: Bool)

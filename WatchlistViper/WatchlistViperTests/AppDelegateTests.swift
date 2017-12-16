@@ -1,6 +1,6 @@
 import Quick
 import Nimble
-import LocalService
+import Domain
 @testable import WatchlistViper
 
 class AppDelegateTests: QuickSpec {
