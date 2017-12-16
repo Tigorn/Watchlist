@@ -15,7 +15,7 @@ class CurrencyListBuilder: CurrencyListBuilderProtocol {
         let presenter = CurrencyListPresenter()
         let dataSource = CurrencyListDataSource()
 
-        viewController.presenter = presenter
+        viewController.listener = presenter
         viewController.dataSource = dataSource
 
         localDataManager.listener = interactor

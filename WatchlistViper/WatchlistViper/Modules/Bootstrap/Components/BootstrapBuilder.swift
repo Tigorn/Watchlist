@@ -16,7 +16,7 @@ class BootstrapBuilder: BootstrapBuilderProtocol {
         presenter.view = view
 
         interactor.listener = presenter
-        interactor.localInputDataManager = localDataManager
+        interactor.localDataManager = localDataManager
 
         localDataManager.listener = interactor
         localDataManager.localDefaultsService = LocalDefaultsService()

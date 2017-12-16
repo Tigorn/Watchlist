@@ -11,18 +11,18 @@ protocol BootstrapInteractorOutputProtocol: class {
 
 class BootstrapInteractor {
     weak var listener: BootstrapInteractorOutputProtocol?
-    var localInputDataManager: BootstrapLocalDataManagerInputProtocol?
+    var localDataManager: BootstrapLocalDataManagerInputProtocol?
 }
 
 extension BootstrapInteractor: BootstrapInteractorInputProtocol {
     func bootstrap() {
-        localInputDataManager?.initialize()
+        localDataManager?.initialize()
     }
 }
 
 extension BootstrapInteractor: BootstrapLocalDataManagerOutputProtocol {
     func didInitialize() {
-        if let localInputDataManager = localInputDataManager,
+        if let localInputDataManager = localDataManager,
             !localInputDataManager.getDidSetDefaultCurrencies() {
             let symbols = localInputDataManager.getDefaultCurrencies()
             symbols.forEach { localInputDataManager.put(currencySymbol: $0) }

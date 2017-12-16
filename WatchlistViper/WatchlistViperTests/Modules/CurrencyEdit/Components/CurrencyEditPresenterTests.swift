@@ -28,8 +28,8 @@ class CurrencyEditPresenterTests: QuickSpec {
     }
 }
 
-fileprivate class MockView: CurrencyEditViewProtocol {
-    var presenter: CurrencyEditPresenterProtocol?
+fileprivate class MockView: CurrencyEditViewInputProtocol {
+    var listener: CurrencyEditViewOutputProtocol?
     var didSetCurrencies = false
 
     func set(currencySymbols: [String]) {

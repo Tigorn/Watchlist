@@ -6,7 +6,7 @@ protocol CurrencyListRouterProtocol: class {
 
 class CurrencyListRouter: CurrencyListRouterProtocol {
     func showEdit(from view: UIViewController) {
-        let destination = CurrencyEditRouter.makeModule()
+        let destination = CurrencyEditBuilder().makeModule()
         view.show(destination, sender: nil)
     }
 }

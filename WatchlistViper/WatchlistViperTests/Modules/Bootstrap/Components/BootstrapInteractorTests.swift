@@ -13,7 +13,7 @@ class BootstrapInteractorTests: QuickSpec {
                 presenter = MockPresenter()
                 localDataManager = MockLocalDataManager()
                 interactor = BootstrapInteractor()
-                interactor.localInputDataManager = localDataManager
+                interactor.localDataManager = localDataManager
                 interactor.listener = presenter
             }
 

@@ -1,11 +1,11 @@
 import UIKit
 
 class CurrencyEditPresenter {
-    weak var view: CurrencyEditViewProtocol?
+    weak var view: CurrencyEditViewInputProtocol?
     var interactor: CurrencyEditInteractorInputProtocol?
 }
 
-extension CurrencyEditPresenter: CurrencyEditPresenterProtocol {
+extension CurrencyEditPresenter: CurrencyEditViewOutputProtocol {
     func getCurrencies() {
         interactor?.getCurrencies()
     }

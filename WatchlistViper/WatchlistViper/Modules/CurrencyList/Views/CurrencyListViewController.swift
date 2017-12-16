@@ -6,8 +6,13 @@ protocol CurrencyListViewInputProtocol: class {
     func requestFailed()
 }
 
+protocol CurrencyListViewOutputProtocol: class {
+    func getCurrencies()
+    func didEditAction()
+}
+
 class CurrencyListViewController: UIViewController {
-    var presenter: CurrencyListPresenterInputProtocol?
+    var listener: CurrencyListViewOutputProtocol?
     var dataSource: (CurrencyListDataSourceProtocol & UITableViewDelegate & UITableViewDataSource)?
     
     @IBOutlet weak var tableView: UITableView! {
@@ -25,7 +30,7 @@ class CurrencyListViewController: UIViewController {
     }
 
     @IBAction func didEditAction(_ sender: Any) {
-        presenter?.didEditAction()
+        listener?.didEditAction()
     }
 
     func registerCells() {
@@ -35,11 +40,11 @@ class CurrencyListViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        presenter?.getCurrencies()
+        listener?.getCurrencies()
     }
 
     @objc func refresh() {
-        presenter?.getCurrencies()
+        listener?.getCurrencies()
     }
 }
 

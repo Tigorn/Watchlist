@@ -1,8 +1,17 @@
 import UIKit
 
+protocol CurrencyEditDataSourceInputProtocol: class {
+    func set(currencySymbols: [String])
+}
+
+protocol CurrencyEditDataSourceOutputProtocol: class {
+    func moveRowAt(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath)
+    func delete(rowAt indexPath: IndexPath)
+}
+
 class CurrencyEditDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     private var currencySymbols = [String]()
-    weak var outputHandler: CurrencyEditDataSourceOutputProtocol?
+    weak var listener: CurrencyEditDataSourceOutputProtocol?
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currencySymbols.count
@@ -20,13 +29,13 @@ class CurrencyEditDataSource: NSObject, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        outputHandler?.moveRowAt(sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
+        listener?.moveRowAt(sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            outputHandler?.delete(rowAt: indexPath)
+            listener?.delete(rowAt: indexPath)
         default:
             break
         }

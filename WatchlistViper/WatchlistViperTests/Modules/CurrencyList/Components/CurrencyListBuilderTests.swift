@@ -13,7 +13,7 @@ class CurrencyListBuilderTests: QuickSpec {
 
             it("builds on create") {
                 let viewController = builder.makeModule() as! CurrencyListViewController
-                let presenter = viewController.presenter as! CurrencyListPresenter
+                let presenter = viewController.listener as! CurrencyListPresenter
                 let interactor = presenter.interactor as! CurrencyListInteractor
                 let localDataManager = interactor.localDataManager as! CurrencyListLocalDataManager
                 let remoteDataManager = interactor.remoteDataManager as! CurrencyListRemoteDataManager

@@ -21,7 +21,6 @@ class BootstrapLocalDataManager {
 }
 
 extension BootstrapLocalDataManager: BootstrapLocalDataManagerInputProtocol {
-
     func setDidSetDefaultCurrencies(value: Bool) {
         localDefaultsService?.didSetDefaultCurrencies = value
     }
