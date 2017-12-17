@@ -1,5 +1,6 @@
 # Watchlist
-A digital currency price tracking app that uses the VIPER architecture
+- A digital currency price tracking app that uses the VIPER architecture. 
+- Using [BitFinex's V2 API](https://docs.bitfinex.com/v2/docs) 
 
 Note: currently under active development
 
