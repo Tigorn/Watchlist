@@ -29,7 +29,7 @@ class BootstrapPresenterTests: QuickSpec {
     }
 }
 
-fileprivate class MockRouter: BootstrapRouterProtocol {
+private class MockRouter: BootstrapRouterProtocol {
     static func createBootstrapModule(in _: BootstrapViewInputProtocol) -> BootstrapViewOutputProtocol {
         return BootstrapPresenter()
     }
@@ -39,7 +39,7 @@ fileprivate class MockRouter: BootstrapRouterProtocol {
     }
 }
 
-fileprivate class MockInteractor: BootstrapInteractorInputProtocol {
+private class MockInteractor: BootstrapInteractorInputProtocol {
     var presenter: BootstrapInteractorOutputProtocol?
     var localInputDataManager: BootstrapLocalDataManagerInputProtocol?
 
@@ -49,7 +49,7 @@ fileprivate class MockInteractor: BootstrapInteractorInputProtocol {
     }
 }
 
-fileprivate class MockBootstrapView: BootstrapViewInputProtocol {
+private class MockBootstrapView: BootstrapViewInputProtocol {
     var presenter: BootstrapViewOutputProtocol?
     var didSetKeyWindow = false
 

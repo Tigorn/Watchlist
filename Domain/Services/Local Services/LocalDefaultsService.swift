@@ -4,7 +4,7 @@ public protocol LocalDefaultsServiceProtocol {
     var didSetDefaultCurrencies: Bool { get set }
 }
 
-fileprivate enum UserDefaultsKeys: String {
+private enum UserDefaultsKeys: String {
     case didSetDefaultCurrencies
 }
 

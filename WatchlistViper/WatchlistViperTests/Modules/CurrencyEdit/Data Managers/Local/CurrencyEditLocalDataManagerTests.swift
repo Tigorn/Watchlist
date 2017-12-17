@@ -23,7 +23,7 @@ class CurrencyEditLocalDataManagerTests: QuickSpec {
     }
 }
 
-fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
+private class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
     func initialize(completion _: @escaping () -> Void) {}
 
     func getCurrencySymbols(completion: @escaping ([String]) -> Void) {
@@ -33,7 +33,7 @@ fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
     func put(currencySymbol _: String) {}
 }
 
-fileprivate class MockEventHandler: CurrencyEditLocalDataManagerOutputProtocol {
+private class MockEventHandler: CurrencyEditLocalDataManagerOutputProtocol {
     var didGetCurrencies = false
     func didGet(currencySymbols _: [String]) {
         didGetCurrencies = true

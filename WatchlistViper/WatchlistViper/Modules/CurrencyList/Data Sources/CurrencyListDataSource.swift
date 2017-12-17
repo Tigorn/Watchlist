@@ -17,7 +17,10 @@ class CurrencyListDataSource: NSObject, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: .currencyListCell) as! CurrencyListTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: .currencyListCell) as? CurrencyListTableViewCell else {
+            fatalError("Failed to dequeue cell with identifier: \(TableViewCellIdentifier.currencyListCell.rawValue)")
+        }
+
         let currency = currencies[indexPath.row]
         cell.set(name: currency.symbol)
         cell.set(volume: currency.volume)

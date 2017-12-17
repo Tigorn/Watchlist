@@ -23,14 +23,14 @@ class CurrencyListLocalDataManagerTests: QuickSpec {
     }
 }
 
-fileprivate class MockListener: CurrencyListLocalDataManagerOutputProtocol {
+private class MockListener: CurrencyListLocalDataManagerOutputProtocol {
     var didGetCurrencySymbols = false
     func didGet(currencySymbols _: [String]) {
         didGetCurrencySymbols = true
     }
 }
 
-fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
+private class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
     func initialize(completion _: @escaping () -> Void) {}
 
     func getCurrencySymbols(completion: @escaping ([String]) -> Void) {

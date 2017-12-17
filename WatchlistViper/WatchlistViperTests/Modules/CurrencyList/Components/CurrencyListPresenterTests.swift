@@ -45,7 +45,7 @@ class CurrencyListPresenterTests: QuickSpec {
     }
 }
 
-fileprivate class MockRouter: CurrencyListRouterProtocol {
+private class MockRouter: CurrencyListRouterProtocol {
     var didRouteToEdit = false
     static func makeModule() -> UIViewController {
         return UIViewController()
@@ -56,7 +56,7 @@ fileprivate class MockRouter: CurrencyListRouterProtocol {
     }
 }
 
-fileprivate class MockInteractor: CurrencyListInteractorInputProtocol {
+private class MockInteractor: CurrencyListInteractorInputProtocol {
     var didGetCurrencies = false
 
     func getCurrencies() {
@@ -64,7 +64,7 @@ fileprivate class MockInteractor: CurrencyListInteractorInputProtocol {
     }
 }
 
-fileprivate class MockView: UIViewController, CurrencyListViewInputProtocol {
+private class MockView: UIViewController, CurrencyListViewInputProtocol {
     var didShowCurrencies = false
     var didFailRequest = true
 

@@ -1,7 +1,7 @@
-import Quick
-import Nimble
 import CoreData
 @testable import LocalService
+import Nimble
+import Quick
 
 class ApplicationStateObserverTests: QuickSpec {
     override func spec() {
@@ -47,7 +47,7 @@ class ApplicationStateObserverTests: QuickSpec {
     }
 }
 
-fileprivate class MockApplicationStateObserver: ApplicationStateObserver {
+private class MockApplicationStateObserver: ApplicationStateObserver {
     var didBecomeActive = false
     var didEnterBackground = false
 

@@ -28,7 +28,7 @@ class CurrencyEditInteractorTests: QuickSpec {
     }
 }
 
-fileprivate class MockPresenter: CurrencyEditInteractorOutputProtocol {
+private class MockPresenter: CurrencyEditInteractorOutputProtocol {
     var didGetCurrencies = false
 
     func didGet(currencySymbols _: [String]) {
@@ -36,7 +36,7 @@ fileprivate class MockPresenter: CurrencyEditInteractorOutputProtocol {
     }
 }
 
-fileprivate class MockLocalDataManager: CurrencyEditLocalDataManagerInputProtocol {
+private class MockLocalDataManager: CurrencyEditLocalDataManagerInputProtocol {
     var outputEventHandler: CurrencyEditLocalDataManagerOutputProtocol?
     var didGetCurrencies = false
 

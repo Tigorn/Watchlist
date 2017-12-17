@@ -1,5 +1,5 @@
-import UIKit
 import Domain
+import UIKit
 
 protocol CurrencyEditBuilderProtocol: class {
     func makeModule() -> UIViewController
@@ -7,7 +7,10 @@ protocol CurrencyEditBuilderProtocol: class {
 
 class CurrencyEditBuilder: CurrencyEditBuilderProtocol {
     func makeModule() -> UIViewController {
-        let viewController = UIStoryboard.edit.instantiateViewController(withIdentifier: .currencyEditViewController) as! CurrencyEditViewController
+        guard let viewController = UIStoryboard.edit.instantiateViewController(withIdentifier: .currencyEditViewController) as? CurrencyEditViewController else {
+            fatalError("Coulnd not instantiate view controller with identifier: \(UIViewControllerIdentifier.currencyEditViewController.rawValue)")
+        }
+
         let presenter = CurrencyEditPresenter()
         let interactor = CurrencyEditInteractor()
         let localDataManager = CurrencyEditLocalDataManager()

@@ -69,10 +69,10 @@ class TaskTests: QuickSpec {
     }
 }
 
-fileprivate class MockDecodable: Codable {
+private class MockDecodable: Codable {
 }
 
-fileprivate class MockURLSessionTask: URLSessionTaskProtocol {
+private class MockURLSessionTask: URLSessionTaskProtocol {
     var didCancel = false
     var didResume = true
 
@@ -85,7 +85,7 @@ fileprivate class MockURLSessionTask: URLSessionTaskProtocol {
     }
 }
 
-fileprivate class MockWebService: WebServiceProtocol {
+private class MockWebService: WebServiceProtocol {
     var urlSessionTask: MockURLSessionTask!
     var resource: RemoteResource!
 
@@ -95,7 +95,7 @@ fileprivate class MockWebService: WebServiceProtocol {
     }
 }
 
-fileprivate class MockRoute: Routable {
+private class MockRoute: Routable {
     var path: String = "/path"
     var host: String = "host.com"
     var port: Int? = 80
