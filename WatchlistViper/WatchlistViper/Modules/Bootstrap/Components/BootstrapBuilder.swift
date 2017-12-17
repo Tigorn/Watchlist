@@ -1,5 +1,5 @@
-import UIKit
 import Domain
+import UIKit
 
 protocol BootstrapBuilderProtocol: class {
     func createBootstrapModule(in view: BootstrapViewInputProtocol) -> BootstrapViewOutputProtocol
@@ -21,8 +21,8 @@ class BootstrapBuilder: BootstrapBuilderProtocol {
         localDataManager.listener = interactor
         localDataManager.localDefaultsService = LocalDefaultsService()
         localDataManager.localPersistenceService = LocalPersistenceService.instance
-        localDataManager.localFileService =  LocalFileService()
-        
+        localDataManager.localFileService = LocalFileService()
+
         return presenter
     }
 }

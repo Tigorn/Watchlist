@@ -1,6 +1,6 @@
-import Quick
 import Nimble
 import PromiseKit
+import Quick
 @testable import RemoteService
 
 class TaskTests: QuickSpec {
@@ -37,7 +37,7 @@ class TaskTests: QuickSpec {
                     webService.resource = RemoteResource(statusCode: 500, data: nil, error: nil)
                     var didReject = false
                     task.decodableTaskPromise(dataTaskComponents: dataTaskComponents, forType: MockDecodable.self).catch { error in
-                        if case DataServiceError.requestFailed(_) = error {
+                        if case DataServiceError.requestFailed = error {
                             didReject = true
                         }
                     }
@@ -48,7 +48,7 @@ class TaskTests: QuickSpec {
                     webService.resource = RemoteResource(statusCode: 200, data: Data(), error: nil)
                     var didReject = false
                     task.decodableTaskPromise(dataTaskComponents: dataTaskComponents, forType: MockDecodable.self).catch { error in
-                        if case DecodingError.dataCorrupted(_) = error {
+                        if case DecodingError.dataCorrupted = error {
                             didReject = true
                         }
                     }
@@ -70,7 +70,6 @@ class TaskTests: QuickSpec {
 }
 
 fileprivate class MockDecodable: Codable {
-    
 }
 
 fileprivate class MockURLSessionTask: URLSessionTaskProtocol {
@@ -90,7 +89,7 @@ fileprivate class MockWebService: WebServiceProtocol {
     var urlSessionTask: MockURLSessionTask!
     var resource: RemoteResource!
 
-    func dataTask(dataTaskComponents: DataTaskComponents, completion: @escaping (RemoteResource) -> ()) -> URLSessionTaskProtocol {
+    func dataTask(dataTaskComponents _: DataTaskComponents, completion: @escaping (RemoteResource) -> Void) -> URLSessionTaskProtocol {
         completion(resource)
         return urlSessionTask
     }

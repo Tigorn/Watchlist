@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import WatchlistViper
 
 class BootstrapBuilderTests: QuickSpec {
@@ -22,5 +22,5 @@ class BootstrapBuilderTests: QuickSpec {
 }
 
 fileprivate class MockBootstrapView: BootstrapViewInputProtocol {
-    func set(window: UIWindow) { }
+    func set(window _: UIWindow) {}
 }

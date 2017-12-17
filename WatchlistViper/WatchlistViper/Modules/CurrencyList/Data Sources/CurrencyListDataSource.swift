@@ -1,5 +1,5 @@
-import UIKit
 import Domain
+import UIKit
 
 protocol CurrencyListDataSourceProtocol: class {
     func set(currencies: [Currency])
@@ -7,12 +7,12 @@ protocol CurrencyListDataSourceProtocol: class {
 
 class CurrencyListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     fileprivate var currencies = [Currency]()
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+
+    func numberOfSections(in _: UITableView) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return currencies.count
     }
 

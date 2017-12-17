@@ -1,7 +1,7 @@
-import Quick
-import Nimble
 import Domain
+import Nimble
 import PromiseKit
+import Quick
 import RemoteService
 @testable import WatchlistViper
 
@@ -39,7 +39,7 @@ fileprivate class MockListener: CurrencyListRemoteDataManagerOutputProtocol {
     var getCurrenciesFailed = false
     var didGetTickers = false
 
-    func didGet(currencies: [Currency]) {
+    func didGet(currencies _: [Currency]) {
         didGetTickers = true
     }
 
@@ -50,8 +50,8 @@ fileprivate class MockListener: CurrencyListRemoteDataManagerOutputProtocol {
 
 fileprivate class MockSecuritiesService: SecuritiesServiceProtocol {
     var getTickersShouldSucceed = true
-    
-    func getTickers(forCurrencySymbols symbols: [String]) -> Promise<[Currency]> {
+
+    func getTickers(forCurrencySymbols _: [String]) -> Promise<[Currency]> {
         return Promise { fulfill, reject in
             if getTickersShouldSucceed {
                 fulfill([Currency()])

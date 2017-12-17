@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import WatchlistViper
 
 class BootstrapInteractorTests: QuickSpec {
@@ -68,19 +68,19 @@ fileprivate class MockLocalDataManager: BootstrapLocalDataManagerInputProtocol {
     func setDidSetDefaultCurrencies(value: Bool) {
         didSetDefaultCurrencies = value
     }
-    
+
     func getDidSetDefaultCurrencies() -> Bool {
         return didSetDefaultCurrencies
     }
-    
+
     func getDefaultCurrencies() -> [String] {
         return ["btc", "ltc"]
     }
-    
+
     func put(currencySymbol symbol: String) {
         putSymbols.append(symbol)
     }
-    
+
     func initialize() {
         didInitialize = true
     }

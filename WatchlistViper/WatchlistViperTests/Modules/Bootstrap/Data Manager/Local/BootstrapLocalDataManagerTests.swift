@@ -1,6 +1,6 @@
-import Quick
-import Nimble
 import Domain
+import Nimble
+import Quick
 @testable import WatchlistViper
 
 class BootstrapLocalDataManagerTests: QuickSpec {
@@ -66,15 +66,15 @@ fileprivate class MockLocalFileService: LocalFileServiceProtocol {
 fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
     var didPutCurrencySymbol = false
 
-    func initialize(completion: @escaping () -> ()) {
+    func initialize(completion: @escaping () -> Void) {
         completion()
     }
 
-    func getCurrencySymbols(completion: @escaping ([String]) -> ()) {
+    func getCurrencySymbols(completion: @escaping ([String]) -> Void) {
         completion(["btc"])
     }
 
-    func put(currencySymbol: String) {
+    func put(currencySymbol _: String) {
         didPutCurrencySymbol = true
     }
 }
@@ -82,5 +82,3 @@ fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
 fileprivate class MockLocalDefaultsService: LocalDefaultsServiceProtocol {
     var didSetDefaultCurrencies = false
 }
-
-

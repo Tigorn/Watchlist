@@ -5,4 +5,3 @@ extension Bundle {
         return Bundle(identifier: "com.ericdrew.Domain")!
     }
 }
-

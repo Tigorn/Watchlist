@@ -1,7 +1,7 @@
-import Quick
-import Nimble
 import Domain
 import LocalService
+import Nimble
+import Quick
 @testable import WatchlistViper
 
 class CurrencyListInteractorTests: QuickSpec {
@@ -50,7 +50,7 @@ fileprivate class MockRemoteDataManager: CurrencyListRemoteDataManagerInputProto
     var outputEventHandler: CurrencyListRemoteDataManagerOutputProtocol?
     var didGetCurrencyListTickers = false
 
-    func getCurrencyList(forCurrencySymbols symbols: [String]) {
+    func getCurrencyList(forCurrencySymbols _: [String]) {
         didGetCurrencyListTickers = true
     }
 }
@@ -67,7 +67,7 @@ fileprivate class MockCurrencyListPresenter: CurrencyListInteractorOutputProtoco
     var didGetCurrencies = false
     var getCurrenciesFailed = false
 
-    func didGet(currencies: [Currency]) {
+    func didGet(currencies _: [Currency]) {
         didGetCurrencies = true
     }
 

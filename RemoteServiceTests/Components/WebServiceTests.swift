@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import RemoteService
 
 class WebServiceTests: QuickSpec {
@@ -36,13 +36,13 @@ fileprivate class MockRoute: Routable {
 }
 
 fileprivate class MockSession: URLSessionProtocol {
-    var data: Data? = nil
-    var response: URLResponse? = nil
-    var error: Error? = nil
+    var data: Data?
+    var response: URLResponse?
+    var error: Error?
 
-    required init(configuration: URLSessionConfiguration) { }
+    required init(configuration _: URLSessionConfiguration) {}
 
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) -> URLSessionDataTask {
+    func dataTask(with _: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         completionHandler(data, response, error)
         return URLSessionDataTask()
     }

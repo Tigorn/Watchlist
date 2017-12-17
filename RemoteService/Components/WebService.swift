@@ -5,17 +5,17 @@ public protocol URLSessionTaskProtocol {
     func cancel()
 }
 
-extension URLSessionTask: URLSessionTaskProtocol { }
+extension URLSessionTask: URLSessionTaskProtocol {}
 
 protocol URLSessionProtocol {
     init(configuration: URLSessionConfiguration)
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) -> URLSessionDataTask
+    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
-extension URLSession: URLSessionProtocol { }
+extension URLSession: URLSessionProtocol {}
 
 public protocol WebServiceProtocol {
-    func dataTask(dataTaskComponents: DataTaskComponents, completion: @escaping (RemoteResource) -> ()) -> URLSessionTaskProtocol
+    func dataTask(dataTaskComponents: DataTaskComponents, completion: @escaping (RemoteResource) -> Void) -> URLSessionTaskProtocol
 }
 
 public class WebService: WebServiceProtocol {
@@ -25,7 +25,7 @@ public class WebService: WebServiceProtocol {
         session = URLSession(configuration: .default)
     }
 
-    public func dataTask(dataTaskComponents: DataTaskComponents, completion: @escaping (RemoteResource) -> ()) -> URLSessionTaskProtocol {
+    public func dataTask(dataTaskComponents: DataTaskComponents, completion: @escaping (RemoteResource) -> Void) -> URLSessionTaskProtocol {
         guard let urlRequest = dataTaskComponents.urlRequest else {
             fatalError("Could not form URL request for path: \(dataTaskComponents.route.path)")
         }

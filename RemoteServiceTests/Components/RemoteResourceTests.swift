@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import RemoteService
 
 class RemoteResourceTests: QuickSpec {
@@ -21,4 +21,3 @@ class RemoteResourceTests: QuickSpec {
         }
     }
 }
-

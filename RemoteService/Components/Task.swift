@@ -1,5 +1,5 @@
-import UIKit
 import PromiseKit
+import UIKit
 
 public enum DataServiceError: Error {
     case requestFailed(statusCode: Int?)
@@ -23,8 +23,8 @@ public class Task: TaskProtocol {
             let task = webService.dataTask(dataTaskComponents: dataTaskComponents) { remoteResource in
                 guard remoteResource.isStatusCodeValid,
                     let data = remoteResource.data else {
-                        reject(DataServiceError.requestFailed(statusCode: remoteResource.statusCode))
-                        return
+                    reject(DataServiceError.requestFailed(statusCode: remoteResource.statusCode))
+                    return
                 }
 
                 guard !remoteResource.isErrorCancelled else {

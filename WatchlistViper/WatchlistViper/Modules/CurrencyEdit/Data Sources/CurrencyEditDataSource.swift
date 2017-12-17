@@ -13,7 +13,7 @@ class CurrencyEditDataSource: NSObject, UITableViewDelegate, UITableViewDataSour
     private var currencySymbols = [String]()
     weak var listener: CurrencyEditDataSourceOutputProtocol?
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return currencySymbols.count
     }
 
@@ -24,15 +24,15 @@ class CurrencyEditDataSource: NSObject, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_: UITableView, canMoveRowAt _: IndexPath) -> Bool {
         return true
     }
 
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    func tableView(_: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         listener?.moveRowAt(sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
             listener?.delete(rowAt: indexPath)

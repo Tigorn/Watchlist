@@ -1,5 +1,5 @@
-import UIKit
 import Domain
+import UIKit
 
 protocol CurrencyListViewInputProtocol: class {
     func show(currencies: [Currency])
@@ -14,8 +14,8 @@ protocol CurrencyListViewOutputProtocol: class {
 class CurrencyListViewController: UIViewController {
     var listener: CurrencyListViewOutputProtocol?
     var dataSource: (CurrencyListDataSourceProtocol & UITableViewDelegate & UITableViewDataSource)?
-    
-    @IBOutlet weak var tableView: UITableView! {
+
+    @IBOutlet var tableView: UITableView! {
         didSet {
             tableView.dataSource = dataSource
             tableView.delegate = dataSource
@@ -24,12 +24,12 @@ class CurrencyListViewController: UIViewController {
             let refreshControl = UIRefreshControl()
             refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
             tableView.refreshControl = refreshControl
-            
+
             registerCells()
         }
     }
 
-    @IBAction func didEditAction(_ sender: Any) {
+    @IBAction func didEditAction(_: Any) {
         listener?.didEditAction()
     }
 

@@ -1,15 +1,15 @@
-import Quick
-import Nimble
 import CoreData
-import LocalService
 @testable import Domain
+import LocalService
+import Nimble
+import Quick
 
 class LocalPersistenceServiceTests: QuickSpec {
     override func spec() {
         describe("LocalPersistenceService") {
             var localService: LocalPersistenceService!
             var objectContext: NSManagedObjectContext!
-            
+
             beforeEach {
                 localService = LocalPersistenceService()
                 objectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
@@ -25,7 +25,7 @@ class LocalPersistenceServiceTests: QuickSpec {
             }
 
             it("sets syncContext on initialize") {
-                localService.initialize(completion: { })
+                localService.initialize(completion: {})
                 expect(localService.syncContext).toEventuallyNot(beNil())
             }
 
@@ -48,4 +48,3 @@ fileprivate class MockContext: NSManagedObjectContext {
         didRefreshAllObjects = true
     }
 }
-

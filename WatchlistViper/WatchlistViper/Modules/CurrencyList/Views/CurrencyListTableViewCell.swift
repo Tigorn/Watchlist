@@ -1,8 +1,8 @@
 import UIKit
 
 class CurrencyListTableViewCell: UITableViewCell {
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var priceLabel: UILabel!
 
     private static let numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
@@ -15,16 +15,13 @@ class CurrencyListTableViewCell: UITableViewCell {
         nameLabel.text = name
     }
 
-    func set(percentChange: Double?) {
-
+    func set(percentChange _: Double?) {
     }
 
-    func set(priceChange: Double?) {
-        
+    func set(priceChange _: Double?) {
     }
 
-    func set(volume: Double?) {
-
+    func set(volume _: Double?) {
     }
 
     func set(lastPrice: Double?) {

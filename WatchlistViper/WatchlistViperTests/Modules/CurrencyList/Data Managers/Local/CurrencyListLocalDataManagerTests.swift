@@ -1,6 +1,6 @@
-import Quick
-import Nimble
 import Domain
+import Nimble
+import Quick
 @testable import WatchlistViper
 
 class CurrencyListLocalDataManagerTests: QuickSpec {
@@ -25,17 +25,17 @@ class CurrencyListLocalDataManagerTests: QuickSpec {
 
 fileprivate class MockListener: CurrencyListLocalDataManagerOutputProtocol {
     var didGetCurrencySymbols = false
-    func didGet(currencySymbols: [String]) {
+    func didGet(currencySymbols _: [String]) {
         didGetCurrencySymbols = true
     }
 }
 
 fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
-    func initialize(completion: @escaping () -> ()) { }
+    func initialize(completion _: @escaping () -> Void) {}
 
-    func getCurrencySymbols(completion: @escaping ([String]) -> ()) {
+    func getCurrencySymbols(completion: @escaping ([String]) -> Void) {
         completion([])
     }
 
-    func put(currencySymbol: String) { }
+    func put(currencySymbol _: String) {}
 }

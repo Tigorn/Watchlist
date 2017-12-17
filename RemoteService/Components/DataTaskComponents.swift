@@ -37,7 +37,7 @@ public struct DataTaskComponents {
 }
 
 extension DataTaskComponents: Equatable {
-    public static func ==(lhs: DataTaskComponents, rhs: DataTaskComponents) -> Bool {
+    public static func == (lhs: DataTaskComponents, rhs: DataTaskComponents) -> Bool {
         return lhs.route.host == rhs.route.host &&
             lhs.route.path == rhs.route.path &&
             lhs.scheme == rhs.scheme &&

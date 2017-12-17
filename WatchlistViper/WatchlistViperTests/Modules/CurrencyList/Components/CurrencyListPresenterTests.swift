@@ -1,6 +1,6 @@
-import Quick
-import Nimble
 import Domain
+import Nimble
+import Quick
 @testable import WatchlistViper
 
 class CurrencyListPresenterTests: QuickSpec {
@@ -51,7 +51,7 @@ fileprivate class MockRouter: CurrencyListRouterProtocol {
         return UIViewController()
     }
 
-    func showEdit(from view: UIViewController) {
+    func showEdit(from _: UIViewController) {
         didRouteToEdit = true
     }
 }
@@ -67,8 +67,8 @@ fileprivate class MockInteractor: CurrencyListInteractorInputProtocol {
 fileprivate class MockView: UIViewController, CurrencyListViewInputProtocol {
     var didShowCurrencies = false
     var didFailRequest = true
-    
-    func show(currencies: [Currency]) {
+
+    func show(currencies _: [Currency]) {
         didShowCurrencies = true
     }
 

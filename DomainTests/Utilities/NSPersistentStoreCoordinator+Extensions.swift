@@ -15,7 +15,7 @@ extension NSPersistentStoreCoordinator {
     }
 
     fileprivate static func dataTestCoordinator(_ addStore: (NSPersistentStoreCoordinator) -> Void) -> NSPersistentStoreCoordinator {
-        let url = Bundle.domain.url(forResource: "CurrencyData", withExtension:"momd")!
+        let url = Bundle.domain.url(forResource: "CurrencyData", withExtension: "momd")!
         let model = NSManagedObjectModel(contentsOf: url)!
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         addStore(coordinator)

@@ -1,8 +1,8 @@
-import Quick
+@testable import Domain
 import Nimble
 import PromiseKit
+import Quick
 import RemoteService
-@testable import Domain
 
 class SecuritiesServiceTests: QuickSpec {
     override func spec() {
@@ -20,7 +20,7 @@ class SecuritiesServiceTests: QuickSpec {
                 let queryItem = URLQueryItem(name: "symbols", value: "abc,def")
                 let dataTaskComponents = DataTaskComponents(route: Route.tickers, queryItems: [queryItem])
                 task.expectedDataTaskComponents = dataTaskComponents
-                _  = securitiesService.getTickers(forCurrencySymbols: ["abc", "def"])
+                _ = securitiesService.getTickers(forCurrencySymbols: ["abc", "def"])
                 expect(task.didConfigurePromise).to(beTrue())
             }
         }
@@ -31,7 +31,7 @@ fileprivate class MockTask: TaskProtocol {
     var expectedDataTaskComponents: DataTaskComponents!
     var didConfigurePromise = false
 
-    func decodableTaskPromise<Type>(dataTaskComponents: DataTaskComponents, forType type: Type.Type) -> Promise<Type> where Type : Decodable {
+    func decodableTaskPromise<Type>(dataTaskComponents: DataTaskComponents, forType _: Type.Type) -> Promise<Type> where Type: Decodable {
         if dataTaskComponents == expectedDataTaskComponents {
             didConfigurePromise = true
         }
