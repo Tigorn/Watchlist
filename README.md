@@ -11,6 +11,6 @@ Note: currently under active development
   - [Quick](https://github.com/Quick/Quick)
   - [Nimble](https://github.com/Quick/Nimble)
 #### Tooling
-  - [Carthage](https://github.com/Quick/Nimble)
+  - [CocoaPods](https://github.com/CocoaPods/CocoaPods)
   - [SwiftLint](https://github.com/realm/SwiftLint)
   - [SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
