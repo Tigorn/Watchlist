@@ -10,14 +10,14 @@ protocol CurrencyEditViewInputProtocol: class {
 
 class CurrencyEditViewController: UIViewController {
     var listener: CurrencyEditViewOutputProtocol?
-    
+
     lazy var dataSource: (CurrencyEditDataSourceInputProtocol & UITableViewDelegate & UITableViewDataSource)? = {
         let dataSource = CurrencyEditDataSource()
         dataSource.listener = self
         return dataSource
     }()
 
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet var tableView: UITableView! {
         didSet {
             tableView.tableFooterView = UIView()
             tableView.dataSource = dataSource
@@ -46,11 +46,11 @@ extension CurrencyEditViewController: CurrencyEditViewInputProtocol {
 }
 
 extension CurrencyEditViewController: CurrencyEditDataSourceOutputProtocol {
-    func delete(rowAt indexPath: IndexPath) {
-        //TODO
+    func delete(rowAt _: IndexPath) {
+        // TODO:
     }
 
-    func moveRowAt(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
-        //TODO
+    func moveRowAt(sourceIndexPath _: IndexPath, destinationIndexPath _: IndexPath) {
+        // TODO:
     }
 }

@@ -1,7 +1,7 @@
-import Quick
-import Nimble
 import CoreData
 @testable import LocalService
+import Nimble
+import Quick
 
 class NSManagedObjectContextExtensionsTests: QuickSpec {
     override func spec() {
@@ -36,7 +36,7 @@ class NSManagedObjectContextExtensionsTests: QuickSpec {
             }
 
             it("performs changes") {
-                objectContext.performChanges { }
+                objectContext.performChanges {}
                 expect(objectContext.didSave).toEventually(beTrue())
             }
         }

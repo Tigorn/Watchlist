@@ -1,5 +1,5 @@
-import Foundation
 import Domain
+import Foundation
 
 class Fixtures {
     private static func fixtureData(fileName: String) -> Data {
@@ -20,7 +20,7 @@ class Fixtures {
         guard let object = try? JSONDecoder().decode(Currency.self, from: btcTickerData) else {
             fatalError("Could not decode data.")
         }
-        
+
         return object
     }
 }

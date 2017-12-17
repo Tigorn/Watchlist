@@ -1,5 +1,5 @@
-import UIKit
 import Domain
+import UIKit
 
 class CurrencyListPresenter {
     weak var view: CurrencyListViewInputProtocol?
@@ -21,7 +21,7 @@ extension CurrencyListPresenter: CurrencyListViewOutputProtocol {
     }
 }
 
-extension CurrencyListPresenter: CurrencyListInteractorOutputProtocol {    
+extension CurrencyListPresenter: CurrencyListInteractorOutputProtocol {
     func getCurrenciesDidFail() {
         DispatchQueue.main.async {
             self.view?.requestFailed()

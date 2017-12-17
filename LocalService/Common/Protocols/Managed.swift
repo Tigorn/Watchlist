@@ -17,7 +17,7 @@ public extension Managed where Self: NSManagedObject {
         return context.insertObject()
     }
 
-    static func findOrCreate(in context: NSManagedObjectContext, matching predicate: NSPredicate, configure: (Self) -> ()) -> Self {
+    static func findOrCreate(in context: NSManagedObjectContext, matching predicate: NSPredicate, configure: (Self) -> Void) -> Self {
         guard let object = findOrFetch(in: context, matching: predicate) else {
             let newObject: Self = context.insertObject()
             configure(newObject)
@@ -34,13 +34,13 @@ public extension Managed where Self: NSManagedObject {
                 request.predicate = predicate
                 request.returnsObjectsAsFaults = false
                 request.fetchLimit = 1
-                }.first
+            }.first
         }
-        
+
         return object
     }
 
-    static func fetch(in context: NSManagedObjectContext, configurationBlock: (NSFetchRequest<Self>) -> () = { _ in }) -> [Self] {
+    static func fetch(in context: NSManagedObjectContext, configurationBlock: (NSFetchRequest<Self>) -> Void = { _ in }) -> [Self] {
         let request = NSFetchRequest<Self>(entityName: Self.entityName)
         configurationBlock(request)
         return try! context.fetch(request)

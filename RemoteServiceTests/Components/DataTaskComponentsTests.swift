@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import RemoteService
 
 class DataTaskComponentsTests: QuickSpec {
@@ -29,4 +29,3 @@ fileprivate class MockRoute: Routable {
     var path: String = "/path"
     var host: String = "host.com"
 }
-

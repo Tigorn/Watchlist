@@ -1,6 +1,6 @@
-import Quick
-import Nimble
 import Domain
+import Nimble
+import Quick
 @testable import WatchlistViper
 
 class CurrencyListRouterTests: QuickSpec {
@@ -23,8 +23,8 @@ class CurrencyListRouterTests: QuickSpec {
 
 fileprivate class MockView: UIViewController {
     var didShow = false
-    
-    override func show(_ vc: UIViewController, sender: Any?) {
+
+    override func show(_: UIViewController, sender _: Any?) {
         didShow = true
     }
 }

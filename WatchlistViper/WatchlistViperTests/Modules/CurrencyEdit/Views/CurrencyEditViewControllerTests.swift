@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import WatchlistViper
 
 class CurrencyEditViewControllerTests: QuickSpec {
@@ -34,15 +34,15 @@ class CurrencyEditViewControllerTests: QuickSpec {
 
 fileprivate class MockDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, CurrencyEditDataSourceInputProtocol {
     var didSetCurrencySymbols = false
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
 
-    func set(currencySymbols: [String]) {
+    func set(currencySymbols _: [String]) {
         didSetCurrencySymbols = true
     }
 }
@@ -64,5 +64,5 @@ fileprivate class MockPresenter: CurrencyEditViewOutputProtocol {
         didGetCurrencies = true
     }
 
-    func didGet(currencies: [String]) { }
+    func didGet(currencies _: [String]) {}
 }

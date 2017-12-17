@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import WatchlistViper
 
 class BootstrapPresenterTests: QuickSpec {
@@ -30,7 +30,7 @@ class BootstrapPresenterTests: QuickSpec {
 }
 
 fileprivate class MockRouter: BootstrapRouterProtocol {
-    static func createBootstrapModule(in view: BootstrapViewInputProtocol) -> BootstrapViewOutputProtocol {
+    static func createBootstrapModule(in _: BootstrapViewInputProtocol) -> BootstrapViewOutputProtocol {
         return BootstrapPresenter()
     }
 
@@ -59,4 +59,3 @@ fileprivate class MockBootstrapView: BootstrapViewInputProtocol {
         }
     }
 }
-

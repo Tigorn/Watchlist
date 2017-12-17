@@ -2,8 +2,8 @@ import CoreData
 import LocalService
 
 public protocol LocalPersistenceServiceProtocol {
-    func initialize(completion: @escaping () -> ())
-    func getCurrencySymbols(completion: @escaping ([String]) -> ())
+    func initialize(completion: @escaping () -> Void)
+    func getCurrencySymbols(completion: @escaping ([String]) -> Void)
     func put(currencySymbol: String)
 }
 
@@ -18,22 +18,22 @@ public class LocalPersistenceService {
 }
 
 extension LocalPersistenceService: LocalPersistenceServiceProtocol {
-    public func initialize(completion: @escaping () -> ()) {
+    public func initialize(completion: @escaping () -> Void) {
         let modelName = "CurrencyData"
-        let modelURL = Bundle.domain.url(forResource: modelName, withExtension:"momd")!
+        let modelURL = Bundle.domain.url(forResource: modelName, withExtension: "momd")!
         let model = NSManagedObjectModel(contentsOf: modelURL)!
         let container = NSPersistentContainer(name: modelName, managedObjectModel: model)
         container.loadPersistentStores { _, error in
             guard error == nil else {
                 fatalError("Failed to load store, \(String(describing: error))")
             }
-            
+
             self.syncContext = container.newBackgroundContext()
             completion()
         }
     }
 
-    public func getCurrencySymbols(completion: @escaping ([String]) -> ()) {
+    public func getCurrencySymbols(completion: @escaping ([String]) -> Void) {
         syncContext.perform {
             let smybols = CurrencySymbol.fetch(in: self.syncContext).map({ $0.symbol })
             completion(smybols)

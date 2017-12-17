@@ -7,8 +7,8 @@ public protocol LocalFileServiceProtocol {
 public class LocalFileService: LocalFileServiceProtocol {
     var bundle = Bundle.domain
 
-    public init() { }
-    
+    public init() {}
+
     public func defaultCurrencySymbols() -> [String] {
         if let path = bundle.path(forResource: "SymbolDefaults", ofType: "plist"),
             let dictionary = NSDictionary(contentsOfFile: path),

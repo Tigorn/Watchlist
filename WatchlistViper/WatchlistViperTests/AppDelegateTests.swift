@@ -1,6 +1,6 @@
-import Quick
-import Nimble
 import Domain
+import Nimble
+import Quick
 @testable import WatchlistViper
 
 class AppDelegateTests: QuickSpec {
@@ -15,11 +15,11 @@ class AppDelegateTests: QuickSpec {
 
 fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
     var didInitialize = false
-    func initialize(completion: @escaping () -> ()) {
+    func initialize(completion _: @escaping () -> Void) {
         didInitialize = true
     }
 
-    func getCurrencySymbols(completion: @escaping ([String]) -> ()) { }
+    func getCurrencySymbols(completion _: @escaping ([String]) -> Void) {}
 
-    func put(currencySymbol: String) { }
+    func put(currencySymbol _: String) {}
 }

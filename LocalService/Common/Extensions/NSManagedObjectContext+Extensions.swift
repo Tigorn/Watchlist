@@ -5,7 +5,7 @@ public extension NSManagedObjectContext {
         guard let object = NSEntityDescription.insertNewObject(forEntityName: T.entityName, into: self) as? T else {
             fatalError("invalid object type")
         }
-        
+
         return object
     }
 
@@ -23,7 +23,7 @@ public extension NSManagedObjectContext {
         }
     }
 
-    func performChanges(block: @escaping () -> ()) {
+    func performChanges(block: @escaping () -> Void) {
         perform {
             block()
             _ = self.saveOrRollback()

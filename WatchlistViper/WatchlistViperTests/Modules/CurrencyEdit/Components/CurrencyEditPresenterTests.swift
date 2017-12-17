@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import WatchlistViper
 
 class CurrencyEditPresenterTests: QuickSpec {
@@ -32,7 +32,7 @@ fileprivate class MockView: CurrencyEditViewInputProtocol {
     var listener: CurrencyEditViewOutputProtocol?
     var didSetCurrencies = false
 
-    func set(currencySymbols: [String]) {
+    func set(currencySymbols _: [String]) {
         didSetCurrencies = true
     }
 }

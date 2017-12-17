@@ -11,7 +11,7 @@ fileprivate enum UserDefaultsKeys: String {
 public class LocalDefaultsService: LocalDefaultsServiceProtocol {
     var userDefaults = UserDefaults.standard
 
-    public init() { }
+    public init() {}
 
     public var didSetDefaultCurrencies: Bool {
         get {

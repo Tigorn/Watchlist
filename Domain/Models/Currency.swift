@@ -42,19 +42,19 @@ public struct Currency: Decodable {
     public init(from decoder: Decoder) throws {
         do {
             var container = try decoder.unkeyedContainer()
-            
-            self.symbol = try container.decode(String.self)
+
+            symbol = try container.decode(String.self)
             _ = try container.decode(Double.self)
             _ = try container.decode(Double.self)
             _ = try container.decode(Double.self)
             _ = try container.decode(Double.self)
-            self.name = nil
-            self.priceChange = try container.decode(Double.self)
-            self.percentChange = try container.decode(Double.self)
-            self.lastPrice = try container.decode(Double.self)
-            self.volume = try container.decode(Double.self)
-            self.high = try container.decode(Double.self)
-            self.low = try container.decode(Double.self)
+            name = nil
+            priceChange = try container.decode(Double.self)
+            percentChange = try container.decode(Double.self)
+            lastPrice = try container.decode(Double.self)
+            volume = try container.decode(Double.self)
+            high = try container.decode(Double.self)
+            low = try container.decode(Double.self)
         } catch {
             throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [], debugDescription: ""))
         }
