@@ -24,7 +24,6 @@ class CurrencyListRouterTests: QuickSpec {
 private class MockView: UIViewController {
     var didShow = false
 
-    // swiftlint:disable:next identifier_name
     override func show(_: UIViewController, sender _: Any?) {
         didShow = true
     }

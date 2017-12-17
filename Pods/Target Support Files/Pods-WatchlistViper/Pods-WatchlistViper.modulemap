@@ -1,0 +1,6 @@
+framework module Pods_WatchlistViper {
+  umbrella header "Pods-WatchlistViper-umbrella.h"
+
+  export *
+  module * { export * }
+}
