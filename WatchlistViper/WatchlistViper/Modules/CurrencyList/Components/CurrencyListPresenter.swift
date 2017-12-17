@@ -30,7 +30,8 @@ extension CurrencyListPresenter: CurrencyListInteractorOutputProtocol {
 
     func didGet(currencies: [Currency]) {
         DispatchQueue.main.async {
-            self.view?.show(currencies: currencies)
+            let data = CurrencyListCurrencyDisplayData(currencies: currencies)
+            self.view?.show(data: data)
         }
     }
 }

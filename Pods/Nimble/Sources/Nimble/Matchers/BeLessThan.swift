@@ -21,7 +21,7 @@ public func beLessThan(_ expectedValue: NMBComparable?) -> Predicate<NMBComparab
     }.requireNonNil
 }
 
-public func <<T: Comparable>(lhs: Expectation<T>, rhs: T) {
+public func < <T: Comparable>(lhs: Expectation<T>, rhs: T) {
     lhs.to(beLessThan(rhs))
 }
 
@@ -30,12 +30,12 @@ public func < (lhs: Expectation<NMBComparable>, rhs: NMBComparable?) {
 }
 
 #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
-extension NMBObjCMatcher {
-    @objc public class func beLessThanMatcher(_ expected: NMBComparable?) -> NMBObjCMatcher {
-        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
-            let expr = actualExpression.cast { $0 as? NMBComparable }
-            return try! beLessThan(expected).matches(expr, failureMessage: failureMessage)
+    extension NMBObjCMatcher {
+        @objc public class func beLessThanMatcher(_ expected: NMBComparable?) -> NMBObjCMatcher {
+            return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
+                let expr = actualExpression.cast { $0 as? NMBComparable }
+                return try! beLessThan(expected).matches(expr, failureMessage: failureMessage)
+            }
         }
     }
-}
 #endif

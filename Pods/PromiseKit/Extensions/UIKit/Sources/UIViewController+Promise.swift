@@ -1,24 +1,24 @@
 import Foundation.NSError
 import UIKit
 #if !COCOAPODS
-import PromiseKit
+    import PromiseKit
 #endif
 
 /**
  To import this `UIViewController` category:
 
-    use_frameworks!
-    pod "PromiseKit/UIKit"
+ use_frameworks!
+ pod "PromiseKit/UIKit"
 
  Or `UIKit` is one of the categories imported by the umbrella pod:
 
-    use_frameworks!
-    pod "PromiseKit"
+ use_frameworks!
+ pod "PromiseKit"
 
  And then in your sources:
 
-    import PromiseKit
-*/
+ import PromiseKit
+ */
 extension UIViewController {
 
     public enum PMKError: Error {
@@ -73,21 +73,21 @@ extension UIViewController {
         case .onceDisappeared:
             promise.then { result in
                 vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: { fulfill(result) })
-                }
-                .catch(policy: .allErrors) { error in
-                    vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: { reject(error) })
+            }
+            .catch(policy: .allErrors) { error in
+                vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: { reject(error) })
             }
         case .beforeDismissal:
             promise.then { result -> Void in
                 fulfill(result)
                 vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: nil)
-                }
-                .catch(policy: .allErrors) { error in
-                    reject(error)
-                    vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: nil)
+            }
+            .catch(policy: .allErrors) { error in
+                reject(error)
+                vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: nil)
             }
         }
-        
+
         return wrappingPromise
     }
 
@@ -106,6 +106,6 @@ extension UIViewController {
 
      Obviously return a Promise<T>. There is an issue with generics and Swift and
      protocols currently so we couldn't specify that.
-    */
+     */
     var promise: AnyObject! { get }
 }

@@ -24,21 +24,21 @@ public func beGreaterThanOrEqualTo<T: NMBComparable>(_ expectedValue: T?) -> Pre
     }.requireNonNil
 }
 
-public func >=<T: Comparable>(lhs: Expectation<T>, rhs: T) {
+public func >= <T: Comparable>(lhs: Expectation<T>, rhs: T) {
     lhs.to(beGreaterThanOrEqualTo(rhs))
 }
 
-public func >=<T: NMBComparable>(lhs: Expectation<T>, rhs: T) {
+public func >= <T: NMBComparable>(lhs: Expectation<T>, rhs: T) {
     lhs.to(beGreaterThanOrEqualTo(rhs))
 }
 
 #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
-extension NMBObjCMatcher {
-    @objc public class func beGreaterThanOrEqualToMatcher(_ expected: NMBComparable?) -> NMBObjCMatcher {
-        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
-            let expr = actualExpression.cast { $0 as? NMBComparable }
-            return try! beGreaterThanOrEqualTo(expected).matches(expr, failureMessage: failureMessage)
+    extension NMBObjCMatcher {
+        @objc public class func beGreaterThanOrEqualToMatcher(_ expected: NMBComparable?) -> NMBObjCMatcher {
+            return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
+                let expr = actualExpression.cast { $0 as? NMBComparable }
+                return try! beGreaterThanOrEqualTo(expected).matches(expr, failureMessage: failureMessage)
+            }
         }
     }
-}
 #endif

@@ -14,7 +14,8 @@ extension CurrencyEditPresenter: CurrencyEditViewOutputProtocol {
 extension CurrencyEditPresenter: CurrencyEditInteractorOutputProtocol {
     func didGet(currencySymbols: [String]) {
         DispatchQueue.main.async {
-            self.view?.set(currencySymbols: currencySymbols)
+            let data = CurrencyEditListData(currencySymbols: currencySymbols)
+            self.view?.set(data: data)
         }
     }
 }

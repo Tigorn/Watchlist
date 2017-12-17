@@ -5,17 +5,12 @@ protocol CurrencyEditViewOutputProtocol: class {
 }
 
 protocol CurrencyEditViewInputProtocol: class {
-    func set(currencySymbols: [String])
+    func set(data: CurrencyEditListData)
 }
 
 class CurrencyEditViewController: UIViewController {
     var listener: CurrencyEditViewOutputProtocol?
-
-    lazy var dataSource: (CurrencyEditDataSourceInputProtocol & UITableViewDelegate & UITableViewDataSource)? = {
-        let dataSource = CurrencyEditDataSource()
-        dataSource.listener = self
-        return dataSource
-    }()
+    var dataSource: (CurrencyEditDataSourceInputProtocol & UITableViewDelegate & UITableViewDataSource)?
 
     @IBOutlet var tableView: UITableView! {
         didSet {
@@ -39,16 +34,14 @@ class CurrencyEditViewController: UIViewController {
 }
 
 extension CurrencyEditViewController: CurrencyEditViewInputProtocol {
-    func set(currencySymbols: [String]) {
-        dataSource?.set(currencySymbols: currencySymbols)
+    func set(data: CurrencyEditListData) {
+        dataSource?.set(data: data)
         tableView.reloadData()
     }
 }
 
 extension CurrencyEditViewController: CurrencyEditDataSourceOutputProtocol {
-    func delete(rowAt _: IndexPath) {
-    }
-
-    func moveRowAt(sourceIndexPath _: IndexPath, destinationIndexPath _: IndexPath) {
+    func delete(rowAt indexPath: IndexPath) {
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

@@ -1,38 +1,38 @@
 import Domain
 import UIKit
 
-protocol CurrencyListDataSourceProtocol: class {
-    func set(currencies: [Currency])
+protocol CurrencyListDataSourceInputProtocol: class {
+    func set(data: CurrencyListCurrencyDisplayData)
 }
 
 class CurrencyListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-    fileprivate var currencies = [Currency]()
+    fileprivate var data: CurrencyListCurrencyDisplayData?
 
     func numberOfSections(in _: UITableView) -> Int {
-        return 1
+        return data?.sectionCount ?? 0
     }
 
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return currencies.count
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data?.itemCount(inSection: section) ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: .currencyListCell) as? CurrencyListTableViewCell else {
-            fatalError("Failed to dequeue cell with identifier: \(TableViewCellIdentifier.currencyListCell.rawValue)")
+        let identifier = TableViewCellIdentifier.currencyListCell
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? UITableViewCell & CurrencyListTableViewCellProtocol else {
+            fatalError("Failed to dequeue cell with identifier: \(identifier.rawValue)")
         }
 
-        let currency = currencies[indexPath.row]
-        cell.set(name: currency.symbol)
-        cell.set(volume: currency.volume)
-        cell.set(priceChange: currency.priceChange)
-        cell.set(percentChange: currency.percentChange)
-        cell.set(lastPrice: currency.lastPrice)
+        if let item = data?.itemAt(indexPath: indexPath) {
+            cell.set(item: item)
+        }
+
         return cell
     }
 }
 
-extension CurrencyListDataSource: CurrencyListDataSourceProtocol {
-    func set(currencies: [Currency]) {
-        self.currencies = currencies
+extension CurrencyListDataSource: CurrencyListDataSourceInputProtocol {
+    func set(data: CurrencyListCurrencyDisplayData) {
+        self.data = data
     }
 }

@@ -68,7 +68,7 @@ private class MockView: UIViewController, CurrencyListViewInputProtocol {
     var didShowCurrencies = false
     var didFailRequest = true
 
-    func show(currencies _: [Currency]) {
+    func show(data _: CurrencyListCurrencyDisplayData) {
         didShowCurrencies = true
     }
 

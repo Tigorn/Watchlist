@@ -28,7 +28,7 @@ internal protocol WaitLock {
 
 internal class AssertionWaitLock: WaitLock {
     private var currentWaiter: WaitingInfo?
-    init() { }
+    init() {}
 
     func acquireWaitingLock(_ fnName: String, file: FileString, line: UInt) {
         let info = WaitingInfo(name: fnName, file: file, lineNumber: line)
@@ -46,9 +46,9 @@ internal class AssertionWaitLock: WaitLock {
             currentWaiter == nil,
             "InvalidNimbleAPIUsage",
             "Nested async expectations are not allowed to avoid creating flaky tests.\n\n" +
-            "The call to\n\t\(info)\n" +
-            "triggered this exception because\n\t\(currentWaiter!)\n" +
-            "is currently managing the main run loop."
+                "The call to\n\t\(info)\n" +
+                "triggered this exception because\n\t\(currentWaiter!)\n" +
+                "is currently managing the main run loop."
         )
         currentWaiter = info
     }
@@ -98,7 +98,7 @@ internal enum AwaitResult<T> {
 /// Holds the resulting value from an asynchronous expectation.
 /// This class is thread-safe at receiving an "response" to this promise.
 internal class AwaitPromise<T> {
-    private(set) internal var asyncResult: AwaitResult<T> = .incomplete
+    internal private(set) var asyncResult: AwaitResult<T> = .incomplete
     private var signal: DispatchSemaphore
 
     init() {
@@ -116,7 +116,7 @@ internal class AwaitPromise<T> {
     ///          value was received first.
     func resolveResult(_ result: AwaitResult<T>) -> Bool {
         if signal.wait(timeout: .now()) == .success {
-            self.asyncResult = result
+            asyncResult = result
             return true
         } else {
             return false
@@ -145,10 +145,10 @@ internal class AwaitPromiseBuilder<T> {
         waitLock: WaitLock,
         promise: AwaitPromise<T>,
         trigger: AwaitTrigger) {
-            self.awaiter = awaiter
-            self.waitLock = waitLock
-            self.promise = promise
-            self.trigger = trigger
+        self.awaiter = awaiter
+        self.waitLock = waitLock
+        self.promise = promise
+        self.trigger = trigger
     }
 
     func timeout(_ timeoutInterval: TimeInterval, forcefullyAbortTimeout: TimeInterval) -> Self {
@@ -181,16 +181,16 @@ internal class AwaitPromiseBuilder<T> {
         //
         // In addition, stopping the run loop is used to halt code executed on the main run loop.
         #if swift(>=4.0)
-        trigger.timeoutSource.schedule(
-            deadline: DispatchTime.now() + timeoutInterval,
-            repeating: .never,
-            leeway: timeoutLeeway
-        )
+            trigger.timeoutSource.schedule(
+                deadline: DispatchTime.now() + timeoutInterval,
+                repeating: .never,
+                leeway: timeoutLeeway
+            )
         #else
-        trigger.timeoutSource.scheduleOneshot(
-            deadline: DispatchTime.now() + timeoutInterval,
-            leeway: timeoutLeeway
-        )
+            trigger.timeoutSource.scheduleOneshot(
+                deadline: DispatchTime.now() + timeoutInterval,
+                leeway: timeoutLeeway
+            )
         #endif
         trigger.timeoutSource.setEventHandler {
             guard self.promise.asyncResult.isIncomplete() else { return }
@@ -285,9 +285,9 @@ internal class Awaiter {
         waitLock: WaitLock,
         asyncQueue: DispatchQueue,
         timeoutQueue: DispatchQueue) {
-            self.waitLock = waitLock
-            self.asyncQueue = asyncQueue
-            self.timeoutQueue = timeoutQueue
+        self.waitLock = waitLock
+        self.asyncQueue = asyncQueue
+        self.timeoutQueue = timeoutQueue
     }
 
     private func createTimerSource(_ queue: DispatchQueue) -> DispatchSourceTimer {
@@ -298,29 +298,29 @@ internal class Awaiter {
         file: FileString,
         line: UInt,
         _ closure: @escaping (@escaping (T) -> Void) throws -> Void
-        ) -> AwaitPromiseBuilder<T> {
-            let promise = AwaitPromise<T>()
-            let timeoutSource = createTimerSource(timeoutQueue)
-            var completionCount = 0
-            let trigger = AwaitTrigger(timeoutSource: timeoutSource, actionSource: nil) {
-                try closure {
-                    completionCount += 1
-                    if completionCount < 2 {
-                        if promise.resolveResult(.completed($0)) {
-                            CFRunLoopStop(CFRunLoopGetMain())
-                        }
-                    } else {
-                        fail("waitUntil(..) expects its completion closure to be only called once",
-                             file: file, line: line)
+    ) -> AwaitPromiseBuilder<T> {
+        let promise = AwaitPromise<T>()
+        let timeoutSource = createTimerSource(timeoutQueue)
+        var completionCount = 0
+        let trigger = AwaitTrigger(timeoutSource: timeoutSource, actionSource: nil) {
+            try closure {
+                completionCount += 1
+                if completionCount < 2 {
+                    if promise.resolveResult(.completed($0)) {
+                        CFRunLoopStop(CFRunLoopGetMain())
                     }
+                } else {
+                    fail("waitUntil(..) expects its completion closure to be only called once",
+                         file: file, line: line)
                 }
             }
+        }
 
-            return AwaitPromiseBuilder(
-                awaiter: self,
-                waitLock: waitLock,
-                promise: promise,
-                trigger: trigger)
+        return AwaitPromiseBuilder(
+            awaiter: self,
+            waitLock: waitLock,
+            promise: promise,
+            trigger: trigger)
     }
 
     func poll<T>(_ pollInterval: TimeInterval, closure: @escaping () throws -> T?) -> AwaitPromiseBuilder<T> {
@@ -330,9 +330,9 @@ internal class Awaiter {
         let trigger = AwaitTrigger(timeoutSource: timeoutSource, actionSource: asyncSource) {
             let interval = DispatchTimeInterval.nanoseconds(Int(pollInterval * TimeInterval(NSEC_PER_SEC)))
             #if swift(>=4.0)
-            asyncSource.schedule(deadline: .now(), repeating: interval, leeway: pollLeeway)
+                asyncSource.schedule(deadline: .now(), repeating: interval, leeway: pollLeeway)
             #else
-            asyncSource.scheduleRepeating(deadline: .now(), interval: interval, leeway: pollLeeway)
+                asyncSource.scheduleRepeating(deadline: .now(), interval: interval, leeway: pollLeeway)
             #endif
             asyncSource.setEventHandler {
                 do {
@@ -365,13 +365,13 @@ internal func pollBlock(
     line: UInt,
     fnName: String = #function,
     expression: @escaping () throws -> Bool) -> AwaitResult<Bool> {
-        let awaiter = NimbleEnvironment.activeInstance.awaiter
-        let result = awaiter.poll(pollInterval) { () throws -> Bool? in
-            if try expression() {
-                return true
-            }
-            return nil
-        }.timeout(timeoutInterval, forcefullyAbortTimeout: timeoutInterval / 2.0).wait(fnName, file: file, line: line)
+    let awaiter = NimbleEnvironment.activeInstance.awaiter
+    let result = awaiter.poll(pollInterval) { () throws -> Bool? in
+        if try expression() {
+            return true
+        }
+        return nil
+    }.timeout(timeoutInterval, forcefullyAbortTimeout: timeoutInterval / 2.0).wait(fnName, file: file, line: line)
 
-        return result
+    return result
 }

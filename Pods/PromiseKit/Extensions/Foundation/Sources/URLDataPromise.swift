@@ -1,6 +1,6 @@
 import Foundation
 #if !COCOAPODS
-import PromiseKit
+    import PromiseKit
 #endif
 
 public enum Encoding {
@@ -10,13 +10,13 @@ public enum Encoding {
 
 /**
  A promise capable of decoding common Internet data types.
- 
+
  Used by:
- 
-  - PromiseKit/Foundation
-  - PromiseKit/Social
-  - PromiseKit/OMGHTTPURLRQ
- 
+
+ - PromiseKit/Foundation
+ - PromiseKit/Social
+ - PromiseKit/OMGHTTPURLRQ
+
  But probably of general use to any promises that receive HTTP `Data`.
  */
 public class URLDataPromise: Promise<Data> {
@@ -39,7 +39,7 @@ public class URLDataPromise: Promise<Data> {
     public func asArray(_ encoding: Encoding = .json(.allowFragments)) -> Promise<NSArray> {
         return then(on: waldo) { data -> NSArray in
             switch encoding {
-            case .json(let options):
+            case let .json(options):
                 guard !data.b0rkedEmptyRailsResponse else { return NSArray() }
                 let json = try JSONSerialization.jsonObject(with: data, options: options)
                 guard let array = json as? NSArray else { throw JSONError.unexpectedRootNode(json) }
@@ -52,7 +52,7 @@ public class URLDataPromise: Promise<Data> {
     public func asDictionary(_ encoding: Encoding = .json(.allowFragments)) -> Promise<NSDictionary> {
         return then(on: waldo) { data -> NSDictionary in
             switch encoding {
-            case .json(let options):
+            case let .json(options):
                 guard !data.b0rkedEmptyRailsResponse else { return NSDictionary() }
                 let json = try JSONSerialization.jsonObject(with: data, options: options)
                 guard let dict = json as? NSDictionary else { throw JSONError.unexpectedRootNode(json) }
@@ -67,7 +67,7 @@ public class URLDataPromise: Promise<Data> {
     /// Internal
     public class func go(_ request: URLRequest, body: (@escaping (Data?, URLResponse?, Error?) -> Void) -> Void) -> URLDataPromise {
         let (p, fulfill, reject) = URLDataPromise.pending()
-        let promise  = p as! URLDataPromise
+        let promise = p as! URLDataPromise
 
         body { data, rsp, error in
             promise.URLRequest = request
@@ -75,7 +75,7 @@ public class URLDataPromise: Promise<Data> {
 
             if let error = error {
                 reject(error)
-            } else if let data = data, let rsp = rsp as? HTTPURLResponse, (200..<300) ~= rsp.statusCode {
+            } else if let data = data, let rsp = rsp as? HTTPURLResponse, (200 ..< 300) ~= rsp.statusCode {
                 fulfill(data)
             } else if let data = data, !(rsp is HTTPURLResponse) {
                 fulfill(data)
@@ -83,7 +83,7 @@ public class URLDataPromise: Promise<Data> {
                 reject(PMKURLError.badResponse(request, data, rsp))
             }
         }
-        
+
         return promise
     }
 }
@@ -116,6 +116,6 @@ extension URLResponse {
 
 extension Data {
     fileprivate var b0rkedEmptyRailsResponse: Bool {
-        return count == 1 && withUnsafeBytes{ $0[0] == " " }
+        return count == 1 && withUnsafeBytes { $0[0] == " " }
     }
 }

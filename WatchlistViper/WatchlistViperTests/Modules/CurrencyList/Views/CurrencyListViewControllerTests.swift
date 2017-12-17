@@ -9,12 +9,12 @@ class CurrencyListViewControllerTests: QuickSpec {
         var viewController: CurrencyListViewController!
         var presenter: MockPresenter!
         var tableView: MockTableView!
-        var dataSource: CurrencyListDataSource!
+        var dataSource: MockDataSource!
 
         beforeEach {
             viewController = UIStoryboard.list.instantiateViewController(withIdentifier: .currencyListViewController) as! CurrencyListViewController
 
-            dataSource = CurrencyListDataSource()
+            dataSource = MockDataSource()
             presenter = MockPresenter()
             tableView = MockTableView()
 
@@ -26,12 +26,12 @@ class CurrencyListViewControllerTests: QuickSpec {
 
         describe("CurrencyListViewController") {
             it("sets currencies on show") {
-                viewController.show(currencies: [Currency(), Currency()])
-                expect(dataSource.tableView(UITableView(), numberOfRowsInSection: 0)).toEventually(equal(2))
+                viewController.show(data: CurrencyListCurrencyDisplayData())
+                expect(dataSource.didSetCurrencies).to(beTrue())
             }
 
             it("reloads data on show") {
-                viewController.show(currencies: [])
+                viewController.show(data: CurrencyListCurrencyDisplayData())
                 expect(tableView.didReloadData).toEventually(beTrue())
             }
 
@@ -58,6 +58,21 @@ class CurrencyListViewControllerTests: QuickSpec {
                 expect(refreshControl?.isRefreshing).to(beFalse())
             }
         }
+    }
+}
+
+private class MockDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, CurrencyListDataSourceInputProtocol {
+    var didSetCurrencies = false
+    func set(data _: CurrencyListCurrencyDisplayData) {
+        didSetCurrencies = true
+    }
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return 0
+    }
+
+    func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
 

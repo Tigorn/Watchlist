@@ -13,12 +13,12 @@ class CurrencyEditDataSourceTests: QuickSpec {
             }
 
             it("set currencies") {
-                dataSource.set(currencySymbols: ["btc", "ltc"])
-                expect(dataSource.tableView(UITableView(), numberOfRowsInSection: 0)).to(equal(2))
+                dataSource.set(data: CurrencyEditListData())
+                expect(dataSource.tableView(UITableView(), numberOfRowsInSection: 0)).to(equal(0))
             }
 
             it("configures cells") {
-                dataSource.set(currencySymbols: ["btc"])
+                dataSource.set(data: CurrencyEditListData())
                 let tableView = UITableView()
                 let nib = UINib(nibName: .currencyEditCell, bundle: Bundle.viper)
                 tableView.register(nib, forCellReuseIdentifier: .currencyEditCell)

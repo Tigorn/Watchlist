@@ -25,7 +25,7 @@ class CurrencyEditViewControllerTests: QuickSpec {
                 let tableView = MockTableView()
                 viewController.dataSource = dataSource
                 viewController.tableView = tableView
-                viewController.set(currencySymbols: [])
+                viewController.set(data: CurrencyEditListData())
                 expect(dataSource.didSetCurrencySymbols).to(beTrue())
                 expect(tableView.didReloadData).to(beTrue())
             }
@@ -43,7 +43,7 @@ private class MockDataSource: NSObject, UITableViewDataSource, UITableViewDelega
         return UITableViewCell()
     }
 
-    func set(currencySymbols _: [String]) {
+    func set(data: CurrencyEditListData) {
         didSetCurrencySymbols = true
     }
 }

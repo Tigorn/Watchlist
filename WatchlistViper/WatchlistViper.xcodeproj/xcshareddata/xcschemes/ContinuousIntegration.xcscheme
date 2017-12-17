@@ -76,6 +76,34 @@
                ReferencedContainer = "container:WatchlistViper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "43075D951FE72AAC00A8847E"
+               BuildableName = "FoundationComponentsTests.xctest"
+               BlueprintName = "FoundationComponentsTests"
+               ReferencedContainer = "container:../Watchlist.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "43075D771FE72A9100A8847E"
+               BuildableName = "UIComponentsTests.xctest"
+               BlueprintName = "UIComponentsTests"
+               ReferencedContainer = "container:../Watchlist.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -126,13 +154,33 @@
                ReferencedContainer = "container:../Watchlist.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "43075D951FE72AAC00A8847E"
+               BuildableName = "FoundationComponentsTests.xctest"
+               BlueprintName = "FoundationComponentsTests"
+               ReferencedContainer = "container:../Watchlist.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "43075D771FE72A9100A8847E"
+               BuildableName = "UIComponentsTests.xctest"
+               BlueprintName = "UIComponentsTests"
+               ReferencedContainer = "container:../Watchlist.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43DC3D761FBD46F0009073AA"
-            BuildableName = "WatchlistViperTests.xctest"
-            BlueprintName = "WatchlistViperTests"
+            BlueprintIdentifier = "43DC3D621FBD46F0009073AA"
+            BuildableName = "WatchlistViper.app"
+            BlueprintName = "WatchlistViper"
             ReferencedContainer = "container:WatchlistViper.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -150,6 +198,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "43DC3D621FBD46F0009073AA"
+            BuildableName = "WatchlistViper.app"
+            BlueprintName = "WatchlistViper"
+            ReferencedContainer = "container:WatchlistViper.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

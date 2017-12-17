@@ -2,7 +2,6 @@ import UIKit
 
 public struct Currency: Decodable {
     public let symbol: String
-    public let name: String?
     public let lastPrice: Double?
     public let priceChange: Double?
     public let percentChange: Double?
@@ -12,7 +11,6 @@ public struct Currency: Decodable {
 
     public init() {
         symbol = ""
-        name = nil
         lastPrice = nil
         priceChange = nil
         percentChange = nil
@@ -22,7 +20,7 @@ public struct Currency: Decodable {
     }
 
     public init(symbol: String,
-                name: String? = nil,
+                name _: String? = nil,
                 lastPrice: Double? = nil,
                 priceChange: Double? = nil,
                 percentChange: Double? = nil,
@@ -30,7 +28,6 @@ public struct Currency: Decodable {
                 high: Double? = nil,
                 low: Double? = nil) {
         self.symbol = symbol
-        self.name = name
         self.lastPrice = lastPrice
         self.priceChange = priceChange
         self.percentChange = percentChange
@@ -44,11 +41,7 @@ public struct Currency: Decodable {
             var container = try decoder.unkeyedContainer()
 
             symbol = try container.decode(String.self)
-            _ = try container.decode(Double.self)
-            _ = try container.decode(Double.self)
-            _ = try container.decode(Double.self)
-            _ = try container.decode(Double.self)
-            name = nil
+            try (0 ..< 4).forEach { _ in _ = try container.decode(Double.self) }
             priceChange = try container.decode(Double.self)
             percentChange = try container.decode(Double.self)
             lastPrice = try container.decode(Double.self)

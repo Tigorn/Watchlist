@@ -1,10 +1,10 @@
 import UIKit
 #if !COCOAPODS
-import PromiseKit
+    import PromiseKit
 #endif
 
-//TODO tests
-//TODO NSCoding
+// TODO: tests
+// TODO: NSCoding
 
 /**
  A “promisable” UIAlertController.
@@ -15,18 +15,18 @@ import PromiseKit
  use an extended addAction method, which would be easy to forget part of
  the time. Hence we provide a facade pattern that can be promised.
 
-    let alert = PMKAlertController("OHAI")
-    let sup = alert.addActionWithTitle("SUP")
-    let bye = alert.addActionWithTitle("BYE")
-    promiseViewController(alert).then { action in
-        switch action {
-        case is sup:
-            //…
-        case is bye:
-            //…
-        }
-    }
-*/
+ let alert = PMKAlertController("OHAI")
+ let sup = alert.addActionWithTitle("SUP")
+ let bye = alert.addActionWithTitle("BYE")
+ promiseViewController(alert).then { action in
+ switch action {
+ case is sup:
+ //…
+ case is bye:
+ //…
+ }
+ }
+ */
 public class PMKAlertController {
     /// The title of the alert.
     public var title: String? { return UIAlertController.title }
@@ -39,13 +39,13 @@ public class PMKAlertController {
     /// The array of text fields displayed by the alert.
     public var textFields: [UITextField]? { return UIAlertController.textFields }
 
-#if !os(tvOS)
-    /// The nearest popover presentation controller that is managing the current view controller.
-    public var popoverPresentationController: UIPopoverPresentationController? { return UIAlertController.popoverPresentationController }
-#endif
+    #if !os(tvOS)
+        /// The nearest popover presentation controller that is managing the current view controller.
+        public var popoverPresentationController: UIPopoverPresentationController? { return UIAlertController.popoverPresentationController }
+    #endif
 
     /// Creates and returns a view controller for displaying an alert to the user.
-    public required init(title: String?, message: String?  = nil, preferredStyle: UIAlertControllerStyle = .alert) {
+    public required init(title: String?, message: String? = nil, preferredStyle: UIAlertControllerStyle = .alert) {
         UIAlertController = UIKit.UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
     }
 
