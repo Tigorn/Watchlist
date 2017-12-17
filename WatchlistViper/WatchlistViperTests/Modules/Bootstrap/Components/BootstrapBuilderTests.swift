@@ -2,6 +2,7 @@ import Nimble
 import Quick
 @testable import WatchlistViper
 
+// swiftlint:disable force_cast
 class BootstrapBuilderTests: QuickSpec {
     override func spec() {
         describe("BootstrapBuilder") {
@@ -21,6 +22,6 @@ class BootstrapBuilderTests: QuickSpec {
     }
 }
 
-fileprivate class MockBootstrapView: BootstrapViewInputProtocol {
+private class MockBootstrapView: BootstrapViewInputProtocol {
     func set(window _: UIWindow) {}
 }

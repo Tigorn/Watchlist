@@ -13,7 +13,7 @@ class AppDelegateTests: QuickSpec {
     }
 }
 
-fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
+private class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
     var didInitialize = false
     func initialize(completion _: @escaping () -> Void) {
         didInitialize = true

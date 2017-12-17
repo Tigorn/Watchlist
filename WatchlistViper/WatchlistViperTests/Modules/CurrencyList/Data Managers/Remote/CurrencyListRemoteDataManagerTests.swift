@@ -35,7 +35,7 @@ class CurrencyListRemoteDataManagerTests: QuickSpec {
     }
 }
 
-fileprivate class MockListener: CurrencyListRemoteDataManagerOutputProtocol {
+private class MockListener: CurrencyListRemoteDataManagerOutputProtocol {
     var getCurrenciesFailed = false
     var didGetTickers = false
 
@@ -48,7 +48,7 @@ fileprivate class MockListener: CurrencyListRemoteDataManagerOutputProtocol {
     }
 }
 
-fileprivate class MockSecuritiesService: SecuritiesServiceProtocol {
+private class MockSecuritiesService: SecuritiesServiceProtocol {
     var getTickersShouldSucceed = true
 
     func getTickers(forCurrencySymbols _: [String]) -> Promise<[Currency]> {

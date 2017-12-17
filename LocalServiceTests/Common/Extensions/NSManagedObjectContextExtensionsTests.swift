@@ -43,11 +43,11 @@ class NSManagedObjectContextExtensionsTests: QuickSpec {
     }
 }
 
-fileprivate enum ContextError: Error {
+private enum ContextError: Error {
     case saveError
 }
 
-fileprivate class MockContext: NSManagedObjectContext {
+private class MockContext: NSManagedObjectContext {
     var throwOnSave = false
     var _hasChanges = true
     var didRollback = false

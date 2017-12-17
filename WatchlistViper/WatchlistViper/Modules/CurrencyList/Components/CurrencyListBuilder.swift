@@ -1,6 +1,6 @@
-import UIKit
-import LocalService
 import Domain
+import LocalService
+import UIKit
 
 protocol CurrencyListBuilderProtocol {
     func makeModule() -> UIViewController
@@ -8,7 +8,10 @@ protocol CurrencyListBuilderProtocol {
 
 class CurrencyListBuilder: CurrencyListBuilderProtocol {
     func makeModule() -> UIViewController {
-        let viewController = UIStoryboard.list.instantiateViewController(withIdentifier: .currencyListViewController) as! CurrencyListViewController
+        guard let viewController = UIStoryboard.list.instantiateViewController(withIdentifier: .currencyListViewController) as? CurrencyListViewController else {
+            fatalError("Could not instantiate view controller with identifier: \(UIViewControllerIdentifier.currencyEditViewController.rawValue)")
+        }
+
         let localDataManager = CurrencyListLocalDataManager()
         let remoteDataManager = CurrencyListRemoteDataManager()
         let interactor = CurrencyListInteractor()

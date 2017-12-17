@@ -42,7 +42,7 @@ class LocalPersistenceServiceTests: QuickSpec {
     }
 }
 
-fileprivate class MockContext: NSManagedObjectContext {
+private class MockContext: NSManagedObjectContext {
     var didRefreshAllObjects = false
     override func refreshAllObjects() {
         didRefreshAllObjects = true

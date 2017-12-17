@@ -25,7 +25,7 @@ class DataTaskComponentsTests: QuickSpec {
     }
 }
 
-fileprivate class MockRoute: Routable {
+private class MockRoute: Routable {
     var path: String = "/path"
     var host: String = "host.com"
 }

@@ -46,7 +46,7 @@ class CurrencyListInteractorTests: QuickSpec {
     }
 }
 
-fileprivate class MockRemoteDataManager: CurrencyListRemoteDataManagerInputProtocol {
+private class MockRemoteDataManager: CurrencyListRemoteDataManagerInputProtocol {
     var outputEventHandler: CurrencyListRemoteDataManagerOutputProtocol?
     var didGetCurrencyListTickers = false
 
@@ -55,7 +55,7 @@ fileprivate class MockRemoteDataManager: CurrencyListRemoteDataManagerInputProto
     }
 }
 
-fileprivate class MockLocalDataManager: CurrencyListLocalDataManagerInputProtocol {
+private class MockLocalDataManager: CurrencyListLocalDataManagerInputProtocol {
     var didGetCurrencySymbols = false
 
     func getCurrencies() {
@@ -63,7 +63,7 @@ fileprivate class MockLocalDataManager: CurrencyListLocalDataManagerInputProtoco
     }
 }
 
-fileprivate class MockCurrencyListPresenter: CurrencyListInteractorOutputProtocol {
+private class MockCurrencyListPresenter: CurrencyListInteractorOutputProtocol {
     var didGetCurrencies = false
     var getCurrenciesFailed = false
 

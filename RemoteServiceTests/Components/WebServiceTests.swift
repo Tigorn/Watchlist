@@ -30,12 +30,12 @@ class WebServiceTests: QuickSpec {
     }
 }
 
-fileprivate class MockRoute: Routable {
+private class MockRoute: Routable {
     var path = "/path"
     var host = "host.com"
 }
 
-fileprivate class MockSession: URLSessionProtocol {
+private class MockSession: URLSessionProtocol {
     var data: Data?
     var response: URLResponse?
     var error: Error?

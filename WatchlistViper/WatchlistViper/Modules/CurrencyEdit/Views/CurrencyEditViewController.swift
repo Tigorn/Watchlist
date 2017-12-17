@@ -47,10 +47,8 @@ extension CurrencyEditViewController: CurrencyEditViewInputProtocol {
 
 extension CurrencyEditViewController: CurrencyEditDataSourceOutputProtocol {
     func delete(rowAt _: IndexPath) {
-        // TODO:
     }
 
     func moveRowAt(sourceIndexPath _: IndexPath, destinationIndexPath _: IndexPath) {
-        // TODO:
     }
 }

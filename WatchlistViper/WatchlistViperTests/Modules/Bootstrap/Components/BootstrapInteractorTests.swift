@@ -52,14 +52,14 @@ class BootstrapInteractorTests: QuickSpec {
     }
 }
 
-fileprivate class MockPresenter: BootstrapInteractorOutputProtocol {
+private class MockPresenter: BootstrapInteractorOutputProtocol {
     var didBootstrap = false
     func didFinishBootstrap() {
         didBootstrap = true
     }
 }
 
-fileprivate class MockLocalDataManager: BootstrapLocalDataManagerInputProtocol {
+private class MockLocalDataManager: BootstrapLocalDataManagerInputProtocol {
     var outputEventHandler: BootstrapLocalDataManagerOutputProtocol?
     private var didSetDefaultCurrencies = false
     var didInitialize = false

@@ -28,7 +28,7 @@ class CurrencyEditPresenterTests: QuickSpec {
     }
 }
 
-fileprivate class MockView: CurrencyEditViewInputProtocol {
+private class MockView: CurrencyEditViewInputProtocol {
     var listener: CurrencyEditViewOutputProtocol?
     var didSetCurrencies = false
 
@@ -37,7 +37,7 @@ fileprivate class MockView: CurrencyEditViewInputProtocol {
     }
 }
 
-fileprivate class MockInteractor: CurrencyEditInteractorInputProtocol {
+private class MockInteractor: CurrencyEditInteractorInputProtocol {
     var presenter: CurrencyEditInteractorOutputProtocol?
     var localInputDataManager: CurrencyEditLocalDataManagerInputProtocol?
     var didGetCurrencies = false

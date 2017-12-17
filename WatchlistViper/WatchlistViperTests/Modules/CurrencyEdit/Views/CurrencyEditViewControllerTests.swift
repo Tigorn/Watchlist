@@ -2,6 +2,7 @@ import Nimble
 import Quick
 @testable import WatchlistViper
 
+// swiftlint:disable force_cast
 class CurrencyEditViewControllerTests: QuickSpec {
     override func spec() {
         describe("CurrencyEditViewController") {
@@ -32,7 +33,7 @@ class CurrencyEditViewControllerTests: QuickSpec {
     }
 }
 
-fileprivate class MockDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, CurrencyEditDataSourceInputProtocol {
+private class MockDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, CurrencyEditDataSourceInputProtocol {
     var didSetCurrencySymbols = false
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return 1
@@ -47,7 +48,7 @@ fileprivate class MockDataSource: NSObject, UITableViewDataSource, UITableViewDe
     }
 }
 
-fileprivate class MockTableView: UITableView {
+private class MockTableView: UITableView {
     var didReloadData = false
 
     override func reloadData() {
@@ -55,7 +56,7 @@ fileprivate class MockTableView: UITableView {
     }
 }
 
-fileprivate class MockPresenter: CurrencyEditViewOutputProtocol {
+private class MockPresenter: CurrencyEditViewOutputProtocol {
     var view: CurrencyEditViewInputProtocol?
     var interactor: CurrencyEditInteractorInputProtocol?
     var didGetCurrencies = false

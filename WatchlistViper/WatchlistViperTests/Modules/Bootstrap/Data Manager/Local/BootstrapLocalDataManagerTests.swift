@@ -50,20 +50,20 @@ class BootstrapLocalDataManagerTests: QuickSpec {
     }
 }
 
-fileprivate class MockOutputHandler: BootstrapLocalDataManagerOutputProtocol {
+private class MockOutputHandler: BootstrapLocalDataManagerOutputProtocol {
     var _didInitialize = false
     func didInitialize() {
         _didInitialize = true
     }
 }
 
-fileprivate class MockLocalFileService: LocalFileServiceProtocol {
+private class MockLocalFileService: LocalFileServiceProtocol {
     func defaultCurrencySymbols() -> [String] {
         return ["btc"]
     }
 }
 
-fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
+private class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
     var didPutCurrencySymbol = false
 
     func initialize(completion: @escaping () -> Void) {
@@ -79,6 +79,6 @@ fileprivate class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
     }
 }
 
-fileprivate class MockLocalDefaultsService: LocalDefaultsServiceProtocol {
+private class MockLocalDefaultsService: LocalDefaultsServiceProtocol {
     var didSetDefaultCurrencies = false
 }

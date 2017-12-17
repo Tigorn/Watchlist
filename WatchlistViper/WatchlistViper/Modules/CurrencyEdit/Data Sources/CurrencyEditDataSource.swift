@@ -18,7 +18,10 @@ class CurrencyEditDataSource: NSObject, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: .currencyEditCell) as! CurrencyEditTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: .currencyEditCell) as? CurrencyEditTableViewCell else {
+            fatalError("Failed to dequeue cell with identifier: \(TableViewCellIdentifier.currencyEditCell.rawValue)")
+        }
+
         let symbol = currencySymbols[indexPath.row]
         cell.set(name: symbol)
         return cell

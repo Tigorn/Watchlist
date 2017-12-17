@@ -1,8 +1,9 @@
-import Quick
-import Nimble
 import Domain
+import Nimble
+import Quick
 @testable import WatchlistViper
 
+// swiftlint:disable force_cast
 class CurrencyListViewControllerTests: QuickSpec {
     override func spec() {
         var viewController: CurrencyListViewController!
@@ -60,7 +61,7 @@ class CurrencyListViewControllerTests: QuickSpec {
     }
 }
 
-fileprivate class MockPresenter: CurrencyListViewOutputProtocol {
+private class MockPresenter: CurrencyListViewOutputProtocol {
     var didGetCurrencies = false
     var didEditActiontriggered = false
 
@@ -73,7 +74,7 @@ fileprivate class MockPresenter: CurrencyListViewOutputProtocol {
     }
 }
 
-fileprivate class MockTableView: UITableView {
+private class MockTableView: UITableView {
     var didReloadData = false
     override func reloadData() {
         didReloadData = true

@@ -1,7 +1,8 @@
-import Quick
 import Nimble
+import Quick
 @testable import WatchlistViper
 
+// swiftlint:disable force_cast
 class CurrencyEditBuilderTests: QuickSpec {
     override func spec() {
         describe("CurrencyEditBuilder") {
