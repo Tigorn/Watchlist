@@ -2,7 +2,7 @@ import Domain
 import UIKit
 
 protocol CurrencyListViewInputProtocol: class {
-    func show(currencies: [Currency])
+    func show(data: CurrencyListCurrencyDisplayData)
     func requestFailed()
 }
 
@@ -13,7 +13,7 @@ protocol CurrencyListViewOutputProtocol: class {
 
 class CurrencyListViewController: UIViewController {
     var listener: CurrencyListViewOutputProtocol?
-    var dataSource: (CurrencyListDataSourceProtocol & UITableViewDelegate & UITableViewDataSource)?
+    var dataSource: (CurrencyListDataSourceInputProtocol & UITableViewDelegate & UITableViewDataSource)?
 
     @IBOutlet var tableView: UITableView! {
         didSet {
@@ -53,9 +53,9 @@ extension CurrencyListViewController: CurrencyListViewInputProtocol {
         tableView.refreshControl?.endRefreshing()
     }
 
-    func show(currencies: [Currency]) {
+    func show(data: CurrencyListCurrencyDisplayData) {
         tableView.refreshControl?.endRefreshing()
-        dataSource?.set(currencies: currencies)
+        dataSource?.set(data: data)
         tableView.reloadData()
     }
 }

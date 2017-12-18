@@ -1,5 +1,9 @@
 import UIKit
 
+protocol CurrencyListTableViewCellProtocol: class {
+    func set(item: CurrencyListCurrencyDisplayItem)
+}
+
 class CurrencyListTableViewCell: UITableViewCell {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var priceLabel: UILabel!
@@ -11,20 +15,15 @@ class CurrencyListTableViewCell: UITableViewCell {
         return numberFormatter
     }()
 
-    func set(name: String?) {
-        nameLabel.text = name
+    override func prepareForReuse() {
+        nameLabel.text = nil
+        priceLabel.text = nil
     }
+}
 
-    func set(percentChange _: Double?) {
-    }
-
-    func set(priceChange _: Double?) {
-    }
-
-    func set(volume _: Double?) {
-    }
-
-    func set(lastPrice: Double?) {
-        priceLabel.text = CurrencyListTableViewCell.numberFormatter.string(from: lastPrice)
+extension CurrencyListTableViewCell: CurrencyListTableViewCellProtocol {
+    func set(item: CurrencyListCurrencyDisplayItem) {
+        nameLabel.text = item.name
+        priceLabel.text = CurrencyListTableViewCell.numberFormatter.string(from: item.lastPrice)
     }
 }

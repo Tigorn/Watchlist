@@ -12,6 +12,6 @@ open class Behavior<Context> {
      and `afterEach` closures, as well as any number of examples (defined using `it`).
 
      - parameter aContext: A closure that, when evaluated, returns a `Context` instance that provide the information on the subject.
-    */
-    open class func spec(_ aContext: @escaping () -> Context) {}
+     */
+    open class func spec(_: @escaping () -> Context) {}
 }

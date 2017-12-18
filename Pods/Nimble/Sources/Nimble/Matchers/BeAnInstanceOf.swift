@@ -46,11 +46,11 @@ public func beAnInstanceOf(_ expectedClass: AnyClass) -> Predicate<NSObject> {
 }
 
 #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
-extension NMBObjCMatcher {
-    @objc public class func beAnInstanceOfMatcher(_ expected: AnyClass) -> NMBMatcher {
-        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
-            return try! beAnInstanceOf(expected).matches(actualExpression, failureMessage: failureMessage)
+    extension NMBObjCMatcher {
+        @objc public class func beAnInstanceOfMatcher(_ expected: AnyClass) -> NMBMatcher {
+            return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
+                try! beAnInstanceOf(expected).matches(actualExpression, failureMessage: failureMessage)
+            }
         }
     }
-}
 #endif

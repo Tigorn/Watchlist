@@ -18,8 +18,8 @@ private func async<T>(style: ExpectationStyle, predicate: Predicate<T>, timeout:
             file: actualExpression.location.file,
             line: actualExpression.location.line,
             fnName: fnName) {
-                lastPredicateResult = try predicate.satisfies(uncachedExpression)
-                return lastPredicateResult!.toBoolean(expectation: style)
+            lastPredicateResult = try predicate.satisfies(uncachedExpression)
+            return lastPredicateResult!.toBoolean(expectation: style)
         }
         switch result {
         case .completed: return lastPredicateResult!
@@ -45,9 +45,9 @@ internal struct AsyncMatcherWrapper<T, U>: Matcher
     let pollInterval: TimeInterval
 
     init(fullMatcher: U, timeoutInterval: TimeInterval = AsyncDefaults.Timeout, pollInterval: TimeInterval = AsyncDefaults.PollInterval) {
-      self.fullMatcher = fullMatcher
-      self.timeoutInterval = timeoutInterval
-      self.pollInterval = pollInterval
+        self.fullMatcher = fullMatcher
+        self.timeoutInterval = timeoutInterval
+        self.pollInterval = pollInterval
     }
 
     func matches(_ actualExpression: Expression<T>, failureMessage: FailureMessage) -> Bool {
@@ -59,7 +59,7 @@ internal struct AsyncMatcherWrapper<T, U>: Matcher
             file: actualExpression.location.file,
             line: actualExpression.location.line,
             fnName: fnName) {
-                try self.fullMatcher.matches(uncachedExpression, failureMessage: failureMessage)
+            try self.fullMatcher.matches(uncachedExpression, failureMessage: failureMessage)
         }
         switch result {
         case let .completed(isSuccessful): return isSuccessful
@@ -86,7 +86,7 @@ internal struct AsyncMatcherWrapper<T, U>: Matcher
             file: actualExpression.location.file,
             line: actualExpression.location.line,
             fnName: "expect(...).toEventuallyNot(...)") {
-                try self.fullMatcher.doesNotMatch(uncachedExpression, failureMessage: failureMessage)
+            try self.fullMatcher.doesNotMatch(uncachedExpression, failureMessage: failureMessage)
         }
         switch result {
         case let .completed(isSuccessful): return isSuccessful

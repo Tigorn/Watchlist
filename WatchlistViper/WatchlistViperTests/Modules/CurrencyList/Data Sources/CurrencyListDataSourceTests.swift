@@ -1,6 +1,6 @@
-import Quick
-import Nimble
 import Domain
+import Nimble
+import Quick
 @testable import WatchlistViper
 
 class CurrencyListDataSourceTests: QuickSpec {
@@ -11,14 +11,13 @@ class CurrencyListDataSourceTests: QuickSpec {
         beforeEach {
             tableView = UITableView()
             dataSource = CurrencyListDataSource()
-            dataSource.set(currencies: [Currency()])
+            dataSource.set(data: CurrencyListCurrencyDisplayData())
         }
 
         describe("CurrencyListViewController") {
             it("sets number of rows") {
-                let currencies = [Currency(), Currency()]
-                dataSource.set(currencies: currencies)
-                expect(dataSource.tableView(tableView, numberOfRowsInSection: 0)).to(equal(2))
+                dataSource.set(data: CurrencyListCurrencyDisplayData())
+                expect(dataSource.tableView(tableView, numberOfRowsInSection: 0)).to(equal(0))
             }
 
             it("configures the cell") {

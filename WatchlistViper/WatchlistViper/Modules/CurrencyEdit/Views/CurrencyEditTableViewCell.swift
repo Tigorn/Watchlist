@@ -1,9 +1,13 @@
 import UIKit
 
-class CurrencyEditTableViewCell: UITableViewCell {
+protocol CurrencyEditTableViewCellProtocol {
+    func set(item: CurrencyEditListItem)
+}
+
+class CurrencyEditTableViewCell: UITableViewCell, CurrencyEditTableViewCellProtocol {
     @IBOutlet private var nameLabel: UILabel!
 
-    func set(name: String) {
-        nameLabel.text = name
+    func set(item: CurrencyEditListItem) {
+        nameLabel.text = item.name
     }
 }

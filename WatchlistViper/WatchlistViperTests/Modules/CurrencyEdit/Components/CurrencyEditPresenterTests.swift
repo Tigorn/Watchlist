@@ -32,7 +32,7 @@ private class MockView: CurrencyEditViewInputProtocol {
     var listener: CurrencyEditViewOutputProtocol?
     var didSetCurrencies = false
 
-    func set(currencySymbols _: [String]) {
+    func set(data: CurrencyEditListData) {
         didSetCurrencies = true
     }
 }
