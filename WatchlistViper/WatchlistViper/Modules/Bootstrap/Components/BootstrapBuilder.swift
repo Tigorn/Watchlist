@@ -2,18 +2,33 @@ import Domain
 import UIKit
 
 protocol BootstrapBuilderProtocol: class {
-    func createBootstrapModule(in view: BootstrapViewInputProtocol) -> BootstrapViewOutputProtocol
+    func makeRootViewController() -> UIViewController
+    func makeLoadingViewController() -> UIViewController
+    func makeBootstrapModule() -> BootstrapViewOutputProtocol
 }
 
 class BootstrapBuilder: BootstrapBuilderProtocol {
-    func createBootstrapModule(in view: BootstrapViewInputProtocol) -> BootstrapViewOutputProtocol {
+    func makeLoadingViewController() -> UIViewController {
+        return UIStoryboard.bootstrap.instantiateViewController(withIdentifier: .loadingViewController)
+    }
+
+    func makeRootViewController() -> UIViewController {
+        let tabBarController = UITabBarController()
+        let currencyListViewController = UINavigationController(rootViewController: CurrencyListBuilder().makeModule())
+        tabBarController.viewControllers = [currencyListViewController]
+        return tabBarController
+    }
+
+    func makeBootstrapModule() -> BootstrapViewOutputProtocol {
         let presenter = BootstrapPresenter()
         let interactor = BootstrapInteractor()
         let localDataManager = BootstrapLocalDataManager()
+        let router = BootstrapRouter()
+
+        router.builder = BootstrapBuilder()
 
         presenter.interactor = interactor
-        presenter.router = BootstrapRouter()
-        presenter.view = view
+        presenter.router = router
 
         interactor.listener = presenter
         interactor.localDataManager = localDataManager

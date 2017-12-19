@@ -10,7 +10,7 @@ protocol CurrencyListLocalDataManagerOutputProtocol: class {
 }
 
 class CurrencyListLocalDataManager {
-    var listener: CurrencyListLocalDataManagerOutputProtocol?
+    weak var listener: CurrencyListLocalDataManagerOutputProtocol?
     var localService: LocalPersistenceServiceProtocol?
 }
 
