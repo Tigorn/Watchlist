@@ -56,6 +56,8 @@
 		438F7A5B1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F7A5A1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift */; };
 		438F7A5F1FE5D0DA007E3B19 /* BootstrapBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F7A5E1FE5D0DA007E3B19 /* BootstrapBuilder.swift */; };
 		438F7A611FE5D1F4007E3B19 /* BootstrapBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F7A601FE5D1F4007E3B19 /* BootstrapBuilderTests.swift */; };
+		43BE67A91FE8AE5100FE94A0 /* Bootstrap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BE67A81FE8AE5100FE94A0 /* Bootstrap.storyboard */; };
+		43BE67AB1FE8AEAD00FE94A0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE67AA1FE8AEAD00FE94A0 /* LoadingViewController.swift */; };
 		43DC3D671FBD46F0009073AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DC3D661FBD46F0009073AA /* AppDelegate.swift */; };
 		43DC3D6C1FBD46F0009073AA /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DC3D6A1FBD46F0009073AA /* List.storyboard */; };
 		43DC3D6E1FBD46F0009073AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DC3D6D1FBD46F0009073AA /* Assets.xcassets */; };
@@ -133,6 +135,8 @@
 		438F7A5A1FE5BEE3007E3B19 /* CurrencyListBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListBuilderTests.swift; sourceTree = "<group>"; };
 		438F7A5E1FE5D0DA007E3B19 /* BootstrapBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapBuilder.swift; sourceTree = "<group>"; };
 		438F7A601FE5D1F4007E3B19 /* BootstrapBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapBuilderTests.swift; sourceTree = "<group>"; };
+		43BE67A81FE8AE5100FE94A0 /* Bootstrap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Bootstrap.storyboard; sourceTree = "<group>"; };
+		43BE67AA1FE8AEAD00FE94A0 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		43DC3D631FBD46F0009073AA /* WatchlistViper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchlistViper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DC3D661FBD46F0009073AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43DC3D6B1FBD46F0009073AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/List.storyboard; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 			children = (
 				43861A341FC76C5B0059DE92 /* Components */,
 				436CDA561FC612CC000312F6 /* Data Managers */,
+				43BE67A71FE8AE3000FE94A0 /* Views */,
 			);
 			path = Bootstrap;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 			children = (
 				43861A3A1FC88E160059DE92 /* Components */,
 				43861A291FC75EEC0059DE92 /* Data Manager */,
+				43BE67AC1FE8B17200FE94A0 /* Views */,
 			);
 			path = Bootstrap;
 			sourceTree = "<group>";
@@ -509,6 +515,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		43BE67A71FE8AE3000FE94A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43BE67A81FE8AE5100FE94A0 /* Bootstrap.storyboard */,
+				43DC3D661FBD46F0009073AA /* AppDelegate.swift */,
+				43BE67AA1FE8AEAD00FE94A0 /* LoadingViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		43BE67AC1FE8B17200FE94A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4342786A1FC09D1E0045304C /* AppDelegateTests.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		43DC3D5A1FBD46F0009073AA = {
 			isa = PBXGroup;
 			children = (
@@ -533,7 +557,6 @@
 			isa = PBXGroup;
 			children = (
 				43DC3D721FBD46F0009073AA /* Info.plist */,
-				43DC3D661FBD46F0009073AA /* AppDelegate.swift */,
 				434278631FC09A1C0045304C /* Extensions */,
 				4342785C1FC097900045304C /* Modules */,
 				43DC3D8F1FBD46FF009073AA /* Resources */,
@@ -545,7 +568,6 @@
 			isa = PBXGroup;
 			children = (
 				43DC3D7D1FBD46F0009073AA /* Info.plist */,
-				4342786A1FC09D1E0045304C /* AppDelegateTests.swift */,
 				43E37F011FC48015006541F6 /* Modules */,
 			);
 			path = WatchlistViperTests;
@@ -721,6 +743,7 @@
 			files = (
 				43E37F141FC499CE006541F6 /* CurrencyListTableViewCell.xib in Resources */,
 				43861A471FC8C1590059DE92 /* Edit.storyboard in Resources */,
+				43BE67A91FE8AE5100FE94A0 /* Bootstrap.storyboard in Resources */,
 				434F6E6C1FC9171E00AD6FBF /* CurrencyEditTableViewCell.xib in Resources */,
 				43DC3D711FBD46F0009073AA /* LaunchScreen.storyboard in Resources */,
 				43DC3D6E1FBD46F0009073AA /* Assets.xcassets in Resources */,
@@ -882,6 +905,7 @@
 				43861A311FC76A260059DE92 /* NumberFormatter+Extensions.swift in Sources */,
 				4342789C1FC0D7350045304C /* CurrencyListInteractor.swift in Sources */,
 				434EC1CD1FE5E2650015C3FD /* CurrencyEditBuilder.swift in Sources */,
+				43BE67AB1FE8AEAD00FE94A0 /* LoadingViewController.swift in Sources */,
 				43E37F1B1FC4A142006541F6 /* CurrencyListDataSource.swift in Sources */,
 				434278671FC09A8B0045304C /* Bundle+Extensions.swift in Sources */,
 				43E37F131FC499CE006541F6 /* CurrencyListTableViewCell.swift in Sources */,

@@ -9,12 +9,12 @@ protocol BootstrapLocalDataManagerInputProtocol: class {
     func initialize()
 }
 
-protocol BootstrapLocalDataManagerOutputProtocol {
+protocol BootstrapLocalDataManagerOutputProtocol: class {
     func didInitialize()
 }
 
 class BootstrapLocalDataManager {
-    var listener: BootstrapLocalDataManagerOutputProtocol?
+    weak var listener: BootstrapLocalDataManagerOutputProtocol?
     var localDefaultsService: LocalDefaultsServiceProtocol?
     var localPersistenceService: LocalPersistenceServiceProtocol?
     var localFileService: LocalFileServiceProtocol?
@@ -26,8 +26,8 @@ extension BootstrapLocalDataManager: BootstrapLocalDataManagerInputProtocol {
     }
 
     func initialize() {
-        localPersistenceService?.initialize {
-            self.listener?.didInitialize()
+        localPersistenceService?.initialize { [weak self] in
+            self?.listener?.didInitialize()
         }
     }
 

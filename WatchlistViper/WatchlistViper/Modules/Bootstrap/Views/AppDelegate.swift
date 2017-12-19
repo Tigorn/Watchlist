@@ -1,23 +1,23 @@
 import UIKit
 
-protocol BootstrapViewInputProtocol: class {
-    func set(window: UIWindow)
-}
-
 protocol BootstrapViewOutputProtocol: class {
-    func bootstrap()
+    func bootstrap(window: UIWindow)
 }
 
 @UIApplicationMain
 class AppDelegate: UIResponder {
     var window: UIWindow?
     var presenter: BootstrapViewOutputProtocol?
+    var builder: BootstrapBuilderProtocol? = BootstrapBuilder()
 }
 
 extension AppDelegate: UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        presenter = BootstrapBuilder().createBootstrapModule(in: self)
-        presenter?.bootstrap()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        presenter = builder?.makeBootstrapModule()
+        presenter?.bootstrap(window: window)
+        self.window = window
+
         return true
     }
 
@@ -41,11 +41,5 @@ extension AppDelegate: UIApplicationDelegate {
 
     func applicationWillTerminate(_: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-}
-
-extension AppDelegate: BootstrapViewInputProtocol {
-    func set(window: UIWindow) {
-        self.window = window
     }
 }

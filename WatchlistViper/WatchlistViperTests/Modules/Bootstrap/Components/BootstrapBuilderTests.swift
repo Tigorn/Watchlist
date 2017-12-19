@@ -6,22 +6,32 @@ import Quick
 class BootstrapBuilderTests: QuickSpec {
     override func spec() {
         describe("BootstrapBuilder") {
+            var builder: BootstrapBuilder!
+
+            beforeEach {
+                builder = BootstrapBuilder()
+            }
+
             it("builds module") {
-                let view = MockBootstrapView()
-                let presenter = BootstrapBuilder().createBootstrapModule(in: view) as! BootstrapPresenter
+                let presenter = builder.makeBootstrapModule() as! BootstrapPresenter
+                let router = presenter.router as! BootstrapRouter
                 let interactor = presenter.interactor as! BootstrapInteractor
-                let localInputDataManager = interactor.localDataManager as! BootstrapLocalDataManager
-                expect(interactor).toNot(beNil())
-                expect(presenter.router).toNot(beNil())
-                expect(presenter.view === view).to(beTrue())
-                expect(interactor.listener === presenter).to(beTrue())
-                expect(interactor.localDataManager).toNot(beNil())
-                expect(localInputDataManager.listener).toNot(beNil())
+                let localDataManager = interactor.localDataManager as! BootstrapLocalDataManager
+                expect(router.builder).toNot(beNil())
+                expect(interactor.listener).toNot(beNil())
+                expect(localDataManager.listener).toNot(beNil())
+                expect(localDataManager.localDefaultsService).toNot(beNil())
+                expect(localDataManager.localPersistenceService).toNot(beNil())
+                expect(localDataManager.localFileService).toNot(beNil())
+            }
+
+            it("makes rootViewController") {
+                expect(builder.makeRootViewController()).to(beAKindOf(UITabBarController.self))
+            }
+
+            it("makes loadingViewController") {
+                expect(builder.makeLoadingViewController()).to(beAKindOf(LoadingViewController.self))
             }
         }
     }
-}
-
-private class MockBootstrapView: BootstrapViewInputProtocol {
-    func set(window _: UIWindow) {}
 }

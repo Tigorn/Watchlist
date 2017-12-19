@@ -1,13 +1,19 @@
 import UIKit
 
 class BootstrapPresenter {
-    weak var view: BootstrapViewInputProtocol?
     var interactor: BootstrapInteractorInputProtocol?
-    var router: BootstrapRouterProtocol?
+    var router: BootstrapRouterInputProtocol?
 }
 
 extension BootstrapPresenter: BootstrapViewOutputProtocol {
-    func bootstrap() {
+    func bootstrap(window: UIWindow) {
+        router?.setRootviewController(window: window)
+        router?.makeWindowKeyAndVisible(window: window)
+
+        if let viewController = window.rootViewController {
+            router?.showLoading(from: viewController)
+        }
+
         interactor?.bootstrap()
     }
 }
@@ -15,10 +21,7 @@ extension BootstrapPresenter: BootstrapViewOutputProtocol {
 extension BootstrapPresenter: BootstrapInteractorOutputProtocol {
     func didFinishBootstrap() {
         DispatchQueue.main.async {
-            let window = UIWindow(frame: UIScreen.main.bounds)
-            window.rootViewController = self.router?.rootViewController()
-            window.makeKeyAndVisible()
-            self.view?.set(window: window)
+            self.router?.dismissLoading()
         }
     }
 }

@@ -12,7 +12,7 @@ protocol CurrencyListRemoteDataManagerOutputProtocol: class {
 }
 
 class CurrencyListRemoteDataManager {
-    var listener: CurrencyListRemoteDataManagerOutputProtocol?
+    weak var listener: CurrencyListRemoteDataManagerOutputProtocol?
     var remoteService: SecuritiesServiceProtocol?
 }
 

@@ -6,56 +6,62 @@ class BootstrapPresenterTests: QuickSpec {
     override func spec() {
         describe("BootstrapPresenter") {
             var presenter: BootstrapPresenter!
+            var router: MockRouter!
+            var interactor: MockInteractor!
 
             beforeEach {
                 presenter = BootstrapPresenter()
+                router = MockRouter()
+                interactor = MockInteractor()
+
+                presenter.router = router
+                presenter.interactor = interactor
             }
 
-            it("delegates bootstrap to interactor") {
-                let interactor = MockInteractor()
-                presenter.interactor = interactor
-                presenter.bootstrap()
+            it("bootstraps window") {
+                let window = UIWindow()
+                window.rootViewController = UIViewController()
+                presenter.bootstrap(window: window)
+                expect(router.didSetRootViewController).to(beTrue())
+                expect(router.didMakeKeyAndVisible).to(beTrue())
+                expect(router.didShowLoading).to(beTrue())
                 expect(interactor.didBootstrap).to(beTrue())
             }
 
-            it("sets view window on didFinishBootstrap") {
-                let view = MockBootstrapView()
-                presenter.view = view
-                presenter.router = MockRouter()
+            it("dismiss loading on didFinishBootstrap") {
                 presenter.didFinishBootstrap()
-                expect(view.didSetKeyWindow).toEventually(beTrue())
+                expect(router.didDismissLoading).toEventually(beTrue())
             }
         }
     }
 }
 
-private class MockRouter: BootstrapRouterProtocol {
-    static func createBootstrapModule(in _: BootstrapViewInputProtocol) -> BootstrapViewOutputProtocol {
-        return BootstrapPresenter()
+private class MockRouter: BootstrapRouterInputProtocol {
+    var didSetRootViewController = false
+    var didMakeKeyAndVisible = false
+    var didShowLoading = false
+    var didDismissLoading = false
+
+    func setRootviewController(window: UIWindow) {
+        didSetRootViewController = true
     }
 
-    func rootViewController() -> UIViewController {
-        return UIViewController()
+    func makeWindowKeyAndVisible(window: UIWindow) {
+        didMakeKeyAndVisible = true
+    }
+
+    func showLoading(from viewController: UIViewController) {
+        didShowLoading = true
+    }
+
+    func dismissLoading() {
+        didDismissLoading = true
     }
 }
 
 private class MockInteractor: BootstrapInteractorInputProtocol {
-    var presenter: BootstrapInteractorOutputProtocol?
-    var localInputDataManager: BootstrapLocalDataManagerInputProtocol?
-
     var didBootstrap = false
     func bootstrap() {
         didBootstrap = true
-    }
-}
-
-private class MockBootstrapView: BootstrapViewInputProtocol {
-    var presenter: BootstrapViewOutputProtocol?
-    var didSetKeyWindow = false
-
-    func set(window: UIWindow) {
-        if window.isKeyWindow && window.rootViewController != nil {
-            didSetKeyWindow = true
-        }
     }
 }
