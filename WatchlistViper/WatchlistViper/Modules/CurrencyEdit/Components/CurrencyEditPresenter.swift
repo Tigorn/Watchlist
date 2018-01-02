@@ -1,4 +1,5 @@
 import UIKit
+import Domain
 
 class CurrencyEditPresenter {
     weak var view: CurrencyEditViewInputProtocol?
@@ -12,7 +13,7 @@ extension CurrencyEditPresenter: CurrencyEditViewOutputProtocol {
 }
 
 extension CurrencyEditPresenter: CurrencyEditInteractorOutputProtocol {
-    func didGet(currencySymbols: [String]) {
+    func didGet(currencySymbols: [CurrencySymbol]) {
         DispatchQueue.main.async {
             let data = CurrencyEditListData(currencySymbols: currencySymbols)
             self.view?.set(data: data)

@@ -19,7 +19,7 @@ private class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
         didInitialize = true
     }
 
-    func getCurrencySymbols(completion _: @escaping ([String]) -> Void) {}
+    func getSortedCurrencySymbols(completion _: @escaping ([CurrencySymbol]) -> Void) {}
 
-    func put(currencySymbol _: String) {}
+    func put(currencySymbol: CurrencySymbol) {}
 }

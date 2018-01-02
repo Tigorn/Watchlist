@@ -50,12 +50,19 @@ class CurrencyListViewControllerTests: QuickSpec {
                 expect(presenter.didEditActiontriggered).to(beTrue())
             }
 
-            it("stops refresh control on requestFailed") {
+            it("hides refreshing UI on requestFailed") {
                 let refreshControl = viewController.tableView.refreshControl
                 refreshControl?.beginRefreshing()
-                expect(refreshControl?.isRefreshing).to(beTrue())
+                viewController.activityIndicator.startAnimating()
                 viewController.requestFailed()
                 expect(refreshControl?.isRefreshing).to(beFalse())
+                expect(viewController.activityIndicator.isAnimating).to(beFalse())
+            }
+
+            it("hides refreshing UI on show data") {
+                viewController.show(data: CurrencyListCurrencyDisplayData())
+                expect(viewController.tableView.refreshControl?.isRefreshing).to(beFalse())
+                expect(viewController.activityIndicator.isAnimating).to(beFalse())
             }
         }
     }

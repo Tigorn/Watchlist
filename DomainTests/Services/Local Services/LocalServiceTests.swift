@@ -30,13 +30,13 @@ class LocalPersistenceServiceTests: QuickSpec {
             }
 
             it("gets and puts currency symbols") {
-                localService.put(currencySymbol: "abc")
-                localService.put(currencySymbol: "btc")
-                var result = [String]()
-                localService.getCurrencySymbols(completion: { currencySymbols in
+                localService.put(currencySymbol: CurrencySymbol(symbol: "abc", index: 0))
+                localService.put(currencySymbol: CurrencySymbol(symbol: "btc", index: 1))
+                var result = [CurrencySymbol]()
+                localService.getSortedCurrencySymbols(completion: { currencySymbols in
                     result = currencySymbols
                 })
-                expect(result.sorted()).toEventually(equal(["abc", "btc"]))
+                expect(result.sorted()).toEventually(equal([CurrencySymbol(symbol: "abc", index: 0), CurrencySymbol(symbol: "btc", index: 1)]))
             }
         }
     }

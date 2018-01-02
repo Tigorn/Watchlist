@@ -6,7 +6,7 @@ protocol CurrencyEditLocalDataManagerInputProtocol: class {
 }
 
 protocol CurrencyEditLocalDataManagerOutputProtocol: class {
-    func didGet(currencySymbols: [String])
+    func didGet(currencySymbols: [CurrencySymbol])
 }
 
 class CurrencyEditLocalDataManager {
@@ -16,7 +16,7 @@ class CurrencyEditLocalDataManager {
 
 extension CurrencyEditLocalDataManager: CurrencyEditLocalDataManagerInputProtocol {
     func getCurrencies() {
-        localService?.getCurrencySymbols { [weak self] currencySymbols in
+        localService?.getSortedCurrencySymbols { [weak self] currencySymbols in
             self?.listener?.didGet(currencySymbols: currencySymbols)
         }
     }

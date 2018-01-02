@@ -4,8 +4,8 @@ import Domain
 protocol BootstrapLocalDataManagerInputProtocol: class {
     func setDidSetDefaultCurrencies(value: Bool)
     func getDidSetDefaultCurrencies() -> Bool
-    func getDefaultCurrencies() -> [String]
-    func put(currencySymbol symbol: String)
+    func getDefaultCurrencies() -> [CurrencySymbol]
+    func put(currencySymbol: CurrencySymbol)
     func initialize()
 }
 
@@ -35,11 +35,11 @@ extension BootstrapLocalDataManager: BootstrapLocalDataManagerInputProtocol {
         return localDefaultsService?.didSetDefaultCurrencies ?? false
     }
 
-    func getDefaultCurrencies() -> [String] {
+    func getDefaultCurrencies() -> [CurrencySymbol] {
         return localFileService?.defaultCurrencySymbols() ?? []
     }
 
-    func put(currencySymbol symbol: String) {
-        localPersistenceService?.put(currencySymbol: symbol)
+    func put(currencySymbol: CurrencySymbol) {
+        localPersistenceService?.put(currencySymbol: currencySymbol)
     }
 }

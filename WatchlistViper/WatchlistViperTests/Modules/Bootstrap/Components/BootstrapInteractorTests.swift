@@ -1,5 +1,6 @@
 import Nimble
 import Quick
+import Domain
 @testable import WatchlistViper
 
 class BootstrapInteractorTests: QuickSpec {
@@ -29,7 +30,7 @@ class BootstrapInteractorTests: QuickSpec {
 
                 it("puts default symbols on didInitialize") {
                     interactor.didInitialize()
-                    expect(localDataManager.putSymbols).to(equal(["btc", "ltc"]))
+                    expect(localDataManager.putSymbols).to(equal([CurrencySymbol(symbol: "btc", index: 0), CurrencySymbol(symbol: "ltc", index: 1)]))
                 }
 
                 it("finishes bootstrap") {
@@ -63,7 +64,7 @@ private class MockLocalDataManager: BootstrapLocalDataManagerInputProtocol {
     var outputEventHandler: BootstrapLocalDataManagerOutputProtocol?
     private var didSetDefaultCurrencies = false
     var didInitialize = false
-    var putSymbols = [String]()
+    var putSymbols = [CurrencySymbol]()
 
     func setDidSetDefaultCurrencies(value: Bool) {
         didSetDefaultCurrencies = value
@@ -73,12 +74,12 @@ private class MockLocalDataManager: BootstrapLocalDataManagerInputProtocol {
         return didSetDefaultCurrencies
     }
 
-    func getDefaultCurrencies() -> [String] {
-        return ["btc", "ltc"]
+    func getDefaultCurrencies() -> [CurrencySymbol] {
+        return [CurrencySymbol(symbol: "btc", index: 0), CurrencySymbol(symbol: "ltc", index: 1)]
     }
 
-    func put(currencySymbol symbol: String) {
-        putSymbols.append(symbol)
+    func put(currencySymbol: CurrencySymbol) {
+        putSymbols.append(currencySymbol)
     }
 
     func initialize() {

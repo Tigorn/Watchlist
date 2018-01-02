@@ -3,8 +3,8 @@ import LocalService
 
 public protocol LocalPersistenceServiceProtocol {
     func initialize(completion: @escaping () -> Void)
-    func getCurrencySymbols(completion: @escaping ([String]) -> Void)
-    func put(currencySymbol: String)
+    func getSortedCurrencySymbols(completion: @escaping ([CurrencySymbol]) -> Void)
+    func put(currencySymbol: CurrencySymbol)
 }
 
 public class LocalPersistenceService {
@@ -33,18 +33,18 @@ extension LocalPersistenceService: LocalPersistenceServiceProtocol {
         }
     }
 
-    public func getCurrencySymbols(completion: @escaping ([String]) -> Void) {
+    public func getSortedCurrencySymbols(completion: @escaping ([CurrencySymbol]) -> Void) {
         syncContext.perform {
-            let smybols = CurrencySymbol.fetch(in: self.syncContext).map({ $0.symbol })
-            completion(smybols)
+            let symbols = MOCurrencySymbol.fetch(in: self.syncContext).map { CurrencySymbol(symbol: $0.symbol, index: Int($0.index)) }
+            completion(symbols.sorted())
         }
     }
 
-    public func put(currencySymbol symbol: String) {
+    public func put(currencySymbol: CurrencySymbol) {
         syncContext.performChanges {
-            _ = CurrencySymbol.findOrCreate(in: self.syncContext,
-                                            matching: CurrencySymbol.defaultPredicate(forSymbol: symbol)) { currencySymbol in
-                currencySymbol.symbol = symbol
+            _ = MOCurrencySymbol.findOrCreate(in: self.syncContext, matching: MOCurrencySymbol.defaultPredicate(forSymbol: currencySymbol.symbol)) { fetchedCurrencySymbol in
+                fetchedCurrencySymbol.symbol = currencySymbol.symbol
+                fetchedCurrencySymbol.index = Int64(currencySymbol.index)
             }
         }
     }

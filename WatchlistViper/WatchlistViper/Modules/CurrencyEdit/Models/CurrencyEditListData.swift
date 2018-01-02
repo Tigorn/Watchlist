@@ -9,9 +9,9 @@ struct CurrencyEditListData {
         sections = []
     }
 
-    init(currencySymbols: [String]) {
+    init(currencySymbols: [CurrencySymbol]) {
         let items = currencySymbols.map { symbol in
-            return CurrencyEditListItem(name: symbol)
+            return CurrencyEditListItem(name: symbol.symbol)
         }
 
         let section = CurrencyEditListSection(items: items)

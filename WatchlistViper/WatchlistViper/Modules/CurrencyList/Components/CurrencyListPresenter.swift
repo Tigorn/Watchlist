@@ -11,7 +11,7 @@ extension CurrencyListPresenter: CurrencyListViewOutputProtocol {
     func didEditAction() {
         if let view = view as? UIViewController {
             DispatchQueue.main.async {
-                self.router?.showEdit(from: view)
+                self.router?.routeToEdit(from: view)
             }
         }
     }

@@ -51,7 +51,7 @@ private class MockRouter: CurrencyListRouterProtocol {
         return UIViewController()
     }
 
-    func showEdit(from _: UIViewController) {
+    func routeToEdit(from _: UIViewController) {
         didRouteToEdit = true
     }
 }

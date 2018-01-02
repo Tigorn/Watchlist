@@ -37,13 +37,13 @@ class BootstrapLocalDataManagerTests: QuickSpec {
             }
 
             it("gets default currencies") {
-                expect(dataManager.getDefaultCurrencies()).to(equal(["btc"]))
+                expect(dataManager.getDefaultCurrencies()).to(equal([CurrencySymbol(symbol: "btc", index: 0)]))
                 dataManager.localFileService = nil
                 expect(dataManager.getDefaultCurrencies()).to(equal([]))
             }
 
             it("puts currency symbol") {
-                dataManager.put(currencySymbol: "btc")
+                dataManager.put(currencySymbol: CurrencySymbol(symbol: "btc", index: 0))
                 expect(localPersistenceService.didPutCurrencySymbol).to(beTrue())
             }
         }
@@ -58,8 +58,8 @@ private class MockOutputHandler: BootstrapLocalDataManagerOutputProtocol {
 }
 
 private class MockLocalFileService: LocalFileServiceProtocol {
-    func defaultCurrencySymbols() -> [String] {
-        return ["btc"]
+    func defaultCurrencySymbols() -> [CurrencySymbol] {
+        return [CurrencySymbol(symbol: "btc", index: 0)]
     }
 }
 
@@ -70,11 +70,11 @@ private class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
         completion()
     }
 
-    func getCurrencySymbols(completion: @escaping ([String]) -> Void) {
-        completion(["btc"])
+    func getSortedCurrencySymbols(completion: @escaping ([CurrencySymbol]) -> Void) {
+        completion([])
     }
 
-    func put(currencySymbol _: String) {
+    func put(currencySymbol: CurrencySymbol) {
         didPutCurrencySymbol = true
     }
 }

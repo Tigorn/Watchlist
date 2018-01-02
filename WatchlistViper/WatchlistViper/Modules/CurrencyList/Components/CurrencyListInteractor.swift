@@ -23,8 +23,8 @@ extension CurrencyListInteractor: CurrencyListInteractorInputProtocol {
 }
 
 extension CurrencyListInteractor: CurrencyListLocalDataManagerOutputProtocol {
-    func didGet(currencySymbols: [String]) {
-        remoteDataManager?.getCurrencyList(forCurrencySymbols: currencySymbols)
+    func didGet(currencySymbols: [CurrencySymbol]) {
+        remoteDataManager?.getCurrencyList(forCurrencySymbols: currencySymbols.map { $0.symbol })
     }
 }
 

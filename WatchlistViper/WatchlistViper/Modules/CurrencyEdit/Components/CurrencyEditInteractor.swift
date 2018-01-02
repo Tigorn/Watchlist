@@ -1,11 +1,12 @@
 import Foundation
+import Domain
 
 protocol CurrencyEditInteractorInputProtocol: class {
     func getCurrencies()
 }
 
 protocol CurrencyEditInteractorOutputProtocol: class {
-    func didGet(currencySymbols: [String])
+    func didGet(currencySymbols: [CurrencySymbol])
 }
 
 class CurrencyEditInteractor {
@@ -20,7 +21,7 @@ extension CurrencyEditInteractor: CurrencyEditInteractorInputProtocol {
 }
 
 extension CurrencyEditInteractor: CurrencyEditLocalDataManagerOutputProtocol {
-    func didGet(currencySymbols: [String]) {
+    func didGet(currencySymbols: [CurrencySymbol]) {
         listener?.didGet(currencySymbols: currencySymbols)
     }
 }

@@ -26,16 +26,16 @@ class CurrencyEditLocalDataManagerTests: QuickSpec {
 private class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
     func initialize(completion _: @escaping () -> Void) {}
 
-    func getCurrencySymbols(completion: @escaping ([String]) -> Void) {
+    func getSortedCurrencySymbols(completion: @escaping ([CurrencySymbol]) -> Void) {
         completion([])
     }
 
-    func put(currencySymbol _: String) {}
+    func put(currencySymbol: CurrencySymbol) {}
 }
 
 private class MockEventHandler: CurrencyEditLocalDataManagerOutputProtocol {
     var didGetCurrencies = false
-    func didGet(currencySymbols _: [String]) {
+    func didGet(currencySymbols _: [CurrencySymbol]) {
         didGetCurrencies = true
     }
 }

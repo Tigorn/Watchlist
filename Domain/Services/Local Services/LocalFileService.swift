@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol LocalFileServiceProtocol {
-    func defaultCurrencySymbols() -> [String]
+    func defaultCurrencySymbols() -> [CurrencySymbol]
 }
 
 public class LocalFileService: LocalFileServiceProtocol {
@@ -9,11 +9,11 @@ public class LocalFileService: LocalFileServiceProtocol {
 
     public init() {}
 
-    public func defaultCurrencySymbols() -> [String] {
+    public func defaultCurrencySymbols() -> [CurrencySymbol] {
         if let path = bundle.path(forResource: "SymbolDefaults", ofType: "plist"),
             let dictionary = NSDictionary(contentsOfFile: path),
             let symbols = dictionary["symbols"] as? [String] {
-            return symbols
+            return symbols.enumerated().map { CurrencySymbol(symbol: $0.element, index: $0.offset) }
         }
 
         return []

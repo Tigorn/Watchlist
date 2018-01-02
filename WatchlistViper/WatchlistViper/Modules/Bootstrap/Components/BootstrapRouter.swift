@@ -3,7 +3,7 @@ import UIKit
 protocol BootstrapRouterInputProtocol: class {
     func setRootviewController(window: UIWindow)
     func makeWindowKeyAndVisible(window: UIWindow)
-    func showLoading(from viewController: UIViewController)
+    func routeToLoading(from viewController: UIViewController)
     func dismissLoading()
 }
 
@@ -27,7 +27,7 @@ extension BootstrapRouter: BootstrapRouterInputProtocol {
         presentedViewController?.dismiss(animated: true, completion: nil)
     }
 
-    func showLoading(from viewController: UIViewController) {
+    func routeToLoading(from viewController: UIViewController) {
         if let loadingViewController = builder?.makeLoadingViewController() {
             viewController.present(loadingViewController, animated: false, completion: nil)
             presentedViewController = loadingViewController

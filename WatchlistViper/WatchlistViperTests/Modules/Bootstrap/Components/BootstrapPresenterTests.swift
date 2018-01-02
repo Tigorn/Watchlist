@@ -50,7 +50,7 @@ private class MockRouter: BootstrapRouterInputProtocol {
         didMakeKeyAndVisible = true
     }
 
-    func showLoading(from viewController: UIViewController) {
+    func routeToLoading(from viewController: UIViewController) {
         didShowLoading = true
     }
 

@@ -35,7 +35,7 @@ class BootstrapRouterTests: QuickSpec {
 
             it("shows loading") {
                 let viewController = MockViewController()
-                router.showLoading(from: viewController)
+                router.routeToLoading(from: viewController)
                 expect(viewController.didPresent).to(beTrue())
             }
         }

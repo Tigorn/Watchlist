@@ -1,5 +1,6 @@
 import Nimble
 import Quick
+import Domain
 @testable import WatchlistViper
 
 class CurrencyEditInteractorTests: QuickSpec {
@@ -31,7 +32,7 @@ class CurrencyEditInteractorTests: QuickSpec {
 private class MockPresenter: CurrencyEditInteractorOutputProtocol {
     var didGetCurrencies = false
 
-    func didGet(currencySymbols _: [String]) {
+    func didGet(currencySymbols _: [CurrencySymbol]) {
         didGetCurrencies = true
     }
 }

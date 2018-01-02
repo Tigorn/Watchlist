@@ -11,7 +11,7 @@ extension BootstrapPresenter: BootstrapViewOutputProtocol {
         router?.makeWindowKeyAndVisible(window: window)
 
         if let viewController = window.rootViewController {
-            router?.showLoading(from: viewController)
+            router?.routeToLoading(from: viewController)
         }
 
         interactor?.bootstrap()

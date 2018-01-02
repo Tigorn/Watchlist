@@ -15,6 +15,13 @@ class CurrencyListViewController: UIViewController {
     var listener: CurrencyListViewOutputProtocol?
     var dataSource: (CurrencyListDataSourceInputProtocol & UITableViewDelegate & UITableViewDataSource)?
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.startAnimating()
+        }
+    }
+
     @IBOutlet var tableView: UITableView! {
         didSet {
             tableView.dataSource = dataSource
@@ -46,16 +53,21 @@ class CurrencyListViewController: UIViewController {
     @objc func refresh() {
         listener?.getCurrencies()
     }
+
+    private func hideRefreshingUI() {
+        tableView.refreshControl?.endRefreshing()
+        activityIndicator.stopAnimating()
+    }
 }
 
 extension CurrencyListViewController: CurrencyListViewInputProtocol {
     func requestFailed() {
-        tableView.refreshControl?.endRefreshing()
+        hideRefreshingUI()
     }
 
     func show(data: CurrencyListCurrencyDisplayData) {
-        tableView.refreshControl?.endRefreshing()
         dataSource?.set(data: data)
         tableView.reloadData()
+        hideRefreshingUI()
     }
 }

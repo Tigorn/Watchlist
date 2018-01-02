@@ -14,7 +14,7 @@ class CurrencyListRouterTests: QuickSpec {
         describe("CurrencyListRouter") {
             it("shows edit") {
                 let viewController = MockView()
-                router.showEdit(from: viewController)
+                router.routeToEdit(from: viewController)
                 expect(viewController.didShow).to(beTrue())
             }
         }
