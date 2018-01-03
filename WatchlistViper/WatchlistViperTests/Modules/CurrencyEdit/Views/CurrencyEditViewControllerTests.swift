@@ -43,7 +43,7 @@ private class MockDataSource: NSObject, UITableViewDataSource, UITableViewDelega
         return UITableViewCell()
     }
 
-    func set(data: CurrencyEditListData) {
+    func set(data _: CurrencyEditListData) {
         didSetCurrencySymbols = true
     }
 }

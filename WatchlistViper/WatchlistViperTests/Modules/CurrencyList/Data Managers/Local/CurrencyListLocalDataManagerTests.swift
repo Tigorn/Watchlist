@@ -25,7 +25,7 @@ class CurrencyListLocalDataManagerTests: QuickSpec {
 
 private class MockListener: CurrencyListLocalDataManagerOutputProtocol {
     var didGetCurrencySymbols = false
-    func didGet(currencySymbols: [CurrencySymbol]) {
+    func didGet(currencySymbols _: [CurrencySymbol]) {
         didGetCurrencySymbols = true
     }
 }
@@ -37,5 +37,5 @@ private class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
         completion([])
     }
 
-    func put(currencySymbol: CurrencySymbol) {}
+    func put(currencySymbol _: CurrencySymbol) {}
 }

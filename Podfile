@@ -4,6 +4,7 @@
 workspace 'Watchlist.xcworkspace'
 project 'Watchlist.xcodeproj'
 project 'WatchlistViper/WatchlistViper.xcodeproj'
+project 'WatchlistRIBs/WatchlistRIBs.xcodeproj'
 
 target 'WatchlistViper' do
   project 'WatchlistViper/WatchlistViper.xcodeproj'
@@ -14,6 +15,25 @@ target 'WatchlistViper' do
   pod "PromiseKit", "~> 4.4"
 
   target 'WatchlistViperTests' do
+    inherit! :search_paths
+    pod 'Quick'
+    pod 'Nimble'
+  end
+
+end
+
+target 'WatchlistRIBs' do
+  project 'WatchlistRIBs/WatchlistRIBs.xcodeproj'
+
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'RIBs', '~> 0.9'
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa', '~> 4.0'
+  pod 'SnapKit', '~> 4.0.0'
+
+  target 'WatchlistRIBsTests' do
     inherit! :search_paths
     pod 'Quick'
     pod 'Nimble'
@@ -76,6 +96,21 @@ target 'FoundationComponents' do
   use_frameworks!
 
   target 'FoundationComponentsTests' do
+    inherit! :search_paths
+    pod 'Quick'
+    pod 'Nimble'
+  end
+
+end
+
+
+target 'UIComponents' do
+  project 'Watchlist.xcodeproj'
+
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  target 'UIComponentsTests' do
     inherit! :search_paths
     pod 'Quick'
     pod 'Nimble'

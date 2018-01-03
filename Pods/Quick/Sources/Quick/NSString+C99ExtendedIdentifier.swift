@@ -12,7 +12,7 @@
                 .controlCharacters,
                 .punctuationCharacters,
                 .nonBaseCharacters,
-                .symbols
+                .symbols,
             ]
 
             for invalidSet in invalidCharacterSets {

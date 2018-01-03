@@ -129,7 +129,7 @@ public protocol CancellableError: Error {
     private var cancelledErrorIdentifiers = Set([
         ErrorPair(PMKErrorDomain, PMKOperationCancelled),
         ErrorPair(NSCocoaErrorDomain, NSUserCancelledError),
-        ErrorPair(NSURLErrorDomain, NSURLErrorCancelled)
+        ErrorPair(NSURLErrorDomain, NSURLErrorCancelled),
     ])
 
 #endif

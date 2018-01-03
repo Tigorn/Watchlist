@@ -42,15 +42,15 @@ private class MockRouter: BootstrapRouterInputProtocol {
     var didShowLoading = false
     var didDismissLoading = false
 
-    func setRootviewController(window: UIWindow) {
+    func setRootviewController(window _: UIWindow) {
         didSetRootViewController = true
     }
 
-    func makeWindowKeyAndVisible(window: UIWindow) {
+    func makeWindowKeyAndVisible(window _: UIWindow) {
         didMakeKeyAndVisible = true
     }
 
-    func routeToLoading(from viewController: UIViewController) {
+    func routeToLoading(from _: UIViewController) {
         didShowLoading = true
     }
 

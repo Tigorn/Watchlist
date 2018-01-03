@@ -38,7 +38,7 @@ class CurrencyEditDataSource: NSObject, UITableViewDelegate, UITableViewDataSour
         return true
     }
 
-    func tableView(_: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    func tableView(_: UITableView, moveRowAt _: IndexPath, to _: IndexPath) {
     }
 
     func tableView(_: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

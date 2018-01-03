@@ -1,6 +1,6 @@
+import Domain
 import Nimble
 import Quick
-import Domain
 @testable import WatchlistViper
 
 class BootstrapInteractorTests: QuickSpec {

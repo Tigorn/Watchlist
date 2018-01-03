@@ -537,10 +537,10 @@
 			isa = PBXGroup;
 			children = (
 				43DC3D941FBD47E5009073AA /* Frameworks */,
+				3AD73A4223E9487027EB2E01 /* Pods */,
 				43DC3D641FBD46F0009073AA /* Products */,
 				43DC3D651FBD46F0009073AA /* WatchlistViper */,
 				43DC3D7A1FBD46F0009073AA /* WatchlistViperTests */,
-				3AD73A4223E9487027EB2E01 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};

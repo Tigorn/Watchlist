@@ -11,14 +11,14 @@ public struct CurrencySymbol {
 }
 
 extension CurrencySymbol: Equatable {
-    public static func ==(lhs: CurrencySymbol, rhs: CurrencySymbol) -> Bool {
+    public static func == (lhs: CurrencySymbol, rhs: CurrencySymbol) -> Bool {
         return lhs.symbol == rhs.symbol &&
-        lhs.index == rhs.index
+            lhs.index == rhs.index
     }
 }
 
 extension CurrencySymbol: Comparable {
-    public static func <(lhs: CurrencySymbol, rhs: CurrencySymbol) -> Bool {
+    public static func < (lhs: CurrencySymbol, rhs: CurrencySymbol) -> Bool {
         return lhs.index < rhs.index
     }
 }

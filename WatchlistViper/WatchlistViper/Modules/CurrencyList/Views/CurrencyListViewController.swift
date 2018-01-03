@@ -15,7 +15,7 @@ class CurrencyListViewController: UIViewController {
     var listener: CurrencyListViewOutputProtocol?
     var dataSource: (CurrencyListDataSourceInputProtocol & UITableViewDelegate & UITableViewDataSource)?
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+    @IBOutlet var activityIndicator: UIActivityIndicatorView! {
         didSet {
             activityIndicator.hidesWhenStopped = true
             activityIndicator.startAnimating()

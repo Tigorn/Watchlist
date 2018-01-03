@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import WatchlistViper
 
 class BootstrapRouterTests: QuickSpec {
@@ -45,11 +45,11 @@ class BootstrapRouterTests: QuickSpec {
 private class MockViewController: UIViewController {
     var didDismiss = false
     var didPresent = false
-    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+    override func dismiss(animated _: Bool, completion _: (() -> Void)? = nil) {
         didDismiss = true
     }
 
-    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+    override func present(_: UIViewController, animated _: Bool, completion _: (() -> Void)? = nil) {
         didPresent = true
     }
 }
@@ -62,7 +62,7 @@ private class MockWindow: UIWindow {
 }
 
 private class MockPresenter: BootstrapViewOutputProtocol {
-    func bootstrap(window: UIWindow) {
+    func bootstrap(window _: UIWindow) {
     }
 }
 

@@ -1,5 +1,5 @@
-import Foundation
 import Domain
+import Foundation
 
 protocol CurrencyEditInteractorInputProtocol: class {
     func getCurrencies()

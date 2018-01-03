@@ -30,7 +30,7 @@ private class MockLocalPersistenceService: LocalPersistenceServiceProtocol {
         completion([])
     }
 
-    func put(currencySymbol: CurrencySymbol) {}
+    func put(currencySymbol _: CurrencySymbol) {}
 }
 
 private class MockEventHandler: CurrencyEditLocalDataManagerOutputProtocol {

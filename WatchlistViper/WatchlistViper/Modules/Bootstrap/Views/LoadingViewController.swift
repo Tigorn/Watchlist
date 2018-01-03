@@ -1,7 +1,7 @@
 import UIKit
 
 class LoadingViewController: UIViewController {
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+    @IBOutlet var activityIndicator: UIActivityIndicatorView! {
         didSet {
             activityIndicator.startAnimating()
         }
