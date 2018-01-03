@@ -1,5 +1,6 @@
 import Domain
 import UIKit
+import UIComponents
 
 protocol CurrencyListDataSourceInputProtocol: class {
     func set(data: CurrencyListCurrencyDisplayData)

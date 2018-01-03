@@ -1,5 +1,6 @@
 import Domain
 import UIKit
+import UIComponents
 
 class CurrencyEditPresenter {
     weak var view: CurrencyEditViewInputProtocol?

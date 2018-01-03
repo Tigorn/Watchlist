@@ -1,6 +1,7 @@
 import Domain
 import Nimble
 import Quick
+import UIComponents
 @testable import WatchlistViper
 
 // swiftlint:disable force_cast

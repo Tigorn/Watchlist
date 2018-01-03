@@ -2,14 +2,14 @@ import Domain
 import Foundation
 import FoundationComponents
 
-struct CurrencyEditListData {
-    let sections: [CurrencyEditListSection]
+public struct CurrencyEditListData {
+    public let sections: [CurrencyEditListSection]
 
-    init() {
+    public init() {
         sections = []
     }
 
-    init(currencySymbols: [CurrencySymbol]) {
+    public init(currencySymbols: [CurrencySymbol]) {
         let items = currencySymbols.map { symbol in
             return CurrencyEditListItem(name: symbol.symbol)
         }
@@ -19,23 +19,23 @@ struct CurrencyEditListData {
         sections = [section]
     }
 
-    var sectionCount: Int {
+    public var sectionCount: Int {
         return sections.count
     }
 
-    func itemCount(inSection section: Int) -> Int {
+    public func itemCount(inSection section: Int) -> Int {
         return sections[safe: section]?.items.count ?? 0
     }
 
-    func itemAt(indexPath: IndexPath) -> CurrencyEditListItem? {
+    public func itemAt(indexPath: IndexPath) -> CurrencyEditListItem? {
         return sections[safe: indexPath.section]?.items[indexPath.row]
     }
 }
 
-struct CurrencyEditListSection {
-    let items: [CurrencyEditListItem]
+public struct CurrencyEditListSection {
+    public let items: [CurrencyEditListItem]
 }
 
-struct CurrencyEditListItem {
+public struct CurrencyEditListItem {
     let name: String
 }

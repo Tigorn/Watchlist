@@ -6,7 +6,7 @@ protocol RootInteractable: Interactable, BootstrapListener, BaseListener {
 }
 
 protocol RootViewControllable: ViewControllable {
-    func add(childViewController: ViewControllable)
+    func add(childViewController: ViewControllable, atIndex: Int?)
     func remove(childViewController: ViewControllable)
 }
 
@@ -18,24 +18,26 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         interactor.router = self
     }
 
+    //MARK: - RootRouting
+    
     func routeToBootstrap() {
         let bootstrapRouter = bootstrapBuilder.build(withListener: interactor)
-        viewController.add(childViewController: bootstrapRouter.viewControllable)
+        viewController.add(childViewController: bootstrapRouter.viewControllable, atIndex: nil)
         self.bootstrapRouter = bootstrapRouter
         attachChild(bootstrapRouter)
     }
 
     func routeToBase() {
+        let baseRouter = baseBuilder.build(withListener: interactor)
+        attachChild(baseRouter)
+        viewController.add(childViewController: baseRouter.viewControllable, atIndex: 0)
+        self.baseRouter = baseRouter
+
         if let bootstrapRouter = bootstrapRouter {
             detachChild(bootstrapRouter)
             viewController.remove(childViewController: bootstrapRouter.viewControllable)
             self.bootstrapRouter = nil
         }
-
-        let baseRouter = baseBuilder.build(withListener: interactor)
-        attachChild(baseRouter)
-        viewController.add(childViewController: baseRouter.viewControllable)
-        self.baseRouter = baseRouter
     }
 
     // MARK: - Private

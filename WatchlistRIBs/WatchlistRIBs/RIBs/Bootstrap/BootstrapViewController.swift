@@ -8,8 +8,6 @@ protocol BootstrapPresentableListener: class {}
 final class BootstrapViewController: UIViewController, BootstrapPresentable, BootstrapViewControllable {
     weak var listener: BootstrapPresentableListener?
 
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -23,6 +21,8 @@ final class BootstrapViewController: UIViewController, BootstrapPresentable, Boo
     }
 
     // MARK: - Private
+
+    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
 
     private func addActivityIndicatorConstraints() {
         view.addSubview(activityIndicator)

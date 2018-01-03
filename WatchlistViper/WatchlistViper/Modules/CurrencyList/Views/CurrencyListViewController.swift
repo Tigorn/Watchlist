@@ -1,5 +1,6 @@
 import Domain
 import UIKit
+import UIComponents
 
 protocol CurrencyListViewInputProtocol: class {
     func show(data: CurrencyListCurrencyDisplayData)
@@ -41,7 +42,7 @@ class CurrencyListViewController: UIViewController {
     }
 
     func registerCells() {
-        let currencyListNib = UINib(nibName: .currencyListCell, bundle: Bundle.viper)
+        let currencyListNib = UINib(nibName: .currencyListCell)
         tableView.register(currencyListNib, forCellReuseIdentifier: .currencyListCell)
     }
 

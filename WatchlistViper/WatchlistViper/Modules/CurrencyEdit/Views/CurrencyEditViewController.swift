@@ -1,4 +1,5 @@
 import UIKit
+import UIComponents
 
 protocol CurrencyEditViewOutputProtocol: class {
     func getCurrencies()
@@ -23,7 +24,7 @@ class CurrencyEditViewController: UIViewController {
     }
 
     func registerCells() {
-        let currencyListNib = UINib(nibName: .currencyEditCell, bundle: Bundle.viper)
+        let currencyListNib = UINib(nibName: .currencyEditCell)
         tableView.register(currencyListNib, forCellReuseIdentifier: .currencyEditCell)
     }
 

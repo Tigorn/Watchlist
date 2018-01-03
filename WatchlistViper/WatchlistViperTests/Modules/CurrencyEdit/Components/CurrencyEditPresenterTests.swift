@@ -1,5 +1,6 @@
 import Nimble
 import Quick
+import UIComponents
 @testable import WatchlistViper
 
 class CurrencyEditPresenterTests: QuickSpec {

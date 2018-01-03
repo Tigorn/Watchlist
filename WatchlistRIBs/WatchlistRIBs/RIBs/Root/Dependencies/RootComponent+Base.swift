@@ -4,4 +4,6 @@ import RIBs
 // TODO: Update RootDependency protocol to inherit this protocol.
 protocol RootDependencyBase: Dependency {}
 
-extension RootComponent: BaseDependency {}
+extension RootComponent: BaseDependency {
+    
+}

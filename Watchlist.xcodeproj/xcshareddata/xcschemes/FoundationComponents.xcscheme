@@ -27,9 +27,29 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = ""
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "43075D951FE72AAC00A8847E"
+               BuildableName = "FoundationComponentsTests.xctest"
+               BlueprintName = "FoundationComponentsTests"
+               ReferencedContainer = "container:Watchlist.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "43075D8D1FE72AAB00A8847E"
+            BuildableName = "FoundationComponents.framework"
+            BlueprintName = "FoundationComponents"
+            ReferencedContainer = "container:Watchlist.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

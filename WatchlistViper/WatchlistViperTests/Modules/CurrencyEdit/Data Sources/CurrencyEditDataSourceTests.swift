@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import LocalService
+import UIComponents
 @testable import WatchlistViper
 
 class CurrencyEditDataSourceTests: QuickSpec {
@@ -20,7 +21,7 @@ class CurrencyEditDataSourceTests: QuickSpec {
             it("configures cells") {
                 dataSource.set(data: CurrencyEditListData())
                 let tableView = UITableView()
-                let nib = UINib(nibName: .currencyEditCell, bundle: Bundle.viper)
+                let nib = UINib(nibName: .currencyEditCell)
                 tableView.register(nib, forCellReuseIdentifier: .currencyEditCell)
                 let cell = dataSource.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 0))
                 expect(cell).to(beAKindOf(CurrencyEditTableViewCell.self))

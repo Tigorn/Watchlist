@@ -1,4 +1,5 @@
 import UIKit
+import UIComponents
 
 protocol CurrencyEditDataSourceInputProtocol: class {
     func set(data: CurrencyEditListData)

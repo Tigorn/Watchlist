@@ -1,10 +1,11 @@
 import UIKit
+//import FoundationComponents
 
-protocol CurrencyListTableViewCellProtocol: class {
+public protocol CurrencyListTableViewCellProtocol: class {
     func set(item: CurrencyListCurrencyDisplayItem)
 }
 
-class CurrencyListTableViewCell: UITableViewCell {
+public class CurrencyListTableViewCell: UITableViewCell {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var priceLabel: UILabel!
 
@@ -15,14 +16,14 @@ class CurrencyListTableViewCell: UITableViewCell {
         return numberFormatter
     }()
 
-    override func prepareForReuse() {
+    override public func prepareForReuse() {
         nameLabel.text = nil
         priceLabel.text = nil
     }
 }
 
 extension CurrencyListTableViewCell: CurrencyListTableViewCellProtocol {
-    func set(item: CurrencyListCurrencyDisplayItem) {
+    public func set(item: CurrencyListCurrencyDisplayItem) {
         nameLabel.text = item.name
         priceLabel.text = CurrencyListTableViewCell.numberFormatter.string(from: item.lastPrice)
     }

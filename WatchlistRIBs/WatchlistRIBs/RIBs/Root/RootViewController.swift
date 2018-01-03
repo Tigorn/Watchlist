@@ -16,8 +16,8 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
         listener?.viewDidLoad()
     }
 
-    func add(childViewController: ViewControllable) {
-        display(childViewController: childViewController.uiviewController)
+    func add(childViewController: ViewControllable, atIndex index: Int?) {
+        display(childViewController: childViewController.uiviewController, in: nil, atIndex: index)
     }
 
     func remove(childViewController: ViewControllable) {

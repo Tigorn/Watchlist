@@ -35,9 +35,11 @@ final class BootstrapInteractor: PresentableInteractor<BootstrapPresentable>, Bo
     private var localDefaultsService: LocalDefaultsServiceProtocol
 
     private func initialize() {
-        localPersistenceService.initialize {
-            self.setDefaultCurrencies()
-            self.listener?.didFinishInitialization()
+        localPersistenceService.initialize { [weak self] in
+            self?.setDefaultCurrencies()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self?.listener?.didFinishInitialization()
+            }
         }
     }
 

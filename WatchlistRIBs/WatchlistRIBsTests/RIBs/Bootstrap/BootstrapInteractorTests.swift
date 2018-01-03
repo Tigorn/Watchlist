@@ -39,7 +39,7 @@ class BootstrapInteractorTests: QuickSpec {
 
             it("delegates to listener when initialization finishes") {
                 interactor.didBecomeActive()
-                expect(bootstrapListener.isInitializationFinished).to(beTrue())
+                expect(bootstrapListener.isInitializationFinished).toEventually(beTrue())
             }
         }
     }

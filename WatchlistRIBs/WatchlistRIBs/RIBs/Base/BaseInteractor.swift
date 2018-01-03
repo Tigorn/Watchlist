@@ -1,5 +1,6 @@
 import RIBs
 import RxSwift
+import Domain
 
 protocol BaseRouting: ViewableRouting {}
 
@@ -13,8 +14,26 @@ final class BaseInteractor: PresentableInteractor<BasePresentable>, BaseInteract
     weak var router: BaseRouting?
     weak var listener: BaseListener?
 
-    override init(presenter: BasePresentable) {
+    init(presenter: BasePresentable, mutableCurrencySymbolStream: MutableCurrencySymbolStreamProtocol, localPersistenceService: LocalPersistenceServiceProtocol) {
+        self.localPersistenceService = localPersistenceService
+        self.mutableCurrencySymbolStream = mutableCurrencySymbolStream
         super.init(presenter: presenter)
         presenter.listener = self
+    }
+
+    override func didBecomeActive() {
+        super.didBecomeActive()
+        updateCurrencySymbols()
+    }
+
+    //MARK: - Private
+
+    private let mutableCurrencySymbolStream: MutableCurrencySymbolStreamProtocol
+    private let localPersistenceService: LocalPersistenceServiceProtocol
+
+    private func updateCurrencySymbols() {
+        localPersistenceService.getSortedCurrencySymbols { [weak self] symbols in
+            self?.mutableCurrencySymbolStream.update(currencySymbols: symbols)
+        }
     }
 }
