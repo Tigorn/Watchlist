@@ -21,6 +21,13 @@
 		431069EB1FFC357E00A20068 /* RootComponent+Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431069EA1FFC357E00A20068 /* RootComponent+Bootstrap.swift */; };
 		431069F11FFC388200A20068 /* RootRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431069F01FFC388200A20068 /* RootRouterTests.swift */; };
 		431069F31FFC3CC100A20068 /* RootInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431069F21FFC3CC100A20068 /* RootInteractorTests.swift */; };
+		4317ECB51FFC780E00F92B7C /* BaseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317ECB11FFC780E00F92B7C /* BaseBuilder.swift */; };
+		4317ECB61FFC780E00F92B7C /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317ECB21FFC780E00F92B7C /* BaseInteractor.swift */; };
+		4317ECB71FFC780E00F92B7C /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317ECB31FFC780E00F92B7C /* BaseRouter.swift */; };
+		4317ECB81FFC780E00F92B7C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317ECB41FFC780E00F92B7C /* BaseViewController.swift */; };
+		4317ECB91FFC79BA00F92B7C /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4317ECBA1FFC79BA00F92B7C /* Domain.framework */; };
+		4317ECC01FFC90D200F92B7C /* RootComponent+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317ECBF1FFC90D200F92B7C /* RootComponent+Base.swift */; };
+		4317ECC51FFD301200F92B7C /* BootstrapInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317ECC41FFD301200F92B7C /* BootstrapInteractorTests.swift */; };
 		43B7114E1FFC21ED0059A62D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B7114D1FFC21ED0059A62D /* AppDelegate.swift */; };
 		43B711551FFC21ED0059A62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43B711541FFC21ED0059A62D /* Assets.xcassets */; };
 		43B711581FFC21ED0059A62D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43B711561FFC21ED0059A62D /* LaunchScreen.storyboard */; };
@@ -67,6 +74,14 @@
 		431069EA1FFC357E00A20068 /* RootComponent+Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootComponent+Bootstrap.swift"; sourceTree = "<group>"; };
 		431069F01FFC388200A20068 /* RootRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouterTests.swift; sourceTree = "<group>"; };
 		431069F21FFC3CC100A20068 /* RootInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractorTests.swift; sourceTree = "<group>"; };
+		4317ECB11FFC780E00F92B7C /* BaseBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBuilder.swift; sourceTree = "<group>"; };
+		4317ECB21FFC780E00F92B7C /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
+		4317ECB31FFC780E00F92B7C /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		4317ECB41FFC780E00F92B7C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4317ECBA1FFC79BA00F92B7C /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4317ECBC1FFC79D200F92B7C /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4317ECBF1FFC90D200F92B7C /* RootComponent+Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootComponent+Base.swift"; sourceTree = "<group>"; };
+		4317ECC41FFD301200F92B7C /* BootstrapInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootstrapInteractorTests.swift; sourceTree = "<group>"; };
 		43B7114A1FFC21ED0059A62D /* WatchlistRIBs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchlistRIBs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43B7114D1FFC21ED0059A62D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43B711541FFC21ED0059A62D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4317ECB91FFC79BA00F92B7C /* Domain.framework in Frameworks */,
 				431069DF1FFC31E500A20068 /* UIComponents.framework in Frameworks */,
 				2CD338184874883D1CB31AE8 /* Pods_WatchlistRIBs.framework in Frameworks */,
 			);
@@ -104,6 +120,8 @@
 		0EC88CFA9284AB129BF1DB95 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4317ECBC1FFC79D200F92B7C /* PromiseKit.framework */,
+				4317ECBA1FFC79BA00F92B7C /* Domain.framework */,
 				431069E01FFC31E500A20068 /* UIComponents.framework */,
 				431069DA1FFC31C100A20068 /* UIComponents.framework */,
 				1D7B20062803E7A16BF1F9F5 /* Pods_WatchlistRIBs.framework */,
@@ -138,6 +156,7 @@
 		431069E71FFC324600A20068 /* RIBs */ = {
 			isa = PBXGroup;
 			children = (
+				4317ECC31FFD2FFB00F92B7C /* Bootstrap */,
 				431069E81FFC32D600A20068 /* Root */,
 			);
 			path = RIBs;
@@ -155,9 +174,29 @@
 		431069E91FFC356900A20068 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				4317ECBF1FFC90D200F92B7C /* RootComponent+Base.swift */,
 				431069EA1FFC357E00A20068 /* RootComponent+Bootstrap.swift */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		4317ECB01FFC775900F92B7C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4317ECB11FFC780E00F92B7C /* BaseBuilder.swift */,
+				4317ECB21FFC780E00F92B7C /* BaseInteractor.swift */,
+				4317ECB31FFC780E00F92B7C /* BaseRouter.swift */,
+				4317ECB41FFC780E00F92B7C /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4317ECC31FFD2FFB00F92B7C /* Bootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				4317ECC41FFD301200F92B7C /* BootstrapInteractorTests.swift */,
+			);
+			path = Bootstrap;
 			sourceTree = "<group>";
 		};
 		43B711411FFC21ED0059A62D = {
@@ -221,6 +260,7 @@
 		43B7117A1FFC224E0059A62D /* RIBs */ = {
 			isa = PBXGroup;
 			children = (
+				4317ECB01FFC775900F92B7C /* Base */,
 				4310699D1FFC286400A20068 /* Bootstrap */,
 				431069841FFC234A00A20068 /* Root */,
 			);
@@ -385,6 +425,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-WatchlistRIBs/Pods-WatchlistRIBs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RIBs/RIBs.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -392,6 +433,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RIBs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -460,13 +502,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4317ECC01FFC90D200F92B7C /* RootComponent+Base.swift in Sources */,
 				431069831FFC234400A20068 /* RootViewController.swift in Sources */,
 				431069821FFC234400A20068 /* RootRouter.swift in Sources */,
+				4317ECB51FFC780E00F92B7C /* BaseBuilder.swift in Sources */,
 				431069811FFC234400A20068 /* RootInteractor.swift in Sources */,
+				4317ECB61FFC780E00F92B7C /* BaseInteractor.swift in Sources */,
+				4317ECB81FFC780E00F92B7C /* BaseViewController.swift in Sources */,
 				43B7114E1FFC21ED0059A62D /* AppDelegate.swift in Sources */,
 				431069801FFC234400A20068 /* RootBuilder.swift in Sources */,
 				431069A41FFC288300A20068 /* BootstrapRouter.swift in Sources */,
 				431069A31FFC288300A20068 /* BootstrapInteractor.swift in Sources */,
+				4317ECB71FFC780E00F92B7C /* BaseRouter.swift in Sources */,
 				431069EB1FFC357E00A20068 /* RootComponent+Bootstrap.swift in Sources */,
 				431069A21FFC288300A20068 /* BootstrapBuilder.swift in Sources */,
 				431069861FFC23C600A20068 /* AppComponent.swift in Sources */,
@@ -478,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4317ECC51FFD301200F92B7C /* BootstrapInteractorTests.swift in Sources */,
 				431069F31FFC3CC100A20068 /* RootInteractorTests.swift in Sources */,
 				431069F11FFC388200A20068 /* RootRouterTests.swift in Sources */,
 			);

@@ -3,14 +3,9 @@ import RxSwift
 import SnapKit
 import UIKit
 
-protocol BootstrapPresentableListener: class {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
-}
+protocol BootstrapPresentableListener: class {}
 
 final class BootstrapViewController: UIViewController, BootstrapPresentable, BootstrapViewControllable {
-
     weak var listener: BootstrapPresentableListener?
 
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)

@@ -19,4 +19,8 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     func add(childViewController: ViewControllable) {
         display(childViewController: childViewController.uiviewController)
     }
+
+    func remove(childViewController: ViewControllable) {
+        remove(childViewController: childViewController.uiviewController)
+    }
 }

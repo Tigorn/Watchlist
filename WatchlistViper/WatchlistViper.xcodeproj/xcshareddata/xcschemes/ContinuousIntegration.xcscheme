@@ -98,7 +98,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43075D771FE72A9100A8847E"
+               BlueprintIdentifier = "431069B81FFC2D0300A20068"
                BuildableName = "UIComponentsTests.xctest"
                BlueprintName = "UIComponentsTests"
                ReferencedContainer = "container:../Watchlist.xcodeproj">
@@ -168,7 +168,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43075D771FE72A9100A8847E"
+               BlueprintIdentifier = "431069B81FFC2D0300A20068"
                BuildableName = "UIComponentsTests.xctest"
                BlueprintName = "UIComponentsTests"
                ReferencedContainer = "container:../Watchlist.xcodeproj">

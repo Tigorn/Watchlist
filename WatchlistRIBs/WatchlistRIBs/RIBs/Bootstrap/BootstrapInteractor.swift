@@ -1,38 +1,53 @@
 import RIBs
-import RxSwift
+import Domain
 
-protocol BootstrapRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
-}
+protocol BootstrapRouting: ViewableRouting {}
 
 protocol BootstrapPresentable: Presentable {
     weak var listener: BootstrapPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
 protocol BootstrapListener: class {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func didFinishInitialization()
 }
 
 final class BootstrapInteractor: PresentableInteractor<BootstrapPresentable>, BootstrapInteractable, BootstrapPresentableListener {
-
     weak var router: BootstrapRouting?
     weak var listener: BootstrapListener?
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: BootstrapPresentable) {
+    init(presenter: BootstrapPresentable, localFileService: LocalFileServiceProtocol, localDefaultsService: LocalDefaultsServiceProtocol, localPersistenceService: LocalPersistenceServiceProtocol) {
+        self.localFileService = localFileService
+        self.localPersistenceService = localPersistenceService
+        self.localDefaultsService = localDefaultsService
         super.init(presenter: presenter)
         presenter.listener = self
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
+        initialize()
     }
 
-    override func willResignActive() {
-        super.willResignActive()
-        // TODO: Pause any business logic.
+    //MARK: - Private
+
+    private let localPersistenceService: LocalPersistenceServiceProtocol
+    private let localFileService: LocalFileServiceProtocol
+    private var localDefaultsService: LocalDefaultsServiceProtocol
+
+    private func initialize() {
+        localPersistenceService.initialize {
+            self.setDefaultCurrencies()
+            self.listener?.didFinishInitialization()
+        }
+    }
+
+    private func setDefaultCurrencies() {
+        guard !localDefaultsService.didSetDefaultCurrencies else {
+            return
+        }
+
+        let symbols = localFileService.defaultCurrencySymbols()
+        symbols.forEach { localPersistenceService.put(currencySymbol: $0) }
+        localDefaultsService.didSetDefaultCurrencies = true
     }
 }

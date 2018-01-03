@@ -18,8 +18,13 @@ class RootInteractorTests: QuickSpec {
 
         describe("RootInteractor") {
             it("routes to bootstrap on viewDidLoad") {
-                _ = viewController.view
+                interactor.viewDidLoad()
                 expect(router.didRouteToBootstrap).to(beTrue())
+            }
+
+            it("routes to base on didFinishInitialization") {
+                interactor.didFinishInitialization()
+                expect(router.didRouteToBase).to(beTrue())
             }
         }
     }
@@ -27,7 +32,13 @@ class RootInteractorTests: QuickSpec {
 
 private class MockRootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
     var didRouteToBootstrap = false
+    var didRouteToBase = false
+
     func routeToBootstrap() {
         didRouteToBootstrap = true
+    }
+
+    func routeToBase() {
+        didRouteToBase = true
     }
 }
