@@ -4,7 +4,12 @@ import UIComponents
 import Domain
 import PromiseKit
 
-protocol ListRouting: ViewableRouting {}
+protocol ListRouting: ViewableRouting {
+    func routeToAddCurrencySymbol()
+    func routeToEditCurrencySymbolList()
+    func removeEditCurrencySymbolList()
+    func removeAddCurrencySymbol()
+}
 
 protocol ListPresentable: Presentable {
     weak var listener: ListPresentableListener? { get set }
@@ -15,6 +20,7 @@ protocol ListPresentable: Presentable {
 protocol ListListener: class {}
 
 final class ListInteractor: PresentableInteractor<ListPresentable>, ListInteractable, ListPresentableListener {
+
     weak var router: ListRouting?
     weak var listener: ListListener?
 
@@ -32,7 +38,15 @@ final class ListInteractor: PresentableInteractor<ListPresentable>, ListInteract
 
     //MARK: - ListPresentableListener
 
-    func refresh() {
+    func editCurrencySymbolList() {
+        router?.routeToEditCurrencySymbolList()
+    }
+
+    func addCurrencySymbol() {
+        router?.routeToAddCurrencySymbol()
+    }
+
+    func refreshCurrencyList() {
         guard let symbols = symbols else {
             return
         }
@@ -47,6 +61,19 @@ final class ListInteractor: PresentableInteractor<ListPresentable>, ListInteract
         }
     }
 
+
+    //MARK: - EditCurrencySymbolListListener
+
+    func editCurrencyMovingFromParent() {
+        router?.removeEditCurrencySymbolList()
+    }
+
+    //MARK: - AddCurrencySymbolListener
+
+    func addCurrencyMovingFromParent() {
+        router?.removeAddCurrencySymbol()
+    }
+
     //MARK: - Private
 
     private var symbols: [CurrencySymbol]?
@@ -56,7 +83,7 @@ final class ListInteractor: PresentableInteractor<ListPresentable>, ListInteract
     private func updateSymbols() {
         currencySymbolStream.symbols.subscribe(onNext: { symbols in
             self.symbols = symbols
-            self.refresh()
+            self.refreshCurrencyList()
         }).disposeOnDeactivate(interactor: self)
     }
 }

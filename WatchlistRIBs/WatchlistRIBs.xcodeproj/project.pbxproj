@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2CD338184874883D1CB31AE8 /* Pods_WatchlistRIBs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7B20062803E7A16BF1F9F5 /* Pods_WatchlistRIBs.framework */; };
+		430505971FFD8F7B00D93AEE /* AddCurrencySymbolBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430505931FFD8F7B00D93AEE /* AddCurrencySymbolBuilder.swift */; };
+		430505981FFD8F7B00D93AEE /* AddCurrencySymbolInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430505941FFD8F7B00D93AEE /* AddCurrencySymbolInteractor.swift */; };
+		430505991FFD8F7B00D93AEE /* AddCurrencySymbolRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430505951FFD8F7B00D93AEE /* AddCurrencySymbolRouter.swift */; };
+		4305059A1FFD8F7B00D93AEE /* AddCurrencySymbolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430505961FFD8F7B00D93AEE /* AddCurrencySymbolViewController.swift */; };
+		430505A01FFD8FA600D93AEE /* EditCurrencySymbolListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305059C1FFD8FA600D93AEE /* EditCurrencySymbolListBuilder.swift */; };
+		430505A11FFD8FA600D93AEE /* EditCurrencySymbolListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305059D1FFD8FA600D93AEE /* EditCurrencySymbolListInteractor.swift */; };
+		430505A21FFD8FA600D93AEE /* EditCurrencySymbolListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305059E1FFD8FA600D93AEE /* EditCurrencySymbolListRouter.swift */; };
+		430505A31FFD8FA600D93AEE /* EditCurrencySymbolListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305059F1FFD8FA600D93AEE /* EditCurrencySymbolListViewController.swift */; };
+		430505A61FFD906900D93AEE /* ListComponent+EditCurrencySymbolList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430505A51FFD906900D93AEE /* ListComponent+EditCurrencySymbolList.swift */; };
+		430505A81FFD907800D93AEE /* ListComponent+AddCurrencySymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430505A71FFD907800D93AEE /* ListComponent+AddCurrencySymbol.swift */; };
 		431069801FFC234400A20068 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4310697C1FFC234400A20068 /* RootBuilder.swift */; };
 		431069811FFC234400A20068 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4310697D1FFC234400A20068 /* RootInteractor.swift */; };
 		431069821FFC234400A20068 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4310697E1FFC234400A20068 /* RootRouter.swift */; };
@@ -41,6 +51,7 @@
 		43B711581FFC21ED0059A62D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43B711561FFC21ED0059A62D /* LaunchScreen.storyboard */; };
 		43B9BB481FFD5431003E74B5 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B9BB471FFD5431003E74B5 /* ListViewControllerTests.swift */; };
 		43E266261FFD696000830255 /* CurrencySymbolStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E266251FFD696000830255 /* CurrencySymbolStream.swift */; };
+		43E266291FFD789500830255 /* ListNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E266281FFD789500830255 /* ListNavigationViewController.swift */; };
 		B1DABD0262027516778F007D /* Pods_WatchlistRIBsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF09627EA403C5A727F12F /* Pods_WatchlistRIBsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +81,16 @@
 /* Begin PBXFileReference section */
 		1996E15AEED8E101C869DBB9 /* Pods-WatchlistRIBsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchlistRIBsTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WatchlistRIBsTests/Pods-WatchlistRIBsTests.release.xcconfig"; sourceTree = "<group>"; };
 		1D7B20062803E7A16BF1F9F5 /* Pods_WatchlistRIBs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchlistRIBs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		430505931FFD8F7B00D93AEE /* AddCurrencySymbolBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencySymbolBuilder.swift; sourceTree = "<group>"; };
+		430505941FFD8F7B00D93AEE /* AddCurrencySymbolInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencySymbolInteractor.swift; sourceTree = "<group>"; };
+		430505951FFD8F7B00D93AEE /* AddCurrencySymbolRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencySymbolRouter.swift; sourceTree = "<group>"; };
+		430505961FFD8F7B00D93AEE /* AddCurrencySymbolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencySymbolViewController.swift; sourceTree = "<group>"; };
+		4305059C1FFD8FA600D93AEE /* EditCurrencySymbolListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCurrencySymbolListBuilder.swift; sourceTree = "<group>"; };
+		4305059D1FFD8FA600D93AEE /* EditCurrencySymbolListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCurrencySymbolListInteractor.swift; sourceTree = "<group>"; };
+		4305059E1FFD8FA600D93AEE /* EditCurrencySymbolListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCurrencySymbolListRouter.swift; sourceTree = "<group>"; };
+		4305059F1FFD8FA600D93AEE /* EditCurrencySymbolListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCurrencySymbolListViewController.swift; sourceTree = "<group>"; };
+		430505A51FFD906900D93AEE /* ListComponent+EditCurrencySymbolList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListComponent+EditCurrencySymbolList.swift"; sourceTree = "<group>"; };
+		430505A71FFD907800D93AEE /* ListComponent+AddCurrencySymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListComponent+AddCurrencySymbol.swift"; sourceTree = "<group>"; };
 		4310697C1FFC234400A20068 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		4310697D1FFC234400A20068 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		4310697E1FFC234400A20068 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
@@ -109,6 +130,7 @@
 		43B711641FFC21ED0059A62D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43B9BB471FFD5431003E74B5 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
 		43E266251FFD696000830255 /* CurrencySymbolStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbolStream.swift; sourceTree = "<group>"; };
+		43E266281FFD789500830255 /* ListNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationViewController.swift; sourceTree = "<group>"; };
 		6507034E9887A730D1C6B6AE /* Pods-WatchlistRIBs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchlistRIBs.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WatchlistRIBs/Pods-WatchlistRIBs.release.xcconfig"; sourceTree = "<group>"; };
 		6ADFA3EAE55DDD0DE27E96CC /* Pods-WatchlistRIBs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchlistRIBs.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WatchlistRIBs/Pods-WatchlistRIBs.debug.xcconfig"; sourceTree = "<group>"; };
 		7DAB3825493A9172A87716FB /* Pods-WatchlistRIBsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchlistRIBsTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WatchlistRIBsTests/Pods-WatchlistRIBsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +170,37 @@
 				A7AF09627EA403C5A727F12F /* Pods_WatchlistRIBsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		430505921FFD8F6200D93AEE /* AddCurrencySymbol */ = {
+			isa = PBXGroup;
+			children = (
+				430505931FFD8F7B00D93AEE /* AddCurrencySymbolBuilder.swift */,
+				430505941FFD8F7B00D93AEE /* AddCurrencySymbolInteractor.swift */,
+				430505951FFD8F7B00D93AEE /* AddCurrencySymbolRouter.swift */,
+				430505961FFD8F7B00D93AEE /* AddCurrencySymbolViewController.swift */,
+			);
+			path = AddCurrencySymbol;
+			sourceTree = "<group>";
+		};
+		4305059B1FFD8F8D00D93AEE /* EditCurrencySymbolList */ = {
+			isa = PBXGroup;
+			children = (
+				4305059C1FFD8FA600D93AEE /* EditCurrencySymbolListBuilder.swift */,
+				4305059D1FFD8FA600D93AEE /* EditCurrencySymbolListInteractor.swift */,
+				4305059E1FFD8FA600D93AEE /* EditCurrencySymbolListRouter.swift */,
+				4305059F1FFD8FA600D93AEE /* EditCurrencySymbolListViewController.swift */,
+			);
+			path = EditCurrencySymbolList;
+			sourceTree = "<group>";
+		};
+		430505A41FFD905000D93AEE /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				430505A51FFD906900D93AEE /* ListComponent+EditCurrencySymbolList.swift */,
+				430505A71FFD907800D93AEE /* ListComponent+AddCurrencySymbol.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		431069841FFC234A00A20068 /* Root */ = {
@@ -228,7 +281,8 @@
 				4317ECC71FFD3B1800F92B7C /* ListBuilder.swift */,
 				4317ECC81FFD3B1800F92B7C /* ListInteractor.swift */,
 				4317ECC91FFD3B1800F92B7C /* ListRouter.swift */,
-				4317ECCA1FFD3B1800F92B7C /* ListViewController.swift */,
+				430505A41FFD905000D93AEE /* Dependencies */,
+				43E266271FFD783E00830255 /* Views */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -321,6 +375,8 @@
 		43B7117A1FFC224E0059A62D /* RIBs */ = {
 			isa = PBXGroup;
 			children = (
+				4305059B1FFD8F8D00D93AEE /* EditCurrencySymbolList */,
+				430505921FFD8F6200D93AEE /* AddCurrencySymbol */,
 				4317ECB01FFC775900F92B7C /* Base */,
 				4310699D1FFC286400A20068 /* Bootstrap */,
 				4317ECC61FFD3AFD00F92B7C /* List */,
@@ -343,6 +399,15 @@
 				43E266251FFD696000830255 /* CurrencySymbolStream.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		43E266271FFD783E00830255 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43E266281FFD789500830255 /* ListNavigationViewController.swift */,
+				4317ECCA1FFD3B1800F92B7C /* ListViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9004251EF3E97333075F5FA3 /* Pods */ = {
@@ -581,29 +646,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				4317ECC01FFC90D200F92B7C /* RootComponent+Base.swift in Sources */,
+				43E266291FFD789500830255 /* ListNavigationViewController.swift in Sources */,
 				431069831FFC234400A20068 /* RootViewController.swift in Sources */,
 				4317ECCB1FFD3B1800F92B7C /* ListBuilder.swift in Sources */,
+				430505A01FFD8FA600D93AEE /* EditCurrencySymbolListBuilder.swift in Sources */,
+				430505A21FFD8FA600D93AEE /* EditCurrencySymbolListRouter.swift in Sources */,
 				431069821FFC234400A20068 /* RootRouter.swift in Sources */,
 				4317ECCD1FFD3B1800F92B7C /* ListRouter.swift in Sources */,
 				4317ECB51FFC780E00F92B7C /* BaseBuilder.swift in Sources */,
+				4305059A1FFD8F7B00D93AEE /* AddCurrencySymbolViewController.swift in Sources */,
 				431069811FFC234400A20068 /* RootInteractor.swift in Sources */,
 				4317ECB61FFC780E00F92B7C /* BaseInteractor.swift in Sources */,
 				4317ECB81FFC780E00F92B7C /* BaseViewController.swift in Sources */,
 				43B7114E1FFC21ED0059A62D /* AppDelegate.swift in Sources */,
+				430505991FFD8F7B00D93AEE /* AddCurrencySymbolRouter.swift in Sources */,
 				43E266261FFD696000830255 /* CurrencySymbolStream.swift in Sources */,
 				4317ECD11FFD3BCB00F92B7C /* BaseComponent+List.swift in Sources */,
 				431069801FFC234400A20068 /* RootBuilder.swift in Sources */,
+				430505971FFD8F7B00D93AEE /* AddCurrencySymbolBuilder.swift in Sources */,
 				431069A41FFC288300A20068 /* BootstrapRouter.swift in Sources */,
+				430505A11FFD8FA600D93AEE /* EditCurrencySymbolListInteractor.swift in Sources */,
 				4317ECD41FFD3E0100F92B7C /* Bundle+Extensions.swift in Sources */,
 				431069A31FFC288300A20068 /* BootstrapInteractor.swift in Sources */,
+				430505981FFD8F7B00D93AEE /* AddCurrencySymbolInteractor.swift in Sources */,
 				4317ECCC1FFD3B1800F92B7C /* ListInteractor.swift in Sources */,
 				4317ECB71FFC780E00F92B7C /* BaseRouter.swift in Sources */,
+				430505A81FFD907800D93AEE /* ListComponent+AddCurrencySymbol.swift in Sources */,
 				431069EB1FFC357E00A20068 /* RootComponent+Bootstrap.swift in Sources */,
 				431069A21FFC288300A20068 /* BootstrapBuilder.swift in Sources */,
 				4317ECD61FFD3E3400F92B7C /* String+Extensions.swift in Sources */,
 				431069861FFC23C600A20068 /* AppComponent.swift in Sources */,
+				430505A61FFD906900D93AEE /* ListComponent+EditCurrencySymbolList.swift in Sources */,
 				4317ECCE1FFD3B1800F92B7C /* ListViewController.swift in Sources */,
 				431069A51FFC288300A20068 /* BootstrapViewController.swift in Sources */,
+				430505A31FFD8FA600D93AEE /* EditCurrencySymbolListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

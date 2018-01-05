@@ -27,8 +27,11 @@ final class ListBuilder: Builder<ListDependency>, ListBuildable {
     func build(withListener listener: ListListener) -> ListRouting {
         let component = ListComponent(dependency: dependency)
         let viewController = ListViewController()
+        let navigationViewController = ListNavigationViewController(rootViewController: viewController)
         let interactor = ListInteractor(presenter: viewController, currencySymbolStream: component.currencySymbolStream, securitiesService: component.securitiesService)
         interactor.listener = listener
-        return ListRouter(interactor: interactor, viewController: viewController)
+        let editCurrencySymbolListBuilder = EditCurrencySymbolListBuilder(dependency: component)
+        let addCurrencySymbolBuilder = AddCurrencySymbolBuilder(dependency: component)
+        return ListRouter(interactor: interactor, viewController: navigationViewController, editCurrencySymbolListBuilder: editCurrencySymbolListBuilder, addCurrencySymbolBuilder: addCurrencySymbolBuilder)
     }
 }

@@ -5,26 +5,25 @@ import SnapKit
 import UIComponents
 
 protocol ListPresentableListener: class {
-    func refresh()
+    func refreshCurrencyList()
+    func editCurrencySymbolList()
+    func addCurrencySymbol()
 }
 
-final class ListViewController: UIViewController, ListPresentable, ListViewControllable {
+final class ListViewController: UIViewController, ListPresentable {
     weak var listener: ListPresentableListener?
-
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        tabBarItem.title = "List".localized
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
         addTableViewConstraints()
         addActivityIndicatorConstraints()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCurrencySymbol))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editCurrencySymbolList))
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -54,8 +53,15 @@ final class ListViewController: UIViewController, ListPresentable, ListViewContr
     //MARK: - Private
 
     private var data = CurrencyListCurrencyDisplayData()
+    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
-    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.refreshControl = self.refreshControl
+        return tableView
+    }()
 
     private func endRefreshUI() {
         activityIndicator.stopAnimating()
@@ -77,21 +83,21 @@ final class ListViewController: UIViewController, ListPresentable, ListViewContr
     }
 
     @objc private func refresh() {
-        listener?.refresh()
+        listener?.refreshCurrencyList()
+    }
+
+    @objc private func addCurrencySymbol() {
+        listener?.addCurrencySymbol()
+    }
+
+    @objc private func editCurrencySymbolList() {
+        listener?.editCurrencySymbolList()
     }
 
     private func registerCells() {
         let currencyListNib = UINib(nibName: .currencyListCell)
         tableView.register(currencyListNib, forCellReuseIdentifier: .currencyListCell)
     }
-
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        tableView.refreshControl = self.refreshControl
-        return tableView
-    }()
 }
 
 extension ListViewController: UITableViewDataSource {
