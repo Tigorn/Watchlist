@@ -1,5 +1,9 @@
-import Domain
 import FoundationComponents
+
+public protocol CurrencyProtocol {
+    var symbol: String { get }
+    var lastPrice: Double? { get }
+}
 
 public struct CurrencyListCurrencyDisplayData {
     public let sections: [CurrencyListCurrencyDisplaySection]
@@ -8,7 +12,7 @@ public struct CurrencyListCurrencyDisplayData {
         sections = []
     }
 
-    public init(currencies: [Currency]) {
+    public init(currencies: [CurrencyProtocol]) {
         let items = currencies.map { currency in
             return CurrencyListCurrencyDisplayItem(name: currency.symbol, lastPrice: currency.lastPrice)
         }

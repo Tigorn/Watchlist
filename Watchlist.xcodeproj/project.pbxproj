@@ -24,7 +24,6 @@
 		4317ECEC1FFD4C2400F92B7C /* CurrencyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4317ECEA1FFD4C2400F92B7C /* CurrencyListTableViewCell.xib */; };
 		4317ECF01FFD4C9B00F92B7C /* NumberFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317ECED1FFD4C5B00F92B7C /* NumberFormatter+Extensions.swift */; };
 		4317ECF21FFD4DA700F92B7C /* CurrencyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317ECE91FFD4C2400F92B7C /* CurrencyListTableViewCell.swift */; };
-		4317ECF31FFD4DDF00F92B7C /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC3DD21FBD4A3C009073AA /* Domain.framework */; };
 		4317ECF41FFD4DDF00F92B7C /* FoundationComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43075D8E1FE72AAB00A8847E /* FoundationComponents.framework */; };
 		4318DF491FC51FD1001E5EFD /* LocalService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4318DF401FC51FD1001E5EFD /* LocalService.framework */; };
 		4318DF501FC51FD1001E5EFD /* LocalService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4318DF421FC51FD1001E5EFD /* LocalService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -274,7 +273,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4317ECF31FFD4DDF00F92B7C /* Domain.framework in Frameworks */,
 				4317ECF41FFD4DDF00F92B7C /* FoundationComponents.framework in Frameworks */,
 				8B2D049854DA51ECB0F75B72 /* Pods_UIComponents.framework in Frameworks */,
 			);
@@ -620,7 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				4318DF6C1FC524A8001E5EFD /* Local Services */,
-				438F7A651FE5D5FC007E3B19 /* Remote Service */,
+				438F7A651FE5D5FC007E3B19 /* Remote Services */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -644,12 +642,12 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		438F7A651FE5D5FC007E3B19 /* Remote Service */ = {
+		438F7A651FE5D5FC007E3B19 /* Remote Services */ = {
 			isa = PBXGroup;
 			children = (
 				43DC3DF81FBD4C41009073AA /* SecuritiesService.swift */,
 			);
-			path = "Remote Service";
+			path = "Remote Services";
 			sourceTree = "<group>";
 		};
 		438F7A661FE5D640007E3B19 /* Remote Services */ = {

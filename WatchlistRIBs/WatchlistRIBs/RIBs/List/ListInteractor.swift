@@ -61,7 +61,6 @@ final class ListInteractor: PresentableInteractor<ListPresentable>, ListInteract
         }
     }
 
-
     //MARK: - EditCurrencySymbolListListener
 
     func editCurrencyMovingFromParent() {
@@ -87,3 +86,5 @@ final class ListInteractor: PresentableInteractor<ListPresentable>, ListInteract
         }).disposeOnDeactivate(interactor: self)
     }
 }
+
+extension Currency: CurrencyProtocol {}
